@@ -1,0 +1,98 @@
+<ui version="4.0">
+	<class>MainWindow</class>
+	<widget class="QMainWindow" name="MainWindow">
+		<property name="geometry">
+			<rect>
+				<x>0</x>
+				<y>0</y>
+				<width>500</width>
+				<height>400</height>
+			</rect>
+		</property>
+		<property name="windowTitle">
+			<string>English Learning App</string>
+		</property>
+		<property name="styleSheet">
+			<string>
+				background-color: #F0F0F0;
+				font-family: 'Segoe UI', sans-serif;
+			</string>
+		</property>
+		<widget class="QWidget" name="centralwidget">
+			<widget class="QLabel" name="labelTitle">
+				<property name="geometry">
+					<rect>
+						<x>50</x>
+						<y>50</y>
+						<width>400</width>
+						<height>50</height>
+					</rect>
+				</property>
+				<property name="styleSheet">
+					<string>
+						font-size: 18px;
+						font-weight: bold;
+						color: #333333;
+					</string>
+				</property>
+				<property name="text">
+					<string>Choose your game mode:</string>
+				</property>
+				<property name="alignment">
+					<set>Qt::AlignmentFlag::AlignCenter</set>
+				</property>
+			</widget>
+			<widget class="QPushButton" name="btnHebrewMode">
+				<property name="geometry">
+					<rect>
+						<x>150</x>
+						<y>150</y>
+						<width>200</width>
+						<height>50</height>
+					</rect>
+				</property>
+				<property name="styleSheet">
+					<string>
+						font-size: 14px;
+						font-weight: bold;
+						background-color: #4CAF50;
+						color: white;
+						border-radius: 10px;
+						padding: 10px;
+					</string>
+				</property>
+				<property name="text">
+					<string>Translate to Hebrew</string>
+				</property>
+			</widget>
+			<widget class="QPushButton" name="btnEnglishMode">
+				<property name="geometry">
+					<rect>
+						<x>150</x>
+						<y>220</y>
+						<width>200</width>
+						<height>50</height>
+					</rect>
+				</property>
+				<property name="styleSheet">
+					<string>
+						font-size: 14px;
+						font-weight: bold;
+						background-color: #2196F3;
+						color: white;
+						border-radius: 10px;
+						padding: 10px;
+					</string>
+				</property>
+				<property name="text">
+					<string>Translate to English</string>
+				</property>
+			</widget>
+		</widget>
+		<widget class="QToolBar" name="toolBar">
+			<property name="windowTitle">
+				<string>toolBar</string>
+			</property>
+		</widget>
+	</widget>
+</ui>
