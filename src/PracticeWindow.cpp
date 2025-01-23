@@ -120,6 +120,7 @@ void PracticeWindow::prevWord() {
 void PracticeWindow::playSound() {
     QString wordToSpeak = englishWordLabel->text();
     if (!wordToSpeak.isEmpty()) {
+        textToSpeech->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         textToSpeech->say(wordToSpeak);
     }
     else {

@@ -1,5 +1,6 @@
-#include "mainwindow.h"
+#include "MainWindow.h"
 #include "PracticeWindow.h"
+#include "MemoryGame.h"
 #include <QVBoxLayout>
 #include <QWidget>
 #include <QApplication>
@@ -8,6 +9,7 @@
 #include <QPalette>
 #include <QPushButton>
 #include <QGridLayout>
+#include <QScreen>
 
 
 MainWindow::MainWindow(QWidget* parent)
@@ -24,7 +26,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     QLabel* imageLabel = new QLabel(this);
 
-    QPixmap image(":/learn_english_background.png");
+    QPixmap image("resources/learn_english_background.png");
 
     int dpi = logicalDpiX(); 
     int pixelsPerCm = dpi / 2.54; 
@@ -46,7 +48,8 @@ MainWindow::MainWindow(QWidget* parent)
     QPushButton* btnHebrewMode = new QPushButton("Hebrew Mode", this);
     QPushButton* btnEnglishMode = new QPushButton("English Mode", this);
     QPushButton* btnPracticeMode = new QPushButton("Practice Mode", this);
-    QPushButton* btnEmpty = new QPushButton("", this);
+    QPushButton* btnMemoryGame = new QPushButton("Memory Game", this);
+
 
     btnExit = new QPushButton("Exit", this);
 
@@ -71,15 +74,15 @@ MainWindow::MainWindow(QWidget* parent)
     btnHebrewMode->setStyleSheet(buttonStyle);
     btnEnglishMode->setStyleSheet(buttonStyle);
     btnPracticeMode->setStyleSheet(buttonStyle);
-    btnEmpty->setStyleSheet(buttonStyle);
+    btnMemoryGame->setStyleSheet(buttonStyle);
 
     btnExit->setStyleSheet(buttonStyle);
 
     buttonGrid->addWidget(btnHebrewMode, 0, 0);  
     buttonGrid->addWidget(btnEnglishMode, 0, 1); 
     buttonGrid->addWidget(btnPracticeMode, 1, 0); 
-    buttonGrid->addWidget(btnEmpty, 1, 1);
-   
+    buttonGrid->addWidget(btnMemoryGame, 1, 1);
+
     mainLayout->addLayout(buttonGrid);
 
 
@@ -89,12 +92,17 @@ MainWindow::MainWindow(QWidget* parent)
 connect(btnHebrewMode, &QPushButton::clicked, this, &MainWindow::openHebrewMode);
 connect(btnEnglishMode, &QPushButton::clicked, this, &MainWindow::openEnglishMode);
 connect(btnPracticeMode, &QPushButton::clicked, this, &MainWindow::openPracticeWindow);
-connect(btnEmpty, &QPushButton::clicked, this, []() {
-    // פונקציה ריקה לעת עתה
-    });
+connect(btnMemoryGame, &QPushButton::clicked, this, &MainWindow::openMemoryGame);
+
+
     resize(400, 400); 
     setWindowTitle("Learn English");
+
+    connect(btnExit, &QPushButton::clicked, this, &MainWindow::exit);
+
 }
+
+
 
 
 MainWindow::~MainWindow()
@@ -120,6 +128,28 @@ void MainWindow::openPracticeWindow()
     PracticeWindow* practiceWindow = new PracticeWindow(this);
     practiceWindow->show();
 }
+void MainWindow::openMemoryGame() {
+    try {
+        qDebug() << "Opening MemoryGame...";
+        qDebug() << "JSON path: " << "resources/dictionary.json";
+        MemoryGame* memoryGame = new MemoryGame("resources/dictionary.json", this);
+        memoryGame->show();
+        memoryGame->resize(600, 400);  // גודל חלון מותאם
+
+        QScreen* screen = QApplication::primaryScreen();
+        if (screen) {
+            memoryGame->move(screen->availableGeometry().center() - memoryGame->rect().center());
+        }
+
+        qDebug() << "MemoryGame opened successfully";
+    }
+    catch (const std::exception& e) {
+        qDebug() << "Error loading MemoryGame: " << e.what();
+    }
+
+}
+
+
 
 void MainWindow::exit()
 {

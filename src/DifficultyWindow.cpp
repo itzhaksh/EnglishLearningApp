@@ -1,4 +1,4 @@
-#include "difficultywindow.h"
+#include "DifficultyWindow.h"
 #include <QVBoxLayout>
 #include <QWidget>
 

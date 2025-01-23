@@ -1,4 +1,4 @@
-#include "gamewindow.h"
+#include "GameWindow.h"
 #include <QJsonDocument>
 #include <QFile>
 #include <QMessageBox>
@@ -225,7 +225,7 @@ void GameWindow::playAudio()
 
 void GameWindow::loadDictionary()
 {
-    QFile file("dictionary.json");
+    QFile file("resources/dictionary.json");
     if (!file.open(QIODevice::ReadOnly)) {
         QMessageBox::critical(this, "Error", "Failed to load dictionary file.");
         return;

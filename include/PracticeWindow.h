@@ -35,6 +35,8 @@ private:
     QList<QString> englishWords;
     int currentIndex;
     QTextToSpeech* textToSpeech;
+    QList<QVoice> voices;
+
 };
 
 #endif // PRACTICEWINDOW_H

@@ -3,8 +3,8 @@
 
 #include <QMainWindow>
 #include <QPushButton>
-#include "gamewindow.h"
-#include "difficultywindow.h"
+#include "GameWindow.h"
+#include "DifficultyWindow.h"
 
 
 
@@ -21,6 +21,7 @@ private slots:
     void openHebrewMode();
     void openEnglishMode();
     void openPracticeWindow();
+	void openMemoryGame();
     void exit();
 private:
     DifficultyWindow* difficultyWindow;
