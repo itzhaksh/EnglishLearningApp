@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.16)
 project(EnglishLearningApp VERSION 0.1 LANGUAGES CXX)
 
+# Add the Qt CMake directory to module path
+list(APPEND CMAKE_MODULE_PATH "C:/Qt/6.8.1/android_x86_64/lib/cmake/Qt6/platforms")
+
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
@@ -13,6 +16,9 @@ endif()
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Multimedia TextToSpeech)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Multimedia TextToSpeech)
+
+# Explicitly add PlatformGraphics find module
+find_package(PlatformGraphics QUIET)
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
@@ -43,7 +49,12 @@ else()
     )
 endif()
 
-target_link_libraries(EnglishLearningApp PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Multimedia Qt${QT_VERSION_MAJOR}::TextToSpeech)
+target_link_libraries(EnglishLearningApp PRIVATE
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Multimedia
+    Qt${QT_VERSION_MAJOR}::TextToSpeech
+)
+
 
 set_target_properties(EnglishLearningApp PROPERTIES
     MACOSX_BUNDLE TRUE
@@ -55,11 +66,13 @@ install(TARGETS EnglishLearningApp
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
+foreach(LEVEL RANGE 1 5)
+    configure_file(${CMAKE_SOURCE_DIR}/resources/dictionary_level${LEVEL}.json
+                  ${CMAKE_BINARY_DIR}/resources/dictionary_level${LEVEL}.json 
+                  COPYONLY)
+endforeach()
 
-configure_file(${CMAKE_SOURCE_DIR}/resources/dictionary.json
-              ${CMAKE_BINARY_DIR}/resources/dictionary.json COPYONLY)
-
-file(COPY ${CMAKE_SOURCE_DIR}/resources/learn_english_background.png 
+file(COPY ${CMAKE_SOURCE_DIR}/resources/learn_english_background.png
     DESTINATION ${CMAKE_BINARY_DIR}/resources)
 
 if(QT_VERSION_MAJOR EQUAL 6)

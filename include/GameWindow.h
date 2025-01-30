@@ -14,7 +14,7 @@ class GameWindow : public QMainWindow
 {
     Q_OBJECT
 public:
-    GameWindow(const QString& mode, const QString& difficulty, QWidget* parent = nullptr);
+    GameWindow(const QString& mode, const QString& level, QWidget* parent = nullptr);
     ~GameWindow();
 
 private slots:
@@ -24,8 +24,7 @@ private slots:
     void playAudio();
 
 private:
-
-    void loadDictionary();
+    void loadDictionary(const QString& level);
     void setupQuestion();
     void setupUI();
     void updateVoiceButtons();
@@ -44,14 +43,13 @@ private:
     QString mode;
     int score;
 
-    QString difficulty;
-    int wordsLimit;
+    QString currentLevel;
     int currentWordCount;
-
     QTextToSpeech* tts;
     QList<QVoice> voices;
-    QVBoxLayout* voiceLayout; // Layout for voice buttons
+    QVBoxLayout* voiceLayout;
     QButtonGroup* voiceButtonGroup;
+	QString removeHebrewDiacritics(const QString& text);
 };
 
 #endif // GAMEWINDOW_H

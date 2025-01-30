@@ -125,28 +125,14 @@ void MainWindow::openEnglishMode()
 
 void MainWindow::openPracticeWindow()
 {
-    PracticeWindow* practiceWindow = new PracticeWindow(this);
-    practiceWindow->show();
+    difficultyWindow = new DifficultyWindow("Practice", this);
+    difficultyWindow->show();
+    this->hide();
 }
 void MainWindow::openMemoryGame() {
-    try {
-        qDebug() << "Opening MemoryGame...";
-        qDebug() << "JSON path: " << "resources/dictionary.json";
-        MemoryGame* memoryGame = new MemoryGame("resources/dictionary.json", this);
-        memoryGame->show();
-        memoryGame->resize(600, 400);  // גודל חלון מותאם
-
-        QScreen* screen = QApplication::primaryScreen();
-        if (screen) {
-            memoryGame->move(screen->availableGeometry().center() - memoryGame->rect().center());
-        }
-
-        qDebug() << "MemoryGame opened successfully";
-    }
-    catch (const std::exception& e) {
-        qDebug() << "Error loading MemoryGame: " << e.what();
-    }
-
+    difficultyWindow = new DifficultyWindow("Memory", this);
+    difficultyWindow->show();
+    this->hide();
 }
 
 

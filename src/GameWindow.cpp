@@ -6,29 +6,21 @@
 #include <QVBoxLayout>
 #include <QButtonGroup>
 #include <QFontDatabase>
+#include <QRegularExpression>
 
-GameWindow::GameWindow(const QString& mode, const QString& difficulty, QWidget* parent)
+
+GameWindow::GameWindow(const QString& mode, const QString& level, QWidget* parent)
     : QMainWindow(parent),
     mode(mode),
-    difficulty(difficulty),
+    currentLevel(level),
     score(0),
     currentWordCount(0),
     tts(new QTextToSpeech(this)),
     voiceButtonGroup(new QButtonGroup(this))
 {
 
-    if (difficulty == "easy") {
-        wordsLimit = 10;
-    }
-    else if (difficulty == "medium") {
-        wordsLimit = 20;
-    }
-    else {  
-        wordsLimit = 30;
-    }
-
     setupUI();
-    loadDictionary();
+    loadDictionary(level);
     setupQuestion();
     connect(btnCheck, &QPushButton::clicked, this, &GameWindow::checkAnswer);
 
@@ -41,6 +33,7 @@ GameWindow::GameWindow(const QString& mode, const QString& difficulty, QWidget* 
 
     voices = tts->availableVoices();
     updateVoiceButtons();
+    playAudio();
 }
 
 GameWindow::~GameWindow() {}
@@ -223,11 +216,16 @@ void GameWindow::playAudio()
     tts->say(textToSpeak);
 }
 
-void GameWindow::loadDictionary()
+
+void GameWindow::loadDictionary(const QString& level)
 {
-    QFile file("resources/dictionary.json");
+
+    QString filePath = QString("resources/%1").arg(level);
+    qDebug() << "Trying to open dictionary file:" << filePath;
+    QFile file(filePath);
+
     if (!file.open(QIODevice::ReadOnly)) {
-        QMessageBox::critical(this, "Error", "Failed to load dictionary file.");
+        QMessageBox::critical(this, "Error", QString("Failed to load dictionary file for level %1").arg(level));
         return;
     }
 
@@ -274,6 +272,12 @@ void GameWindow::setupQuestion()
     labelQuestion->setMinimumHeight(60);
 }
 
+QString GameWindow::removeHebrewDiacritics(const QString& text) {
+    QRegularExpression diacriticsRegex("[\u0591-\u05C7]");
+    QString result = text;
+    return result.remove(diacriticsRegex);
+}
+
 void GameWindow::checkAnswer()
 {
     QString userAnswer = lineEditAnswer->text();
@@ -293,7 +297,7 @@ void GameWindow::checkAnswer()
         return;  
     }
 
-    if (userAnswer.toLower() == correct.toLower()) {
+    if (removeHebrewDiacritics(userAnswer.toLower()) == removeHebrewDiacritics(correct.toLower())) {
         labelFeedback->setText("Correct!");
         labelFeedback->setStyleSheet(
             "color: #00FF00;"      
@@ -306,11 +310,13 @@ void GameWindow::checkAnswer()
             "font-size: 22px;"      
         );
         currentWordCount++;
-        if (currentWordCount >= wordsLimit) {
-            QMessageBox::information(this, "Game Completed",
-                QString("Congratulations! You've completed the %1 level!\nFinal Score: %2")
-                .arg(difficulty)
-                .arg(score));
+        if (currentWordCount >= dictionary.count()) {
+            QString levelText = QString("Level %1").arg(currentLevel);
+            QMessageBox::information(this, "Level Complete",
+                QString("Congratulations! You've completed %1!\nFinal Score: %2/%3")
+                .arg(levelText)
+                .arg(score)
+                .arg(dictionary.count()));
             close();
             return;
         }

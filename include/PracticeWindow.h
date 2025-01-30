@@ -11,18 +11,21 @@ class PracticeWindow : public QMainWindow {
     Q_OBJECT
 
 public:
-    explicit PracticeWindow(QWidget* parent = nullptr);
+    explicit PracticeWindow(const QString& jsonFile, QWidget* parent = nullptr);
+
     ~PracticeWindow();
 
 private slots:
     void nextWord();
     void prevWord();
     void playSound();
-    void closeWindow();
-
+    void goBack();
 private:
-    void loadWords();
+    void loadWords(QString& jsonFile);
     void updateDisplay();
+    void loadWords(const QString& jsonFile);
+
+
 
     QLabel* englishWordLabel;
     QLabel* hebrewTranslationLabel;
@@ -30,6 +33,8 @@ private:
     QPushButton* nextButton;
     QPushButton* prevButton;
     QPushButton* closeButton;
+    QPushButton* backButton;
+
 
     QMap<QString, QString> wordsMap;
     QList<QString> englishWords;

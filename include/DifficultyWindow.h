@@ -4,7 +4,10 @@
 #include <QMainWindow>
 #include <QPushButton>
 #include <QLabel>
-#include "gamewindow.h"
+#include "GameWindow.h"
+#include "MemoryGame.h"
+#include "PracticeWindow.h"
+
 
 class DifficultyWindow : public QMainWindow
 {
@@ -15,18 +18,20 @@ public:
     ~DifficultyWindow();
 
 private slots:
-    void openEasyMode();
-    void openMediumMode();
-    void openHardMode();
+    void openLevel(int level);
     void close();
 
 private:
     void setupUI();
+    void openMemoryGame(int level);
+    void openPracticeWindow(int level);
     GameWindow* gameWindow;
     QString gameMode;
-    QPushButton* btnEasy;
-    QPushButton* btnMedium;
-    QPushButton* btnHard;
+    QPushButton* btnLevel1;
+    QPushButton* btnLevel2;
+    QPushButton* btnLevel3;
+    QPushButton* btnLevel4;
+    QPushButton* btnLevel5;
     QPushButton* btnBack;
 };
 

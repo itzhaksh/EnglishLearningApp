@@ -16,12 +16,13 @@ public:
 private slots:
     void handleCardClick();
     void resetGame();
+    void goBack();
     void setButtonStyle(QPushButton* button, const QString& color);
     void handleMismatch(QPushButton* firstButton, QPushButton* secondButton);
     void handleMatch(QPushButton* firstButton, QPushButton* secondButton);
 
 private:
-    void loadWords();
+    void loadWords(const QString& level);
     void initializeUI();
     void setupGameBoard();
     QMap<QString, QString> wordsMap;

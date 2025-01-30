@@ -21,8 +21,7 @@ void DifficultyWindow::setupUI()
     QVBoxLayout* layout = new QVBoxLayout(centralWidget);
     layout->setAlignment(Qt::AlignCenter);
 
-    
-    QLabel* titleLabel = new QLabel("Select Difficulty", this);
+    QLabel* titleLabel = new QLabel("Select Level", this);
     titleLabel->setStyleSheet("font-size: 24px; color: white; font-weight: bold;");
     titleLabel->setAlignment(Qt::AlignCenter);
 
@@ -39,55 +38,73 @@ void DifficultyWindow::setupUI()
         "   font-weight: bold;"
         "}"
         "QPushButton:pressed {"
-        "   background-color: green;"
+        "   background-color: darkgreen;"
         "   border: 2px solid white;"
         "   padding: 11px 9px 9px 11px;"
         "}";
 
-    btnEasy = new QPushButton("Easy (10 words)", this);
-    btnMedium = new QPushButton("Medium (20 words)", this);
-    btnHard = new QPushButton("Hard (30 words)", this);
+    btnLevel1 = new QPushButton("Level 1", this);
+    btnLevel2 = new QPushButton("Level 2", this);
+    btnLevel3 = new QPushButton("Level 3", this);
+    btnLevel4 = new QPushButton("Level 4", this);
+    btnLevel5 = new QPushButton("Level 5", this);
     btnBack = new QPushButton("Back", this);
 
-    btnEasy->setStyleSheet(buttonStyle);
-    btnMedium->setStyleSheet(buttonStyle);
-    btnHard->setStyleSheet(buttonStyle);
+    btnLevel1->setStyleSheet(buttonStyle);
+    btnLevel2->setStyleSheet(buttonStyle);
+    btnLevel3->setStyleSheet(buttonStyle);
+    btnLevel4->setStyleSheet(buttonStyle);
+    btnLevel5->setStyleSheet(buttonStyle);
     btnBack->setStyleSheet(buttonStyle);
 
     layout->addWidget(titleLabel);
-    layout->addWidget(btnEasy);
-    layout->addWidget(btnMedium);
-    layout->addWidget(btnHard);
+    layout->addWidget(btnLevel1);
+    layout->addWidget(btnLevel2);
+    layout->addWidget(btnLevel3);
+    layout->addWidget(btnLevel4);
+    layout->addWidget(btnLevel5);
     layout->addWidget(btnBack);
 
-    connect(btnEasy, &QPushButton::clicked, this, &DifficultyWindow::openEasyMode);
-    connect(btnMedium, &QPushButton::clicked, this, &DifficultyWindow::openMediumMode);
-    connect(btnHard, &QPushButton::clicked, this, &DifficultyWindow::openHardMode);
+    connect(btnLevel1, &QPushButton::clicked, this, [=]() { openLevel(1); });
+    connect(btnLevel2, &QPushButton::clicked, this, [=]() { openLevel(2); });
+    connect(btnLevel3, &QPushButton::clicked, this, [=]() { openLevel(3); });
+    connect(btnLevel4, &QPushButton::clicked, this, [=]() { openLevel(4); });
+    connect(btnLevel5, &QPushButton::clicked, this, [=]() { openLevel(5); });
     connect(btnBack, &QPushButton::clicked, this, &DifficultyWindow::close);
 
-    resize(400, 400);
-    setWindowTitle("Difficulty Selection");
+    resize(400, 500);
+    setWindowTitle("Level Selection");
 }
 
-void DifficultyWindow::openEasyMode()
+void DifficultyWindow::openLevel(int level)
 {
-    gameWindow = new GameWindow(gameMode, "easy", this);
-    gameWindow->show();
+    QString jsonFile = QString("dictionary_level%1.json").arg(level);
+    if (gameMode == "Hebrew" || gameMode == "English") {
+        gameWindow = new GameWindow(gameMode, jsonFile, this);
+        gameWindow->show();
+    }
+    else if (gameMode == "Memory") {
+        openMemoryGame(level);
+    }
+    else if (gameMode == "Practice") {
+        openPracticeWindow(level);
+    }
+
     this->hide();
 }
 
-void DifficultyWindow::openMediumMode()
+void DifficultyWindow::openMemoryGame(int level)
 {
-    gameWindow = new GameWindow(gameMode, "medium", this);
-    gameWindow->show();
-    this->hide();
+    QString jsonFile = QString("dictionary_level%1.json").arg(level);
+    MemoryGame* memoryGame = new MemoryGame(jsonFile, this);
+    memoryGame->show();
 }
 
-void DifficultyWindow::openHardMode()
+void DifficultyWindow::openPracticeWindow(int level)
 {
-    gameWindow = new GameWindow(gameMode, "hard", this);
-    gameWindow->show();
-    this->hide();
+    QString jsonFile = QString("dictionary_level%1.json").arg(level);
+    PracticeWindow* practiceWindow = new PracticeWindow(jsonFile, this);
+    practiceWindow->show();
 }
 
 void DifficultyWindow::close()

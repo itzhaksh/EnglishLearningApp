@@ -4,8 +4,10 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QDebug>
+#include <QMessageBox>
 
-PracticeWindow::PracticeWindow(QWidget* parent)
+
+PracticeWindow::PracticeWindow(const QString& jsonFile, QWidget* parent)
     : QMainWindow(parent), currentIndex(0), textToSpeech(new QTextToSpeech(this)) {
     QWidget* centralWidget = new QWidget(this);
     setCentralWidget(centralWidget);
@@ -14,25 +16,19 @@ PracticeWindow::PracticeWindow(QWidget* parent)
     QVBoxLayout* layout = new QVBoxLayout(centralWidget);
 
     englishWordLabel = new QLabel("English Word", centralWidget);
-    englishWordLabel->setStyleSheet("font-size: 24px; color: white;");
+    englishWordLabel->setStyleSheet("font-size: 38px; color: white; font-weight: bold;");
     englishWordLabel->setAlignment(Qt::AlignCenter);
     layout->addWidget(englishWordLabel);
 
     hebrewTranslationLabel = new QLabel("תרגום לעברית", centralWidget);
-    hebrewTranslationLabel->setStyleSheet("font-size: 20px; color: white;");
+    hebrewTranslationLabel->setStyleSheet("font-size: 38px; color: white; font-weight: bold;");
     hebrewTranslationLabel->setAlignment(Qt::AlignCenter);
     layout->addWidget(hebrewTranslationLabel);
 
     playSoundButton = new QPushButton("🔊 Play Sound", centralWidget);
-    playSoundButton->setStyleSheet("font-size: 16px; color: white; background-color: green; border: 1px solid white;QPushButton:hover {"
-        "   border: 2px solid;"
-        "   font-weight: bold;"
-        "}");
-    layout->addWidget(playSoundButton);
-
     nextButton = new QPushButton("Next", centralWidget);
     prevButton = new QPushButton("Prev", centralWidget);
-    closeButton = new QPushButton("Close", centralWidget);
+    backButton = new QPushButton("Back", centralWidget);
 
     QString buttonStyle =
         "QPushButton {"
@@ -45,46 +41,68 @@ PracticeWindow::PracticeWindow(QWidget* parent)
         "QPushButton:hover {"
         "   border: 2px solid white;"
         "   font-weight: bold;"
+        "}"
+        "QPushButton:pressed {"
+        "   background-color: darkgreen;"
+        "   border: 2px solid white;"
+        "   padding: 11px 9px 9px 11px;"
         "}";
 
+    playSoundButton->setStyleSheet(buttonStyle);
     nextButton->setStyleSheet(buttonStyle);
     prevButton->setStyleSheet(buttonStyle);
-    closeButton->setStyleSheet(buttonStyle);
+    backButton->setStyleSheet(buttonStyle);
 
-    layout->addWidget(prevButton);
-    layout->addWidget(nextButton);
-    layout->addWidget(closeButton);
+    QHBoxLayout* buttonLayout = new QHBoxLayout();
+
+    buttonLayout->addWidget(prevButton);
+    buttonLayout->addWidget(nextButton);
+    buttonLayout->addWidget(playSoundButton);
+    buttonLayout->addWidget(backButton);
+
+    layout->addLayout(buttonLayout);
 
     connect(nextButton, &QPushButton::clicked, this, &PracticeWindow::nextWord);
     connect(prevButton, &QPushButton::clicked, this, &PracticeWindow::prevWord);
     connect(playSoundButton, &QPushButton::clicked, this, &PracticeWindow::playSound);
-    connect(closeButton, &QPushButton::clicked, this, &PracticeWindow::closeWindow);
+    connect(backButton, &QPushButton::clicked, this, &PracticeWindow::goBack);
 
-    loadWords();
+
+    loadWords(jsonFile);
     updateDisplay();
-
+    playSound();
     resize(400, 400);
     setWindowTitle("Practice English");
 }
 
 PracticeWindow::~PracticeWindow() {}
 
-void PracticeWindow::loadWords() {
-    QFile file("dictionary.json");
+void PracticeWindow::loadWords(const QString& jsonFile) {
+    QString filePath = QString("resources/%1").arg(jsonFile);  
+    qDebug() << "Trying to open dictionary file:" << filePath;
+
+    QFile file(filePath);
     if (!file.open(QIODevice::ReadOnly)) {
-        qWarning("Could not open words JSON file.");
+        qWarning() << "Could not open words JSON file:" << filePath;
+        QMessageBox::critical(this, "Error", QString("Failed to load dictionary file: %1").arg(filePath));
         return;
     }
-    QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
-    QJsonObject jsonObject = doc.object();
-    file.close();
-
-    for (auto it = jsonObject.begin(); it != jsonObject.end(); ++it) {
-        wordsMap.insert(it.key(), it.value().toString());
+    QByteArray data = file.readAll();
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    if (doc.isObject()) {
+        QJsonObject jsonObject = doc.object();
+        wordsMap.clear();
+        for (auto it = jsonObject.begin(); it != jsonObject.end(); ++it) {
+            wordsMap.insert(it.key(), it.value().toString());
+        }
+        englishWords = wordsMap.keys();
     }
-
-    englishWords = wordsMap.keys();
+    else {
+        QMessageBox::critical(this, "Error", "Invalid JSON format.");
+    }
+    file.close();
 }
+
 
 void PracticeWindow::updateDisplay() {
     if (englishWords.isEmpty() || currentIndex < 0 || currentIndex >= englishWords.size())
@@ -101,6 +119,7 @@ void PracticeWindow::nextWord() {
     if (currentIndex < englishWords.size() - 1) {
         currentIndex++;
         updateDisplay();
+        playSound();
     }
     else {
         qDebug() << "Already at the last word.";
@@ -111,6 +130,7 @@ void PracticeWindow::prevWord() {
     if (currentIndex > 0) {
         currentIndex--;
         updateDisplay();
+        playSound();
     }
     else {
         qDebug() << "Already at the first word.";
@@ -128,6 +148,10 @@ void PracticeWindow::playSound() {
     }
 }
 
-void PracticeWindow::closeWindow() {
-    close();
+
+void PracticeWindow::goBack() {
+    if (parentWidget()) {
+        parentWidget()->show();
+    }
+    this->close();  
 }
