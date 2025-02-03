@@ -16,29 +16,31 @@ void DifficultyWindow::setupUI()
 {
     QWidget* centralWidget = new QWidget(this);
     setCentralWidget(centralWidget);
-    centralWidget->setStyleSheet("background-color: green;");
+    centralWidget->setStyleSheet("background-color: #F7F7F7;");
 
     QVBoxLayout* layout = new QVBoxLayout(centralWidget);
     layout->setAlignment(Qt::AlignCenter);
 
     QLabel* titleLabel = new QLabel("Select Level", this);
-    titleLabel->setStyleSheet("font-size: 24px; color: white; font-weight: bold;");
+    titleLabel->setStyleSheet("font-size: 24px; color: #4A90E2; font-weight: bold;");
     titleLabel->setAlignment(Qt::AlignCenter);
 
     QString buttonStyle =
         "QPushButton {"
-        "   background-color: green;"
+        "   background-color: #7f5af0;"
         "   color: white;"
         "   font-size: 16px;"
         "   padding: 10px;"
-        "   border: 1px solid white;"
+        "   border: 4px solid white;"
+        "   border-radius: 5px;"
         "}"
         "QPushButton:hover {"
+        "   background-color: #4A90E2;"
         "   border: 2px solid white;"
         "   font-weight: bold;"
         "}"
         "QPushButton:pressed {"
-        "   background-color: darkgreen;"
+        "   background-color: green;"
         "   border: 2px solid white;"
         "   padding: 11px 9px 9px 11px;"
         "}";

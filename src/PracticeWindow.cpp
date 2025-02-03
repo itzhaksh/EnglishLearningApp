@@ -12,16 +12,16 @@ PracticeWindow::PracticeWindow(const QString& jsonFile, QWidget* parent)
     QWidget* centralWidget = new QWidget(this);
     setCentralWidget(centralWidget);
 
-    centralWidget->setStyleSheet("background-color: green;");
+    centralWidget->setStyleSheet("background-color: #F7F7F7;");
     QVBoxLayout* layout = new QVBoxLayout(centralWidget);
 
     englishWordLabel = new QLabel("English Word", centralWidget);
-    englishWordLabel->setStyleSheet("font-size: 38px; color: white; font-weight: bold;");
+    englishWordLabel->setStyleSheet("font-size: 38px; color: #7f5af0; font-weight: bold;");
     englishWordLabel->setAlignment(Qt::AlignCenter);
     layout->addWidget(englishWordLabel);
 
     hebrewTranslationLabel = new QLabel("תרגום לעברית", centralWidget);
-    hebrewTranslationLabel->setStyleSheet("font-size: 38px; color: white; font-weight: bold;");
+    hebrewTranslationLabel->setStyleSheet("font-size: 38px; color: #7f5af0; font-weight: bold;");
     hebrewTranslationLabel->setAlignment(Qt::AlignCenter);
     layout->addWidget(hebrewTranslationLabel);
 
@@ -30,20 +30,23 @@ PracticeWindow::PracticeWindow(const QString& jsonFile, QWidget* parent)
     prevButton = new QPushButton("Prev", centralWidget);
     backButton = new QPushButton("Back", centralWidget);
 
+
     QString buttonStyle =
         "QPushButton {"
-        "   background-color: green;"
+        "   background-color: #7f5af0;"
         "   color: white;"
         "   font-size: 16px;"
         "   padding: 10px;"
-        "   border: 1px solid white;"
+        "   border: 4px solid white;"
+        "   border-radius: 5px;"
         "}"
         "QPushButton:hover {"
+        "   background-color: #4A90E2;"
         "   border: 2px solid white;"
         "   font-weight: bold;"
         "}"
         "QPushButton:pressed {"
-        "   background-color: darkgreen;"
+        "   background-color: green;"
         "   border: 2px solid white;"
         "   padding: 11px 9px 9px 11px;"
         "}";
@@ -55,10 +58,10 @@ PracticeWindow::PracticeWindow(const QString& jsonFile, QWidget* parent)
 
     QHBoxLayout* buttonLayout = new QHBoxLayout();
 
+    buttonLayout->addWidget(backButton);
     buttonLayout->addWidget(prevButton);
     buttonLayout->addWidget(nextButton);
     buttonLayout->addWidget(playSoundButton);
-    buttonLayout->addWidget(backButton);
 
     layout->addLayout(buttonLayout);
 

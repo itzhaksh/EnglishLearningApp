@@ -22,6 +22,8 @@ private slots:
     void close();
     void selectVoice(int voiceIndex);
     void playAudio();
+    void checkKeyboardLanguage();
+    void revealAnswer();
 
 private:
     void loadDictionary(const QString& level);
@@ -36,6 +38,7 @@ private:
     QPushButton* btnCheck;
     QPushButton* btnClose;
     QPushButton* btnAudio;
+    QPushButton* showAnswerButton;
 
     QJsonObject dictionary;
     QString currentQuestion;
@@ -47,7 +50,7 @@ private:
     int currentWordCount;
     QTextToSpeech* tts;
     QList<QVoice> voices;
-    QVBoxLayout* voiceLayout;
+    QBoxLayout* voiceLayout;
     QButtonGroup* voiceButtonGroup;
 	QString removeHebrewDiacritics(const QString& text);
 };

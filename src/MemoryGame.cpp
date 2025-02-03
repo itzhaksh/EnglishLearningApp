@@ -57,18 +57,20 @@ void MemoryGame::initializeUI() {
 
     QString buttonStyle =
         "QPushButton {"
-        "   background-color: green;"
+        "   background-color: #7f5af0;"
         "   color: white;"
         "   font-size: 16px;"
         "   padding: 10px;"
-        "   border: 1px solid white;"
+        "   border: 4px solid white;"
+        "   border-radius: 5px;"
         "}"
         "QPushButton:hover {"
+        "   background-color: #4A90E2;"
         "   border: 2px solid white;"
         "   font-weight: bold;"
         "}"
         "QPushButton:pressed {"
-        "   background-color: darkgreen;"
+        "   background-color: green;"
         "   border: 2px solid white;"
         "   padding: 11px 9px 9px 11px;"
         "}";
@@ -77,12 +79,12 @@ void MemoryGame::initializeUI() {
     backBtn->setStyleSheet(buttonStyle);
 
     QHBoxLayout* buttonLayout = new QHBoxLayout();
-    buttonLayout->addWidget(resetBtn);
     buttonLayout->addWidget(backBtn);
+    buttonLayout->addWidget(resetBtn);
     mainLayout->addLayout(buttonLayout);
 
 
-    centralWidget->setStyleSheet("background-color: green;");
+    centralWidget->setStyleSheet("background-color: #F7F7F7;");
     resize(600, 600);
     setWindowTitle("Memory Game");
 }
@@ -111,8 +113,8 @@ void MemoryGame::setupGameBoard() {
         QPushButton* englishBtn = new QPushButton(englishWord);
         QPushButton* hebrewBtn = new QPushButton(hebrewTranslation);
 
-        setButtonStyle(englishBtn, "blue");
-        setButtonStyle(hebrewBtn, "blue");
+        setButtonStyle(englishBtn, "#7f5af0");
+        setButtonStyle(hebrewBtn, "#7f5af0");
 
         englishBtn->setProperty("word", englishWord);
         hebrewBtn->setProperty("word", hebrewTranslation);
@@ -140,11 +142,11 @@ void MemoryGame::handleCardClick() {
 
     if (!firstSelectedButton) {
         firstSelectedButton = clickedButton;
-        setButtonStyle(firstSelectedButton, "#90EE90");
+        setButtonStyle(firstSelectedButton, "#4A90E2");
         return;
     }
 
-    setButtonStyle(clickedButton, "#90EE90");
+    setButtonStyle(clickedButton,"#4A90E2");
     clickedButton->setEnabled(false);
 
     QString firstWord = firstSelectedButton->property("word").toString();
@@ -163,7 +165,6 @@ void MemoryGame::handleCardClick() {
         QTimer::singleShot(1000, this, [this, firstButton, clickedButton]() {
             handleMismatch(firstButton, clickedButton);
             });
-      //  handleMismatch(firstButton, clickedButton);
     }
 
     firstSelectedButton = nullptr;
@@ -188,8 +189,8 @@ void MemoryGame::handleMismatch(QPushButton* firstButton, QPushButton* secondBut
     setButtonStyle(secondButton, "red");
 
     QTimer::singleShot(300, this, [this, firstButton, secondButton]() {
-        setButtonStyle(firstButton, "blue");
-        setButtonStyle(secondButton, "blue");
+        setButtonStyle(firstButton, "#7f5af0");
+        setButtonStyle(secondButton, "#7f5af0");
 
         firstButton->setEnabled(true);
         secondButton->setEnabled(true);
