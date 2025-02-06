@@ -1,5 +1,5 @@
 # 🎓 Learn English - Interactive Learning Application
-
+![Learn English App](resources/LearnEnglish.png)
 ## 📝 Overview
 **Learn English** is an interactive learning application built with C++ and the Qt Framework.  
 Designed for Hebrew speakers, this application provides multiple engaging learning modes to improve English vocabulary and comprehension.
