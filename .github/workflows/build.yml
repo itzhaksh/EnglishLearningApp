@@ -16,11 +16,18 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: List available Qt modules
-      id: qt_modules
+    - name: Find aqt path
+      id: find_aqt
       run: |
-        $modules = & C:\hostedtoolcache\windows\Python\3.12.10\x64\python.exe -m aqt list-qt windows desktop --modules 6.8.2 win64_msvc2022_64
-        echo "AVAILABLE_MODULES=$modules" >> $env:GITHUB_OUTPUT
+        # This will attempt to find the aqt executable and set the path as an output variable
+        $aqt_path = Get-Command aqt -ErrorAction SilentlyContinue
+        if ($aqt_path) {
+          echo "AQT_PATH=$($aqt_path.Source)" >> $env:GITHUB_OUTPUT
+          echo "AQT found at $($aqt_path.Source)"
+        } else {
+          echo "AQT not found.  Install it first."
+          exit 1 # Stop the workflow if aqt is not found
+        }
       shell: powershell
 
     - name: Install Qt
@@ -31,7 +38,37 @@ jobs:
         target: 'desktop'
         arch: 'win64_msvc2022_64'
         dir: '${{ runner.temp }}/qt'
-        modules: 'qtbase qtdeclarative qtmultimedia qttexttospeech' # Adjust based on AVAILABLE_MODULES -  IMPORTANT
+        modules: 'qtbase qtdeclarative qtmultimedia qttexttospeech'
+
+    - name: List available Qt modules
+      id: qt_modules
+      run: |
+        # Use the aqt path found in the previous step
+        $aqt_path = "${{ steps.find_aqt.outputs.AQT_PATH }}"
+        if (-not $aqt_path) {
+          Write-Error "AQT_PATH is not set.  Something went wrong finding aqt."
+          exit 1
+        }
+
+        # Capture and process the output from aqt list-qt
+        $modules_output = & $aqt_path list-qt windows desktop --modules 6.8.2 win64_msvc2022_64
+
+        # Ensure that the command executed successfully
+        if ($LASTEXITCODE -ne 0) {
+            Write-Error "aqt list-qt command failed with exit code $LASTEXITCODE"
+            exit 1
+        }
+
+        # Capture all the output to AVAILABLE_MODULES (for debugging purposes).  You might want to log or examine this output.
+        echo "AVAILABLE_MODULES=$modules_output" >> $env:GITHUB_OUTPUT
+      shell: powershell
+
+    - name: Adjust Qt Modules (Manual Step - Inspect output of previous step)
+      run: |
+          Write-Host "Please examine the output of the 'List available Qt modules' step."
+          Write-Host "Then adjust the 'Install Qt' step's modules list based on what's actually available."
+          Write-Host "Workflow will continue, assuming the modules are now correct, but the build may fail if they aren't."
+      shell: powershell
 
     - name: Set up MSVC
       uses: ilammy/msvc-dev-cmd@v1
