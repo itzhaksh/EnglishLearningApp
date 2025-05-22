@@ -24,6 +24,7 @@ jobs:
         target: 'desktop'
         arch: 'win64_msvc2022_64'
         dir: '${{ runner.temp }}/qt'
+        modules: 'qtbase qtdeclarative qtmultimedia qttexttospeech'
 
     - name: Set up MSVC
       uses: ilammy/msvc-dev-cmd@v1
