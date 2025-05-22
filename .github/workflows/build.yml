@@ -16,30 +16,38 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Install aqtinstall and get its path
-      id: install_aqt
+    # --- Step 1: Ensure aqtinstall is installed and find its executable path ---
+    - name: Ensure aqtinstall is installed and find its executable path
+      id: find_aqt_exe
       run: |
-        # Define the base Python path based on your runner's environment
-        $python_base_path = "C:\hostedtoolcache\windows\Python\3.12.10\x64"
+        # Determine the Python executable path used by the runner
+        # BASED ON YOUR LATEST LOGS, Python is 3.11.9 here. Adjust if it changes again.
+        $python_base_path = "C:\hostedtoolcache\windows\Python\3.11.9\x64"
         $python_exe_path = Join-Path $python_base_path "python.exe"
-        $aqt_scripts_path = Join-Path $python_base_path "Scripts"
-        $aqt_exe_path = Join-Path $aqt_scripts_path "aqt.exe"
+        $aqt_scripts_dir = Join-Path $python_base_path "Scripts"
+        $aqt_exe_path = Join-Path $aqt_scripts_dir "aqt.exe"
 
-        Write-Host "Installing aqtinstall using $python_exe_path"
+        Write-Host "Using Python executable: $python_exe_path"
+        Write-Host "Expected aqt.exe path: $aqt_exe_path"
+
+        # Install aqtinstall specifically for this Python environment
+        # Using 3.2.* as it's the latest recommended, even if jurplel action pulls 3.1.*
+        Write-Host "Installing aqtinstall..."
         & $python_exe_path -m pip install aqtinstall==3.2.*
-
-        # Verify that aqt.exe exists at the expected location
+        
+        # Verify aqt.exe exists at the derived path
         if (Test-Path $aqt_exe_path) {
           Write-Host "aqt.exe found at $aqt_exe_path. Installation successful."
           # Set the full path to aqt.exe as an output variable for later steps
-          echo "AQT_EXECUTABLE_PATH=$aqt_exe_path" >> $env:GITHUB_OUTPUT
+          echo "AQT_PATH=$aqt_exe_path" >> $env:GITHUB_OUTPUT
         } else {
-          Write-Error "aqt.exe not found at $aqt_exe_path after installation. Check pip logs for errors."
+          Write-Error "Error: aqt.exe not found at expected path: $aqt_exe_path after installation. Check pip logs for errors."
           exit 1
         }
       shell: powershell
 
-    - name: Install Qt
+    # --- Step 2: Attempt to install Qt (this will likely fail on first run) ---
+    - name: Install Qt (Initial Attempt - likely to fail on modules)
       uses: jurplel/install-qt-action@v3
       with:
         version: '6.8.2'
@@ -47,44 +55,60 @@ jobs:
         target: 'desktop'
         arch: 'win64_msvc2022_64'
         dir: '${{ runner.temp }}/qt'
-        modules: 'qtbase qtdeclarative qtmultimedia qttexttospeech' # <<< REMEMBER TO ADJUST THIS AFTER FIRST RUN!
+        # <<< CRITICAL: YOU MUST MANUALLY ADJUST THIS LINE AFTER THE FIRST RUN! >>>
+        # Based on your previous errors, these modules are likely NOT all available.
+        modules: 'qtbase qtdeclarative qtmultimedia qttexttospeech'
 
-    - name: List available Qt modules
-      id: qt_modules
+    # --- Step 3: List available Qt modules (for debugging and manual adjustment) ---
+    - name: List available Qt modules (for debugging and manual adjustment)
+      id: list_qt_modules
       run: |
-        # Use the full path to aqt.exe found in the previous step
-        $aqt_path = "${{ steps.install_aqt.outputs.AQT_EXECUTABLE_PATH }}"
-        if (-not $aqt_path) {
-          Write-Error "AQT_EXECUTABLE_PATH is not set. Something went wrong getting aqt path."
+        $aqt_executable = "${{ steps.find_aqt_exe.outputs.AQT_PATH }}"
+        if (-not $aqt_executable) {
+          Write-Error "aqt executable path not found from previous step. Cannot list modules."
           exit 1
         }
 
-        Write-Host "Listing Qt modules using $aqt_path"
-        $modules_output = & $aqt_path list-qt windows desktop --modules 6.8.2 win64_msvc2022_64
+        Write-Host "Running aqt list-qt to find available modules..."
+        # Capture the output of aqt list-qt. This output is critical for the user to see.
+        # Redirect stderr to stdout (2>&1) to ensure all output is captured.
+        $available_modules_output = & $aqt_executable list-qt windows desktop --modules 6.8.2 win64_msvc2022_64 2>&1
+        
+        # Print the captured output for inspection
+        Write-Host "--- Available Qt Modules for 6.8.2 win64_msvc2022_64 (Examine below!) ---"
+        Write-Host $available_modules_output
+        Write-Host "------------------------------------------------------------------------"
 
-        if ($LASTEXITCODE -ne 0) {
-            Write-Error "aqt list-qt command failed with exit code $LASTEXITCODE"
-            exit 1
-        }
-
-        # Output the list of modules for debugging
-        echo "AVAILABLE_MODULES=$modules_output" >> $env:GITHUB_OUTPUT
-        Write-Host "Available Modules Output:"
-        Write-Host $modules_output
+        # The workflow will continue from here. User must manually inspect logs and update 'modules' parameter.
       shell: powershell
 
-    - name: Adjust Qt Modules (Manual Action Required)
+    # --- Step 4: Instructions for manual adjustment ---
+    - name: Manual Action Required to Correct Modules
       run: |
-          Write-Host "*************************************************************************"
-          Write-Host "  ACTION REQUIRED: MANUAL ADJUSTMENT OF QT MODULES LIST                 "
-          Write-Host "  Please review the 'Available Modules Output:' above.                  "
-          Write-Host "  Then, edit this workflow file and update the 'modules' line in the    "
-          Write-Host "  'Install Qt' step to include ONLY the modules that are actually available. "
-          Write-Host "  For example, if 'qttexttospeech' is not listed, remove it.            "
-          Write-Host "  After adjusting, re-run the workflow.                                 "
-          Write-Host "*************************************************************************"
+        Write-Host "*************************************************************************"
+        Write-Host "  CRITICAL ACTION REQUIRED: MANUAL ADJUSTMENT OF QT MODULES LIST         "
+        Write-Host "  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+        Write-Host ""
+        Write-Host "  The 'Install Qt' step likely failed on the first run because the "
+        Write-Host "  requested modules were not all available for Qt 6.8.2.             "
+        Write-Host ""
+        Write-Host "  1. **REVIEW THE OUTPUT OF THE 'List available Qt modules' step ABOVE.**"
+        Write-Host "     Look for the section '--- Available Qt Modules ... ---'.            "
+        Write-Host "     This will show you the exact names of modules that *are* available."
+        Write-Host ""
+        Write-Host "  2. **EDIT YOUR WORKFLOW YAML FILE.**                                  "
+        Write-Host "     Locate the 'Install Qt' step (Step 2 in this file).                "
+        Write-Host "     Change the 'modules:' line to list ONLY the modules that were       "
+        Write-Host "     shown as available in the logs.                                     "
+        Write-Host "     (e.g., if 'qttexttospeech' is not listed, remove it from the list)."
+        Write-Host ""
+        Write-Host "  3. Commit and push your changes to re-run the workflow.               "
+        Write-Host "     The next run should succeed if the modules list is correct.         "
+        Write-Host ""
+        Write-Host "*************************************************************************"
       shell: powershell
 
+    # --- Remaining build steps (unchanged) ---
     - name: Set up MSVC
       uses: ilammy/msvc-dev-cmd@v1
 
