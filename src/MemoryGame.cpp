@@ -5,6 +5,10 @@
 #include <QMessageBox>
 #include <QTimer>
 #include <random>
+#include <QSettings>
+#include <QScreen>
+#include <QGuiApplication>
+#include <QPainter>
 
 MemoryGame::MemoryGame(const QString& jsonFilePath, QWidget* parent)
     : QMainWindow(parent), jsonFilePath(jsonFilePath) {
@@ -14,9 +18,11 @@ MemoryGame::MemoryGame(const QString& jsonFilePath, QWidget* parent)
 }
 
 void MemoryGame::loadWords(const QString& level) {
-    QString filePath = QString("resources/%1").arg(jsonFilePath);
+    QString filePath = level;
+    if (!filePath.startsWith("resources/")) {
+        filePath = QString("resources/%1").arg(level);
+    }
     qDebug() << "Trying to open dictionary file:" << filePath;
-
 
     QFile file(filePath);
     if (!file.open(QIODevice::ReadOnly)) {
@@ -34,45 +40,70 @@ void MemoryGame::loadWords(const QString& level) {
             wordsMap.insert(it.key(), it.value().toString());
         }
         englishWords = wordsMap.keys();
-    }
-    else {
+    } else {
         QMessageBox::critical(this, "Error", "Invalid JSON format.");
     }
     file.close();
 }
 
 void MemoryGame::initializeUI() {
+    setWindowTitle("Memory Game");
+    QIcon windowIcon(":/Learn-English-Icon.png");
+    setWindowIcon(windowIcon);
+
     QWidget* centralWidget = new QWidget(this);
     setCentralWidget(centralWidget);
 
-    mainLayout = new QVBoxLayout(centralWidget);
-    cardGrid = new QGridLayout();
-    mainLayout->addLayout(cardGrid);
+    QVBoxLayout* mainLayout = new QVBoxLayout(centralWidget);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    QPushButton* resetBtn = new QPushButton("Reset Game", this);
+    QLabel* imageLabel = new QLabel(centralWidget);
+    imageLabel->setScaledContents(true);
+    imageLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    QPixmap pixmap(":/Learn-English.png");
+    QImage image = pixmap.toImage();
+    QImage transparentImage(image.size(), QImage::Format_ARGB32);
+    transparentImage.fill(Qt::transparent);
+
+    QPainter painter(&transparentImage);
+    painter.setOpacity(0.3);
+    painter.drawImage(0, 0, image);
+    painter.end();
+
+    QPixmap transparentPixmap = QPixmap::fromImage(transparentImage);
+    imageLabel->setPixmap(transparentPixmap.scaled(600, 400, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation));
+    imageLabel->setFixedSize(600, 400);
+    imageLabel->setGeometry(0, 0, 600, 400);
+    imageLabel->lower();
+
+    QWidget* contentWidget = new QWidget(centralWidget);
+    contentWidget->setStyleSheet("background: transparent;");
+    QVBoxLayout* contentLayout = new QVBoxLayout(contentWidget);
+
+    cardGrid = new QGridLayout();
+    contentLayout->addLayout(cardGrid);
+
+    QPushButton* resetBtn = new QPushButton("איפוס משחק", this);
     connect(resetBtn, &QPushButton::clicked, this, &MemoryGame::resetGame);
 
-    QPushButton* backBtn = new QPushButton("Back", this);
+    QPushButton* backBtn = new QPushButton("חזור", this);
     connect(backBtn, &QPushButton::clicked, this, &MemoryGame::goBack);
 
     QString buttonStyle =
         "QPushButton {"
-        "   background-color: #7f5af0;"
-        "   color: white;"
+        "   background-color: #f1c70c;" 
+        "   color: black;" 
         "   font-size: 16px;"
         "   padding: 10px;"
-        "   border: 4px solid white;"
-        "   border-radius: 5px;"
-        "}"
-        "QPushButton:hover {"
-        "   background-color: #4A90E2;"
-        "   border: 2px solid white;"
+        "   border-radius: 8px;" 
         "   font-weight: bold;"
         "}"
+        "QPushButton:hover {"
+        "   background-color: #f5d33f;" 
+        "}"
         "QPushButton:pressed {"
-        "   background-color: green;"
-        "   border: 2px solid white;"
-        "   padding: 11px 9px 9px 11px;"
+        "   background-color: #f5d33f;" 
         "}";
 
     resetBtn->setStyleSheet(buttonStyle);
@@ -81,18 +112,27 @@ void MemoryGame::initializeUI() {
     QHBoxLayout* buttonLayout = new QHBoxLayout();
     buttonLayout->addWidget(backBtn);
     buttonLayout->addWidget(resetBtn);
-    mainLayout->addLayout(buttonLayout);
+    contentLayout->addLayout(buttonLayout);
 
+    mainLayout->addWidget(contentWidget);
 
-    centralWidget->setStyleSheet("background-color: #F7F7F7;");
-    resize(600, 600);
-    setWindowTitle("Memory Game");
+    resize(600, 400);
+
+    QScreen* screen = QGuiApplication::primaryScreen();
+    if (screen) {
+        QRect screenGeometry = screen->geometry();
+        int x = (screenGeometry.width() - this->width()) / 2;
+        int y = (screenGeometry.height() - this->height()) / 2;
+        this->move(x, y);
+    }
 }
 
 void MemoryGame::setupGameBoard() {
     std::random_device rd;
     std::mt19937 g(rd());
     std::shuffle(englishWords.begin(), englishWords.end(), g);
+
+    filterUsedWords(englishWords);
 
     QList<QString> selectedWords = englishWords.mid(0, 5);
 
@@ -113,8 +153,8 @@ void MemoryGame::setupGameBoard() {
         QPushButton* englishBtn = new QPushButton(englishWord);
         QPushButton* hebrewBtn = new QPushButton(hebrewTranslation);
 
-        setButtonStyle(englishBtn, "#7f5af0");
-        setButtonStyle(hebrewBtn, "#7f5af0");
+        setButtonStyle(englishBtn, "#f1c70c"); 
+        setButtonStyle(hebrewBtn, "#f1c70c");
 
         englishBtn->setProperty("word", englishWord);
         hebrewBtn->setProperty("word", hebrewTranslation);
@@ -132,6 +172,8 @@ void MemoryGame::setupGameBoard() {
         cardGrid->addWidget(hebrewButtons[i], row, 1);
         row++;
     }
+
+    saveUsedWords(selectedWords);
 }
 
 void MemoryGame::handleCardClick() {
@@ -142,11 +184,11 @@ void MemoryGame::handleCardClick() {
 
     if (!firstSelectedButton) {
         firstSelectedButton = clickedButton;
-        setButtonStyle(firstSelectedButton, "#4A90E2");
+        setButtonStyle(firstSelectedButton, "#ffe066"); 
         return;
     }
 
-    setButtonStyle(clickedButton,"#4A90E2");
+    setButtonStyle(clickedButton, "#ffe066"); 
     clickedButton->setEnabled(false);
 
     QString firstWord = firstSelectedButton->property("word").toString();
@@ -160,17 +202,16 @@ void MemoryGame::handleCardClick() {
 
     if (isMatch) {
         handleMatch(firstButton, clickedButton);
-    }
-    else {
+    } else {
         QTimer::singleShot(1000, this, [this, firstButton, clickedButton]() {
             handleMismatch(firstButton, clickedButton);
-            });
+        });
     }
 
     firstSelectedButton = nullptr;
 }
-void MemoryGame::handleMatch(QPushButton* firstButton, QPushButton* secondButton) {
 
+void MemoryGame::handleMatch(QPushButton* firstButton, QPushButton* secondButton) {
     cardGrid->removeWidget(firstButton);
     cardGrid->removeWidget(secondButton);
     firstButton->setParent(nullptr);
@@ -178,62 +219,108 @@ void MemoryGame::handleMatch(QPushButton* firstButton, QPushButton* secondButton
 
     matchedPairs++;
 
-
-    if (matchedPairs == englishButtons.size()) {
-        QMessageBox::information(this, "Congratulations", "You matched all words!");
+    if (matchedPairs == 5) {
+        int score = matchedPairs;
+        saveScore("MemoryGame", score);
     }
+}
+
+void MemoryGame::saveScore(const QString& gameType, int score) {
+    QSettings settings("MyCompany", "EnglishLearningApp");
+    QString userName = settings.value("UserName", "").toString();
+    QString key = QString("%1/%2/score").arg(userName).arg(gameType);
+
+    int currentScore = settings.value(key, 0).toInt();
+    settings.setValue(key, currentScore + score);
 }
 
 void MemoryGame::handleMismatch(QPushButton* firstButton, QPushButton* secondButton) {
     setButtonStyle(firstButton, "red");
     setButtonStyle(secondButton, "red");
 
-    QTimer::singleShot(300, this, [this, firstButton, secondButton]() {
-        setButtonStyle(firstButton, "#7f5af0");
-        setButtonStyle(secondButton, "#7f5af0");
-
+    QTimer::singleShot(1000, this, [this, firstButton, secondButton]() {
+        setButtonStyle(firstButton, "#f1c70c"); 
+        setButtonStyle(secondButton, "#f1c70c");
         firstButton->setEnabled(true);
         secondButton->setEnabled(true);
-
-        });
+    });
 }
 
 void MemoryGame::setButtonStyle(QPushButton* button, const QString& color) {
     QString styleSheet = QString(
         "QPushButton {"
         "   background-color: %1;"
-        "   color: white;"
+        "   color: black;" 
         "   font-size: 16px;"
         "   min-width: 100px;"
         "   min-height: 50px;"
-        "   border: 2px solid white;"  
+        "   border-radius: 8px;" 
+        "   font-weight: bold;"
         "}"
         "QPushButton:hover {"
-        "   background-color: %1;"  
-        "   border: 3px solid white;"   
+        "   background-color: #f5d33f;" 
+        "}"
+        "QPushButton:pressed {"
+        "   background-color: #f5d33f;" 
         "}"
     ).arg(color);
 
     button->setStyleSheet(styleSheet);
 }
-void MemoryGame::resetGame() {
-    for (auto btn : englishButtons + hebrewButtons) {
-        cardGrid->removeWidget(btn);
-        delete btn;
-    }
 
+void MemoryGame::resetGame() {
+    matchedPairs = 0;
+    firstSelectedButton = nullptr;
+
+    for (auto button : englishButtons) {
+        cardGrid->removeWidget(button);
+        delete button;
+    }
+    for (auto button : hebrewButtons) {
+        cardGrid->removeWidget(button);
+        delete button;
+    }
     englishButtons.clear();
     hebrewButtons.clear();
-    matchedPairs = 0;
-
-    firstSelectedButton = nullptr;
 
     setupGameBoard();
 }
 
 void MemoryGame::goBack() {
     if (parentWidget()) {
-        parentWidget()->show();  
+        parentWidget()->show();
     }
-    this->close();  
+    this->close();
+}
+
+void MemoryGame::filterUsedWords(QList<QString>& words) {
+    QSettings settings("MyCompany", "EnglishLearningApp");
+    QString userName = settings.value("UserName", "").toString();
+    QString key = QString("%1/usedWords").arg(userName);
+
+    QStringList usedWords = settings.value(key).toStringList();
+
+    for (int i = words.size() - 1; i >= 0; --i) {
+        if (usedWords.contains(words[i])) {
+            words.removeAt(i);
+        }
+    }
+
+    if (words.isEmpty()) {
+        settings.remove(key);
+    }
+}
+
+void MemoryGame::saveUsedWords(const QList<QString>& words) {
+    QSettings settings("MyCompany", "EnglishLearningApp");
+    QString userName = settings.value("UserName", "").toString();
+    QString key = QString("%1/usedWords").arg(userName);
+
+    QStringList usedWords = settings.value(key).toStringList();
+    for (const QString& word : words) {
+        if (!usedWords.contains(word)) {
+            usedWords.append(word);
+        }
+    }
+    settings.setValue(key, usedWords);
 }

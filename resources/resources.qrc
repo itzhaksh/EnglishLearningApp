@@ -1,5 +1,6 @@
 <RCC>
     <qresource>
-        <file>learn_english_background.png</file>
+        <file>Learn-English.png</file>
+        <file>Learn-English-Icon.png</file>
     </qresource>
 </RCC>

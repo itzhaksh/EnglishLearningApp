@@ -6,12 +6,15 @@
 #include <QList>
 #include <QGridLayout>
 #include <QPushButton>
+#include <Qlabel>
 
 class MemoryGame : public QMainWindow {
     Q_OBJECT
 public:
     explicit MemoryGame(const QString& jsonFilePath, QWidget* parent = nullptr);
 
+signals:
+    void memoryGameFinished(int score);
 
 private slots:
     void handleCardClick();
@@ -20,11 +23,15 @@ private slots:
     void setButtonStyle(QPushButton* button, const QString& color);
     void handleMismatch(QPushButton* firstButton, QPushButton* secondButton);
     void handleMatch(QPushButton* firstButton, QPushButton* secondButton);
+    void saveScore(const QString& gameType, int score);
 
 private:
     void loadWords(const QString& level);
     void initializeUI();
     void setupGameBoard();
+    void filterUsedWords(QList<QString>& words);
+    void saveUsedWords(const QList<QString>& words);
+
     QMap<QString, QString> wordsMap;
     QList<QString> englishWords;
 
@@ -34,6 +41,8 @@ private:
     QList<QPushButton*> hebrewButtons;
     QString jsonFilePath;
     QPushButton* firstSelectedButton = nullptr;
+    QLabel* imageLabel;
     int matchedPairs = 0;
 };
-#endif
+
+#endif // MEMORY_GAME_H

@@ -5,50 +5,87 @@
 #include <QJsonObject>
 #include <QDebug>
 #include <QMessageBox>
-
+#include <QScreen>
+#include <QGuiApplication>
+#include <QPainter>
 
 PracticeWindow::PracticeWindow(const QString& jsonFile, QWidget* parent)
     : QMainWindow(parent), currentIndex(0), textToSpeech(new QTextToSpeech(this)) {
+    setWindowTitle("תרגול אנגלית");
+
+    QIcon windowIcon(":/Learn-English-Icon.png");
+    setWindowIcon(windowIcon);
+
     QWidget* centralWidget = new QWidget(this);
     setCentralWidget(centralWidget);
 
-    centralWidget->setStyleSheet("background-color: #F7F7F7;");
-    QVBoxLayout* layout = new QVBoxLayout(centralWidget);
+    QVBoxLayout* mainLayout = new QVBoxLayout(centralWidget);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    englishWordLabel = new QLabel("English Word", centralWidget);
-    englishWordLabel->setStyleSheet("font-size: 38px; color: #7f5af0; font-weight: bold;");
+    QLabel* imageLabel = new QLabel(centralWidget);
+    imageLabel->setScaledContents(true);
+    imageLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    QPixmap pixmap(":/Learn-English.png");
+    QImage image = pixmap.toImage();
+    QImage transparentImage(image.size(), QImage::Format_ARGB32);
+    transparentImage.fill(Qt::transparent);
+    QPainter painter(&transparentImage);
+    painter.setOpacity(0.6);
+    painter.drawImage(0, 0, image);
+    painter.end();
+    QPixmap transparentPixmap = QPixmap::fromImage(transparentImage);
+    imageLabel->setPixmap(transparentPixmap.scaled(600, 400, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation));
+    imageLabel->setFixedSize(600, 400);
+    imageLabel->setGeometry(0, 0, 600, 400);
+    imageLabel->lower();
+
+    QWidget* contentWidget = new QWidget(centralWidget);
+    contentWidget->setStyleSheet("background: transparent;");
+    QVBoxLayout* contentLayout = new QVBoxLayout(contentWidget);
+    contentLayout->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter); 
+
+    QString wordBoxStyle =
+        "QLabel {"
+        "   background-color: #ebbf00;" 
+        "   color: black;"
+        "   font-size: 24px;" 
+        "   padding: 10px;"
+        "   border-radius: 8px;" 
+        "   font-weight: bold;"
+        "}";
+
+    englishWordLabel = new QLabel("מילה באנגלית", this);
+    englishWordLabel->setStyleSheet(wordBoxStyle);
     englishWordLabel->setAlignment(Qt::AlignCenter);
-    layout->addWidget(englishWordLabel);
+    englishWordLabel->setFixedSize(300, 60); 
+    contentLayout->addWidget(englishWordLabel, 0, Qt::AlignHCenter); 
 
-    hebrewTranslationLabel = new QLabel("תרגום לעברית", centralWidget);
-    hebrewTranslationLabel->setStyleSheet("font-size: 38px; color: #7f5af0; font-weight: bold;");
+    hebrewTranslationLabel = new QLabel("תרגום לעברית", this);
+    hebrewTranslationLabel->setStyleSheet(wordBoxStyle);
     hebrewTranslationLabel->setAlignment(Qt::AlignCenter);
-    layout->addWidget(hebrewTranslationLabel);
+    hebrewTranslationLabel->setFixedSize(300, 60);
+    contentLayout->addWidget(hebrewTranslationLabel, 0, Qt::AlignHCenter); 
 
-    playSoundButton = new QPushButton("🔊 Play Sound", centralWidget);
-    nextButton = new QPushButton("Next", centralWidget);
-    prevButton = new QPushButton("Prev", centralWidget);
-    backButton = new QPushButton("Back", centralWidget);
-
+    playSoundButton = new QPushButton("🔊 השמע שוב", this);
+    nextButton = new QPushButton("הבא", this);
+    prevButton = new QPushButton("קודם", this);
+    backButton = new QPushButton("חזרה", this);
 
     QString buttonStyle =
         "QPushButton {"
-        "   background-color: #7f5af0;"
-        "   color: white;"
+        "   background-color: #ebbf00;"
+        "   color: black;" 
         "   font-size: 16px;"
         "   padding: 10px;"
-        "   border: 4px solid white;"
-        "   border-radius: 5px;"
-        "}"
-        "QPushButton:hover {"
-        "   background-color: #4A90E2;"
-        "   border: 2px solid white;"
+        "   border-radius: 8px;" 
         "   font-weight: bold;"
         "}"
+        "QPushButton:hover {"
+        "   background-color: #f5d33f;" 
+        "}"
         "QPushButton:pressed {"
-        "   background-color: green;"
-        "   border: 2px solid white;"
-        "   padding: 11px 9px 9px 11px;"
+        "   background-color: #ebbf00;" 
         "}";
 
     playSoundButton->setStyleSheet(buttonStyle);
@@ -57,31 +94,39 @@ PracticeWindow::PracticeWindow(const QString& jsonFile, QWidget* parent)
     backButton->setStyleSheet(buttonStyle);
 
     QHBoxLayout* buttonLayout = new QHBoxLayout();
-
     buttonLayout->addWidget(backButton);
     buttonLayout->addWidget(prevButton);
     buttonLayout->addWidget(nextButton);
     buttonLayout->addWidget(playSoundButton);
 
-    layout->addLayout(buttonLayout);
+    contentLayout->addLayout(buttonLayout);
+
+    mainLayout->addWidget(contentWidget);
+
+    resize(600, 400);
+
+    QScreen* screen = QGuiApplication::primaryScreen();
+    if (screen) {
+        QRect screenGeometry = screen->geometry();
+        int x = (screenGeometry.width() - this->width()) / 2;
+        int y = (screenGeometry.height() - this->height()) / 2;
+        this->move(x, y);
+    }
 
     connect(nextButton, &QPushButton::clicked, this, &PracticeWindow::nextWord);
     connect(prevButton, &QPushButton::clicked, this, &PracticeWindow::prevWord);
     connect(playSoundButton, &QPushButton::clicked, this, &PracticeWindow::playSound);
     connect(backButton, &QPushButton::clicked, this, &PracticeWindow::goBack);
 
-
     loadWords(jsonFile);
     updateDisplay();
     playSound();
-    resize(400, 400);
-    setWindowTitle("Practice English");
 }
 
 PracticeWindow::~PracticeWindow() {}
 
 void PracticeWindow::loadWords(const QString& jsonFile) {
-    QString filePath = QString("resources/%1").arg(jsonFile);  
+    QString filePath = QString("resources/%1").arg(jsonFile);
     qDebug() << "Trying to open dictionary file:" << filePath;
 
     QFile file(filePath);
@@ -105,7 +150,6 @@ void PracticeWindow::loadWords(const QString& jsonFile) {
     }
     file.close();
 }
-
 
 void PracticeWindow::updateDisplay() {
     if (englishWords.isEmpty() || currentIndex < 0 || currentIndex >= englishWords.size())
@@ -151,10 +195,9 @@ void PracticeWindow::playSound() {
     }
 }
 
-
 void PracticeWindow::goBack() {
     if (parentWidget()) {
         parentWidget()->show();
     }
-    this->close();  
+    this->close();
 }

@@ -1,6 +1,9 @@
 #include "DifficultyWindow.h"
 #include <QVBoxLayout>
 #include <QWidget>
+#include <QScreen>
+#include <QGuiApplication>
+#include <QPainter>
 
 DifficultyWindow::DifficultyWindow(const QString& mode, QWidget* parent)
     : QMainWindow(parent)
@@ -14,43 +17,66 @@ DifficultyWindow::~DifficultyWindow() {}
 
 void DifficultyWindow::setupUI()
 {
+    setWindowTitle("בחירת רמה");
+
+    QIcon windowIcon(":/Learn-English-Icon.png");
+    setWindowIcon(windowIcon);
+
     QWidget* centralWidget = new QWidget(this);
     setCentralWidget(centralWidget);
-    centralWidget->setStyleSheet("background-color: #F7F7F7;");
 
-    QVBoxLayout* layout = new QVBoxLayout(centralWidget);
-    layout->setAlignment(Qt::AlignCenter);
+    QVBoxLayout* mainLayout = new QVBoxLayout(centralWidget);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    QLabel* titleLabel = new QLabel("Select Level", this);
-    titleLabel->setStyleSheet("font-size: 24px; color: #4A90E2; font-weight: bold;");
+    QLabel* imageLabel = new QLabel(centralWidget);
+    imageLabel->setScaledContents(true);
+    imageLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    QPixmap pixmap(":/Learn-English.png");
+    QImage image = pixmap.toImage();
+    QImage transparentImage(image.size(), QImage::Format_ARGB32);
+    transparentImage.fill(Qt::transparent);
+    QPainter painter(&transparentImage);
+    painter.setOpacity(0.6);
+    painter.drawImage(0, 0, image);
+    painter.end();
+    QPixmap transparentPixmap = QPixmap::fromImage(transparentImage);
+    imageLabel->setPixmap(transparentPixmap.scaled(600, 400, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation));
+    imageLabel->setFixedSize(600, 400);
+    imageLabel->setGeometry(0, 0, 600, 400);
+    imageLabel->lower();
+
+    QWidget* contentWidget = new QWidget(centralWidget);
+    contentWidget->setStyleSheet("background: transparent;");
+    QVBoxLayout* contentLayout = new QVBoxLayout(contentWidget);
+    contentLayout->setAlignment(Qt::AlignCenter);
+
+    QLabel* titleLabel = new QLabel("בחר רמה", this);
+    titleLabel->setStyleSheet("font-size: 24px; color:rgb(16, 16, 13); font-weight: bold;");
     titleLabel->setAlignment(Qt::AlignCenter);
 
     QString buttonStyle =
         "QPushButton {"
-        "   background-color: #7f5af0;"
-        "   color: white;"
+        "   background-color: #f1c70c;" 
+        "   color: black;" 
         "   font-size: 16px;"
         "   padding: 10px;"
-        "   border: 4px solid white;"
-        "   border-radius: 5px;"
-        "}"
-        "QPushButton:hover {"
-        "   background-color: #4A90E2;"
-        "   border: 2px solid white;"
+        "   border-radius: 8px;" 
         "   font-weight: bold;"
         "}"
+        "QPushButton:hover {"
+        "   background-color: #f5d33f;"
+        "}"
         "QPushButton:pressed {"
-        "   background-color: green;"
-        "   border: 2px solid white;"
-        "   padding: 11px 9px 9px 11px;"
+        "   background-color: #f1c70c;"
         "}";
 
-    btnLevel1 = new QPushButton("Level 1", this);
-    btnLevel2 = new QPushButton("Level 2", this);
-    btnLevel3 = new QPushButton("Level 3", this);
-    btnLevel4 = new QPushButton("Level 4", this);
-    btnLevel5 = new QPushButton("Level 5", this);
-    btnBack = new QPushButton("Back", this);
+    btnLevel1 = new QPushButton("רמה 1", this);
+    btnLevel2 = new QPushButton("רמה 2", this);
+    btnLevel3 = new QPushButton("רמה 3", this);
+    btnLevel4 = new QPushButton("רמה 4", this);
+    btnLevel5 = new QPushButton("רמה 5", this);
+    btnBack = new QPushButton("חזור", this);
 
     btnLevel1->setStyleSheet(buttonStyle);
     btnLevel2->setStyleSheet(buttonStyle);
@@ -59,13 +85,25 @@ void DifficultyWindow::setupUI()
     btnLevel5->setStyleSheet(buttonStyle);
     btnBack->setStyleSheet(buttonStyle);
 
-    layout->addWidget(titleLabel);
-    layout->addWidget(btnLevel1);
-    layout->addWidget(btnLevel2);
-    layout->addWidget(btnLevel3);
-    layout->addWidget(btnLevel4);
-    layout->addWidget(btnLevel5);
-    layout->addWidget(btnBack);
+    contentLayout->addWidget(titleLabel);
+    contentLayout->addWidget(btnLevel1);
+    contentLayout->addWidget(btnLevel2);
+    contentLayout->addWidget(btnLevel3);
+    contentLayout->addWidget(btnLevel4);
+    contentLayout->addWidget(btnLevel5);
+    contentLayout->addWidget(btnBack);
+
+    mainLayout->addWidget(contentWidget);
+
+    resize(600, 400);
+
+    QScreen* screen = QGuiApplication::primaryScreen();
+    if (screen) {
+        QRect screenGeometry = screen->geometry();
+        int x = (screenGeometry.width() - this->width()) / 2;
+        int y = (screenGeometry.height() - this->height()) / 2;
+        this->move(x, y);
+    }
 
     connect(btnLevel1, &QPushButton::clicked, this, [=]() { openLevel(1); });
     connect(btnLevel2, &QPushButton::clicked, this, [=]() { openLevel(2); });
@@ -73,9 +111,6 @@ void DifficultyWindow::setupUI()
     connect(btnLevel4, &QPushButton::clicked, this, [=]() { openLevel(4); });
     connect(btnLevel5, &QPushButton::clicked, this, [=]() { openLevel(5); });
     connect(btnBack, &QPushButton::clicked, this, &DifficultyWindow::close);
-
-    resize(400, 500);
-    setWindowTitle("Level Selection");
 }
 
 void DifficultyWindow::openLevel(int level)
@@ -87,12 +122,13 @@ void DifficultyWindow::openLevel(int level)
     }
     else if (gameMode == "Memory") {
         openMemoryGame(level);
+        this->hide();
     }
     else if (gameMode == "Practice") {
         openPracticeWindow(level);
     }
 
-    this->hide();
+    this->hide(); 
 }
 
 void DifficultyWindow::openMemoryGame(int level)

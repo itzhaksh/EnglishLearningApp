@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.16)
 project(EnglishLearningApp VERSION 0.1 LANGUAGES CXX)
 
-# Add the Qt CMake directory to module path
-list(APPEND CMAKE_MODULE_PATH "C:/Qt/6.8.1/android_x86_64/lib/cmake/Qt6/platforms")
+# Set the Qt installation directory so CMake can find Qt6Config.cmake
+set(CMAKE_PREFIX_PATH "C:/Qt/6.8.2/msvc2022_64")
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -14,13 +14,12 @@ if(MSVC)
     add_compile_options("/utf-8")
 endif()
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Multimedia TextToSpeech)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Multimedia TextToSpeech)
+find_package(Qt6 REQUIRED COMPONENTS Widgets Multimedia TextToSpeech)
 
 # Explicitly add PlatformGraphics find module
 find_package(PlatformGraphics QUIET)
 
-include_directories(${CMAKE_SOURCE_DIR}/include)
+include_directories(${CMAKE_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR}/src)
 
 set(PROJECT_SOURCES
     main.cpp
@@ -35,14 +34,19 @@ set(PROJECT_SOURCES
     MainWindow.ui
     src/MemoryGame.cpp
     include/MemoryGame.h
+    src/UserNameDialog.h
+    src/UserNameDialog.cpp
+    src/StatsTableWidget.cpp
+    src/StatsTableWidget.h
     ${CMAKE_SOURCE_DIR}/resources/resources.qrc
 )
 
-if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+if(QT_VERSION_MAJOR EQUAL 6)
     qt_add_executable(EnglishLearningApp
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
     )
+    qt_finalize_executable(EnglishLearningApp)
 else()
     add_executable(EnglishLearningApp
         ${PROJECT_SOURCES}
@@ -50,11 +54,10 @@ else()
 endif()
 
 target_link_libraries(EnglishLearningApp PRIVATE
-    Qt${QT_VERSION_MAJOR}::Widgets
-    Qt${QT_VERSION_MAJOR}::Multimedia
-    Qt${QT_VERSION_MAJOR}::TextToSpeech
+    Qt6::Widgets
+    Qt6::Multimedia
+    Qt6::TextToSpeech
 )
-
 
 set_target_properties(EnglishLearningApp PROPERTIES
     MACOSX_BUNDLE TRUE
@@ -68,13 +71,10 @@ install(TARGETS EnglishLearningApp
 )
 foreach(LEVEL RANGE 1 5)
     configure_file(${CMAKE_SOURCE_DIR}/resources/dictionary_level${LEVEL}.json
-                  ${CMAKE_BINARY_DIR}/resources/dictionary_level${LEVEL}.json 
+                  ${CMAKE_BINARY_DIR}/resources/dictionary_level${LEVEL}.json
                   COPYONLY)
 endforeach()
 
-file(COPY ${CMAKE_SOURCE_DIR}/resources/learn_english_background.png
+file(COPY ${CMAKE_SOURCE_DIR}/resources/Learn-English.png
+${CMAKE_SOURCE_DIR}/resources/Learn-English-Icon.png
     DESTINATION ${CMAKE_BINARY_DIR}/resources)
-
-if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(EnglishLearningApp)
-endif()

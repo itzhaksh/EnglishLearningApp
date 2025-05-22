@@ -17,12 +17,17 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+protected:
+    void showEvent(QShowEvent* event) override;
+
 private slots:
     void openHebrewMode();
     void openEnglishMode();
     void openPracticeWindow();
 	void openMemoryGame();
+    void openScoreTable();
     void exit();
+    void updateStatsTable(int score); 
 private:
     DifficultyWindow* difficultyWindow;
     QPushButton *btnExit;

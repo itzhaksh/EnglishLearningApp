@@ -10,6 +10,8 @@
 #include <QRegularExpression>
 #include <QGuiApplication>
 #include <QInputMethod>
+#include <QPainter>
+#include <QScreen>
 
 GameWindow::GameWindow(const QString& mode, const QString& level, QWidget* parent)
     : QMainWindow(parent),
@@ -19,8 +21,7 @@ GameWindow::GameWindow(const QString& mode, const QString& level, QWidget* paren
     currentWordCount(0),
     tts(new QTextToSpeech(this)),
     voiceButtonGroup(new QButtonGroup(this)),
-    showAnswerButton(new QPushButton("Show Answer", this))
-
+    showAnswerButton(new QPushButton("הראה תשובה", this)) 
 {
     if (mode == "English") {
         voiceLayout = new QHBoxLayout();
@@ -53,33 +54,61 @@ GameWindow::~GameWindow() {}
 
 void GameWindow::setupUI()
 {
+    setWindowTitle("Translation Game");
+
+    QIcon windowIcon(":/Learn-English-Icon.png");
+    setWindowIcon(windowIcon);
+
     QWidget* centralWidget = new QWidget(this);
     setCentralWidget(centralWidget);
-    centralWidget->setStyleSheet("background-color: #F7F7F7;");
 
-    QVBoxLayout* layout = new QVBoxLayout(centralWidget);
+    QVBoxLayout* mainLayout = new QVBoxLayout(centralWidget);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    QLabel* imageLabel = new QLabel(centralWidget);
+    imageLabel->setScaledContents(true);
+    imageLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    QPixmap pixmap(":/Learn-English.png");
+    QImage image = pixmap.toImage();
+    QImage transparentImage(image.size(), QImage::Format_ARGB32);
+    transparentImage.fill(Qt::transparent);
+    QPainter painter(&transparentImage);
+    painter.setOpacity(0.3);
+    painter.drawImage(0, 0, image);
+    painter.end();
+    QPixmap transparentPixmap = QPixmap::fromImage(transparentImage);
+    imageLabel->setPixmap(transparentPixmap.scaled(600, 400, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation));
+    imageLabel->setFixedSize(600, 400);
+    imageLabel->setGeometry(0, 0, 600, 400);
+    imageLabel->lower();
+
+    QWidget* contentWidget = new QWidget(centralWidget);
+    contentWidget->setStyleSheet("background: transparent;");
+    QVBoxLayout* contentLayout = new QVBoxLayout(contentWidget);
 
     QFont labelFont("Arial", 14, QFont::Bold);
     QFont buttonFont("Arial", 12);
 
     labelQuestion = new QLabel(this);
     labelQuestion->setFont(labelFont);
-    labelQuestion->setStyleSheet("color: white;");
+    labelQuestion->setStyleSheet("color: black;");
+    labelQuestion->setAlignment(Qt::AlignCenter);
 
     labelFeedback = new QLabel(this);
     labelFeedback->setFont(labelFont);
-    labelFeedback->setStyleSheet("color: white;");
+    labelFeedback->setStyleSheet("color: black;");
 
     labelScore = new QLabel("Score: 0", this);
     labelScore->setFont(labelFont);
-    labelScore->setStyleSheet("color: #4A90E2");
+    labelScore->setStyleSheet("color: black;");
 
     lineEditAnswer = new QLineEdit(this);
     lineEditAnswer->setFont(labelFont);
     lineEditAnswer->setStyleSheet(
         "QLineEdit {"
-        "   background-color: #7f5af0;"
-        "   color: white;"
+        "   background-color: rgba(255, 255, 255, 0.8);"
+        "   color: black;"
         "   border: 1px solid white;"
         "   padding: 10px;"
         "}"
@@ -87,37 +116,33 @@ void GameWindow::setupUI()
 
     QString buttonStyle =
         "QPushButton {"
-        "   background-color: #7f5af0;"
-        "   color: white;"
+        "   background-color: #f1c70c;"
+        "   color: black;"
         "   font-size: 16px;"
         "   padding: 10px;"
-        "   border: 4px solid white;"
-        "   border-radius: 5px;"
-        "}"
-        "QPushButton:hover {"
-        "   background-color: #4A90E2;"
-        "   border: 2px solid white;"
+        "   border-radius: 8px;"
         "   font-weight: bold;"
         "}"
+        "QPushButton:hover {"
+        "   background-color: #f5d33f;"
+        "}"
         "QPushButton:pressed {"
-        "   background-color: green;"
-        "   border: 2px solid white;"
-        "   padding: 11px 9px 9px 11px;"
+        "   background-color: #f5d33f;"
         "}";
 
-    btnAudio = new QPushButton("🔊 Play Word", this);
+    btnAudio = new QPushButton("🔊 השמע שוב", this); 
     btnAudio->setFont(buttonFont);
     btnAudio->setStyleSheet(buttonStyle);
 
-    btnCheck = new QPushButton("Check Answer", this);
+    btnCheck = new QPushButton("בדוק תשובה", this); 
     btnCheck->setFont(buttonFont);
     btnCheck->setStyleSheet(buttonStyle);
 
-    btnClose = new QPushButton("Close", this);
+    btnClose = new QPushButton("סגור", this); 
     btnClose->setFont(buttonFont);
     btnClose->setStyleSheet(buttonStyle);
 
-    layout->addWidget(labelQuestion);
+    contentLayout->addWidget(labelQuestion);
 
     QFrame* frame = new QFrame(this);
     frame->setFrameStyle(QFrame::Box | QFrame::Raised);
@@ -125,38 +150,46 @@ void GameWindow::setupUI()
     QVBoxLayout* frameLayout = new QVBoxLayout(frame);
     frameLayout->addWidget(lineEditAnswer);
     frameLayout->setContentsMargins(5, 5, 5, 5);
-    layout->addWidget(frame);
+    contentLayout->addWidget(frame);
 
     lineEditAnswer->setPlaceholderText(mode == "Hebrew" ?
         "הקלד את התרגום..." :
         "Type your translation here...");
 
-    layout->addWidget(btnCheck);
-    layout->addWidget(btnAudio);
+    contentLayout->addWidget(btnCheck);
+    contentLayout->addWidget(btnAudio);
     voiceLayout->addWidget(showAnswerButton);
-    showAnswerButton->setFont(buttonFont); 
-    showAnswerButton->setStyleSheet(buttonStyle); 
-    layout->addWidget(labelFeedback);
-    layout->addWidget(labelScore);
+    showAnswerButton->setFont(buttonFont);
+    showAnswerButton->setStyleSheet(buttonStyle);
+    contentLayout->addWidget(labelFeedback);
+    contentLayout->addWidget(labelScore);
 
-    layout->addLayout(voiceLayout);
-    layout->addWidget(btnClose);
+    contentLayout->addLayout(voiceLayout);
+    contentLayout->addWidget(btnClose);
+
+    mainLayout->addWidget(contentWidget);
+
+    resize(600, 400);
+
+    QScreen* screen = QGuiApplication::primaryScreen();
+    if (screen) {
+        QRect screenGeometry = screen->geometry();
+        int x = (screenGeometry.width() - this->width()) / 2;
+        int y = (screenGeometry.height() - this->height()) / 2;
+        this->move(x, y);
+    }
 
     connect(btnAudio, &QPushButton::clicked, this, &GameWindow::playAudio);
     connect(btnClose, &QPushButton::clicked, this, &GameWindow::close);
     connect(lineEditAnswer, &QLineEdit::textChanged, this, &GameWindow::checkKeyboardLanguage);
     connect(showAnswerButton, &QPushButton::clicked, this, &GameWindow::revealAnswer);
-
-    resize(400, 300);
-    setWindowTitle("Translation Game");
-    setStyleSheet("QMainWindow { background-color: #7f5af0; }");
 }
 
 void GameWindow::updateVoiceButtons()
 {
     QLayoutItem* child;
     while ((child = voiceLayout->takeAt(0)) != nullptr) {
-        if (child->widget() && child->widget() != showAnswerButton) { 
+        if (child->widget() && child->widget() != showAnswerButton) {
             delete child->widget();
         }
         delete child;
@@ -196,22 +229,18 @@ void GameWindow::updateVoiceButtons()
 
     QString voiceButtonStyle =
         "QPushButton {"
-        "   background-color: #7f5af0;"
-        "   color: white;"
+        "   background-color: #f1c70c;"
+        "   color: black;"
         "   font-size: 14px;"
         "   padding: 8px;"
-        "   border: 2px solid white;"
-        "   border-radius: 5px;"
-        "}"
-        "QPushButton:hover {"
-        "   background-color: #4A90E2;"
-        "   border: 1px solid white;"
+        "   border-radius: 8px;"
         "   font-weight: bold;"
         "}"
+        "QPushButton:hover {"
+        "   background-color: #f5d33f;"
+        "}"
         "QPushButton:pressed {"
-        "   background-color: green;"
-        "   border: 2px solid white;"
-        "   padding: 9px 7px 7px 9px;"
+        "   background-color: #f5d33f;"
         "}";
 
     for (int i = 0; i < voices.size(); ++i) {
@@ -229,7 +258,7 @@ void GameWindow::updateVoiceButtons()
 
         connect(btnVoice, &QPushButton::clicked, this, [=]() {
             selectVoice(i);
-            });
+        });
     }
 
     if (!voiceButtonGroup->buttons().isEmpty()) {
@@ -247,7 +276,7 @@ void GameWindow::revealAnswer()
         labelFeedback->setText(QString("The answer is: %1").arg(correctAnswer));
     }
     labelFeedback->setStyleSheet(
-        "color: #7f5af0;"
+        "color: black;"
         "font-weight: bold;"
         "font-size: 18px;"
     );
@@ -318,11 +347,11 @@ void GameWindow::setupQuestion()
     }
 
     labelQuestion->setStyleSheet(
-        "color: white;"
+        "color: black;"
         "border: 3px solid white;"
         "padding: 15px;"
         "font-size: 26px;"
-        "background-color: #7f5af0;"
+        "background-color: rgba(255, 255, 255, 0.5);"
         "border-radius: 10px;"
     );
     labelQuestion->setAlignment(Qt::AlignCenter);
@@ -347,7 +376,7 @@ void GameWindow::checkAnswer()
         labelFeedback->setText("Please enter the translation");
         labelFeedback->setStyleSheet(
             "font: Yu Mincho Light;"
-            "color: #7f5af0;"
+            "color: black;"
             "font-size: 18px;"
             "font-weight: bold;"
             "text-shadow: 2px 2px #ff0000;"
@@ -360,7 +389,7 @@ void GameWindow::checkAnswer()
     {
         labelFeedback->setText("Correct!");
         labelFeedback->setStyleSheet(
-            "color: #7f5af0;"
+            "color: black;"
             "font-weight: bold;"
             "font-size: 18px;"
         );
@@ -368,7 +397,7 @@ void GameWindow::checkAnswer()
         labelScore->setText(QString("Score: %1").arg(score));
         labelScore->setStyleSheet(
             "font-size: 22px;"
-            "color: #4A90E2;"
+            "color: black;"
         );
         currentWordCount++;
         if (currentWordCount >= dictionary.count()) {
@@ -388,7 +417,7 @@ void GameWindow::checkAnswer()
         labelFeedback->setText("Incorrect. Try again!");
         labelFeedback->setStyleSheet(
             "font: Arial;"
-            "color: #FF0000;"
+            "color: black;"
             "font-size: 18px;"
         );
     }
@@ -417,7 +446,7 @@ void GameWindow::checkKeyboardLanguage()
                 "Please switch to English keyboard" :
                 "נא החלף למקלדת עברית");
             labelFeedback->setStyleSheet(
-                "color: #4A90E2;"
+                "color: black;"
                 "font-size: 16px;"
                 "font-weight: bold;"
             );
