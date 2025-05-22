@@ -1,7 +1,7 @@
 # 🎓 Learn English - Interactive Learning Application
 
 <p align="center">
-  <img src="resources/LearnEnglish.png" alt="Learn English App">
+  <img src="resources/Learn_English.png" alt="Learn English App">
 </p>
 
 ## 📝 Overview
