@@ -16,33 +16,26 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Install aqtinstall
+    - name: Install aqtinstall and get its path
+      id: install_aqt
       run: |
-        # Use the full path to the Python executable used by the install-qt-action
-        $python_path = "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe"  # ADJUST IF NECESSARY!
-        & $python_path -m pip install aqtinstall==3.2.*
+        # Define the base Python path based on your runner's environment
+        $python_base_path = "C:\hostedtoolcache\windows\Python\3.12.10\x64"
+        $python_exe_path = Join-Path $python_base_path "python.exe"
+        $aqt_scripts_path = Join-Path $python_base_path "Scripts"
+        $aqt_exe_path = Join-Path $aqt_scripts_path "aqt.exe"
 
-        # Verify that aqt is installed and accessible
-        $aqt_path = Get-Command aqt -ErrorAction SilentlyContinue
-        if ($aqt_path) {
-          Write-Host "aqt installed successfully at $($aqt_path.Source)"
+        Write-Host "Installing aqtinstall using $python_exe_path"
+        & $python_exe_path -m pip install aqtinstall==3.2.*
+
+        # Verify that aqt.exe exists at the expected location
+        if (Test-Path $aqt_exe_path) {
+          Write-Host "aqt.exe found at $aqt_exe_path. Installation successful."
+          # Set the full path to aqt.exe as an output variable for later steps
+          echo "AQT_EXECUTABLE_PATH=$aqt_exe_path" >> $env:GITHUB_OUTPUT
         } else {
-          Write-Error "aqt installation failed.  Check the logs."
+          Write-Error "aqt.exe not found at $aqt_exe_path after installation. Check pip logs for errors."
           exit 1
-        }
-      shell: powershell
-
-    - name: Find aqt path
-      id: find_aqt
-      run: |
-        # This will attempt to find the aqt executable and set the path as an output variable
-        $aqt_path = Get-Command aqt -ErrorAction SilentlyContinue
-        if ($aqt_path) {
-          echo "AQT_PATH=$($aqt_path.Source)" >> $env:GITHUB_OUTPUT
-          echo "AQT found at $($aqt_path.Source)"
-        } else {
-          echo "AQT not found.  Check the logs."
-          exit 1 # Stop the workflow if aqt is not found
         }
       shell: powershell
 
@@ -54,36 +47,42 @@ jobs:
         target: 'desktop'
         arch: 'win64_msvc2022_64'
         dir: '${{ runner.temp }}/qt'
-        modules: 'qtbase qtdeclarative qtmultimedia qttexttospeech'
+        modules: 'qtbase qtdeclarative qtmultimedia qttexttospeech' # <<< REMEMBER TO ADJUST THIS AFTER FIRST RUN!
 
     - name: List available Qt modules
       id: qt_modules
       run: |
-        # Use the aqt path found in the previous step
-        $aqt_path = "${{ steps.find_aqt.outputs.AQT_PATH }}"
+        # Use the full path to aqt.exe found in the previous step
+        $aqt_path = "${{ steps.install_aqt.outputs.AQT_EXECUTABLE_PATH }}"
         if (-not $aqt_path) {
-          Write-Error "AQT_PATH is not set.  Something went wrong finding aqt."
+          Write-Error "AQT_EXECUTABLE_PATH is not set. Something went wrong getting aqt path."
           exit 1
         }
 
-        # Capture and process the output from aqt list-qt
+        Write-Host "Listing Qt modules using $aqt_path"
         $modules_output = & $aqt_path list-qt windows desktop --modules 6.8.2 win64_msvc2022_64
 
-        # Ensure that the command executed successfully
         if ($LASTEXITCODE -ne 0) {
             Write-Error "aqt list-qt command failed with exit code $LASTEXITCODE"
             exit 1
         }
 
-        # Capture all the output to AVAILABLE_MODULES (for debugging purposes).  You might want to log or examine this output.
+        # Output the list of modules for debugging
         echo "AVAILABLE_MODULES=$modules_output" >> $env:GITHUB_OUTPUT
+        Write-Host "Available Modules Output:"
+        Write-Host $modules_output
       shell: powershell
 
-    - name: Adjust Qt Modules (Manual Step - Inspect output of previous step)
+    - name: Adjust Qt Modules (Manual Action Required)
       run: |
-          Write-Host "Please examine the output of the 'List available Qt modules' step."
-          Write-Host "Then adjust the 'Install Qt' step's modules list based on what's actually available."
-          Write-Host "Workflow will continue, assuming the modules are now correct, but the build may fail if they aren't."
+          Write-Host "*************************************************************************"
+          Write-Host "  ACTION REQUIRED: MANUAL ADJUSTMENT OF QT MODULES LIST                 "
+          Write-Host "  Please review the 'Available Modules Output:' above.                  "
+          Write-Host "  Then, edit this workflow file and update the 'modules' line in the    "
+          Write-Host "  'Install Qt' step to include ONLY the modules that are actually available. "
+          Write-Host "  For example, if 'qttexttospeech' is not listed, remove it.            "
+          Write-Host "  After adjusting, re-run the workflow.                                 "
+          Write-Host "*************************************************************************"
       shell: powershell
 
     - name: Set up MSVC
