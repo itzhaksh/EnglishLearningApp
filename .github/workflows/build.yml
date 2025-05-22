@@ -16,6 +16,22 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
+    - name: Install aqtinstall
+      run: |
+        # Use the full path to the Python executable used by the install-qt-action
+        $python_path = "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe"  # ADJUST IF NECESSARY!
+        & $python_path -m pip install aqtinstall==3.2.*
+
+        # Verify that aqt is installed and accessible
+        $aqt_path = Get-Command aqt -ErrorAction SilentlyContinue
+        if ($aqt_path) {
+          Write-Host "aqt installed successfully at $($aqt_path.Source)"
+        } else {
+          Write-Error "aqt installation failed.  Check the logs."
+          exit 1
+        }
+      shell: powershell
+
     - name: Find aqt path
       id: find_aqt
       run: |
@@ -25,7 +41,7 @@ jobs:
           echo "AQT_PATH=$($aqt_path.Source)" >> $env:GITHUB_OUTPUT
           echo "AQT found at $($aqt_path.Source)"
         } else {
-          echo "AQT not found.  Install it first."
+          echo "AQT not found.  Check the logs."
           exit 1 # Stop the workflow if aqt is not found
         }
       shell: powershell
