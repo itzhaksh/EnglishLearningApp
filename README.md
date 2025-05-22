@@ -1,5 +1,9 @@
 # 🎓 Learn English - Interactive Learning Application
 
+<p align="center">
+  <img src="resources/LearnEnglish.png" alt="Learn English App">
+</p>
+
 ## 📝 Overview
 
 **Learn English** is an interactive learning application built with C++ and the Qt Framework.  
@@ -115,7 +119,3 @@ For the best experience, the application works optimally with Microsoft's Englis
 For questions or suggestions, feel free to reach out at **[itzhakshif@gmail.com](mailto:itzhakshif@gmail.com)**.
 
 This application provides a **comprehensive** learning experience for Hebrew speakers looking to improve their **English vocabulary and pronunciation** through interactive games and exercises.
-
-cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS=-DQT_QML_DEBUG -DCMAKE_PREFIX_PATH=C:/Qt/6.8.2/msvc2022_64 -S . -B out/build/debug -G Ninja
-
-cmake --build out/build/debug --config Debug
