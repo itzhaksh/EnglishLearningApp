@@ -17,11 +17,12 @@ jobs:
       uses: actions/checkout@v3
 
     # --- Step 1: Ensure aqtinstall is installed and find its executable path ---
+    # This step is critical to make sure 'aqt' is available for use.
     - name: Ensure aqtinstall is installed and find its executable path
       id: find_aqt_exe
       run: |
         # Determine the Python executable path used by the runner
-        # BASED ON YOUR LATEST LOGS, Python is 3.11.9 here. Adjust if it changes again.
+        # BASED ON YOUR LATEST LOGS, Python is 3.11.9 here. Adjust if it changes again!
         $python_base_path = "C:\hostedtoolcache\windows\Python\3.11.9\x64"
         $python_exe_path = Join-Path $python_base_path "python.exe"
         $aqt_scripts_dir = Join-Path $python_base_path "Scripts"
@@ -31,9 +32,8 @@ jobs:
         Write-Host "Expected aqt.exe path: $aqt_exe_path"
 
         # Install aqtinstall specifically for this Python environment
-        # Using 3.2.* as it's the latest recommended, even if jurplel action pulls 3.1.*
         Write-Host "Installing aqtinstall..."
-        & $python_exe_path -m pip install aqtinstall==3.2.*
+        & $python_exe_path -m pip install aqtinstall==3.2.* # Sticking to 3.2.* for consistency
         
         # Verify aqt.exe exists at the derived path
         if (Test-Path $aqt_exe_path) {
@@ -46,21 +46,9 @@ jobs:
         }
       shell: powershell
 
-    # --- Step 2: Attempt to install Qt (this will likely fail on first run) ---
-    - name: Install Qt (Initial Attempt - likely to fail on modules)
-      uses: jurplel/install-qt-action@v3
-      with:
-        version: '6.8.2'
-        host: 'windows'
-        target: 'desktop'
-        arch: 'win64_msvc2022_64'
-        dir: '${{ runner.temp }}/qt'
-        # <<< CRITICAL: YOU MUST MANUALLY ADJUST THIS LINE AFTER THE FIRST RUN! >>>
-        # Based on your previous errors, these modules are likely NOT all available.
-        modules: 'qtbase qtdeclarative qtmultimedia qttexttospeech'
-
-    # --- Step 3: List available Qt modules (for debugging and manual adjustment) ---
-    - name: List available Qt modules (for debugging and manual adjustment)
+    # --- Step 2: List available Qt modules (CRUCIAL for debugging and manual adjustment) ---
+    # This step now runs BEFORE the actual Qt installation attempt, so its output is always visible.
+    - name: List available Qt modules (Crucial for debugging and manual adjustment)
       id: list_qt_modules
       run: |
         $aqt_executable = "${{ steps.find_aqt_exe.outputs.AQT_PATH }}"
@@ -75,31 +63,28 @@ jobs:
         $available_modules_output = & $aqt_executable list-qt windows desktop --modules 6.8.2 win64_msvc2022_64 2>&1
         
         # Print the captured output for inspection
-        Write-Host "--- Available Qt Modules for 6.8.2 win64_msvc2022_64 (Examine below!) ---"
+        Write-Host "--- Available Qt Modules for 6.8.2 win64_msvc2022_64 (EXAMINE THIS OUTPUT BELOW!) ---"
         Write-Host $available_modules_output
-        Write-Host "------------------------------------------------------------------------"
+        Write-Host "------------------------------------------------------------------------------------"
 
         # The workflow will continue from here. User must manually inspect logs and update 'modules' parameter.
       shell: powershell
 
-    # --- Step 4: Instructions for manual adjustment ---
+    # --- Step 3: Instructions for manual adjustment (now clearer) ---
     - name: Manual Action Required to Correct Modules
       run: |
         Write-Host "*************************************************************************"
         Write-Host "  CRITICAL ACTION REQUIRED: MANUAL ADJUSTMENT OF QT MODULES LIST         "
         Write-Host "  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
         Write-Host ""
-        Write-Host "  The 'Install Qt' step likely failed on the first run because the "
-        Write-Host "  requested modules were not all available for Qt 6.8.2.             "
-        Write-Host ""
-        Write-Host "  1. **REVIEW THE OUTPUT OF THE 'List available Qt modules' step ABOVE.**"
+        Write-Host "  1. **REVIEW THE OUTPUT OF THE 'List available Qt modules' step (ABOVE THIS ONE) IMMEDIATELY.**"
         Write-Host "     Look for the section '--- Available Qt Modules ... ---'.            "
         Write-Host "     This will show you the exact names of modules that *are* available."
         Write-Host ""
         Write-Host "  2. **EDIT YOUR WORKFLOW YAML FILE.**                                  "
-        Write-Host "     Locate the 'Install Qt' step (Step 2 in this file).                "
+        Write-Host "     Locate the 'Install Qt (Actual Installation Attempt)' step (BELOW THIS ONE). "
         Write-Host "     Change the 'modules:' line to list ONLY the modules that were       "
-        Write-Host "     shown as available in the logs.                                     "
+        Write-Host "     shown as available in the logs from the previous step.              "
         Write-Host "     (e.g., if 'qttexttospeech' is not listed, remove it from the list)."
         Write-Host ""
         Write-Host "  3. Commit and push your changes to re-run the workflow.               "
@@ -107,6 +92,21 @@ jobs:
         Write-Host ""
         Write-Host "*************************************************************************"
       shell: powershell
+      # This step will not fail the workflow if it doesn't get the correct modules list, as its purpose is informational.
+
+    # --- Step 4: Actual Qt installation attempt (this will use the *corrected* modules on subsequent runs) ---
+    - name: Install Qt (Actual Installation Attempt - will use corrected modules)
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: '6.8.2'
+        host: 'windows'
+        target: 'desktop'
+        arch: 'win64_msvc2022_64'
+        dir: '${{ runner.temp }}/qt'
+        # <<< CRITICAL: YOU MUST MANUALLY ADJUST THIS LINE AFTER THE FIRST RUN! >>>
+        # Based on your previous errors, these modules are likely NOT all available.
+        # After examining the output of "List available Qt modules" step, update this string!
+        modules: 'qtbase qtdeclarative qtmultimedia qttexttospeech'
 
     # --- Remaining build steps (unchanged) ---
     - name: Set up MSVC
