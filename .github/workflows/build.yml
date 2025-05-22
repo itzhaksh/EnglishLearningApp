@@ -14,17 +14,24 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
+
+    - name: List available Qt modules
+      id: qt_modules
+      run: |
+        $modules = & C:\hostedtoolcache\windows\Python\3.12.10\x64\python.exe -m aqt list-qt windows desktop --modules 6.8.2 win64_msvc2022_64
+        echo "AVAILABLE_MODULES=$modules" >> $env:GITHUB_OUTPUT
+      shell: powershell
 
     - name: Install Qt
-      uses: jurplel/install-qt-action@v4
+      uses: jurplel/install-qt-action@v3
       with:
         version: '6.8.2'
         host: 'windows'
         target: 'desktop'
         arch: 'win64_msvc2022_64'
         dir: '${{ runner.temp }}/qt'
-        modules: 'qtbase qtdeclarative qtmultimedia qttexttospeech'
+        modules: 'qtbase qtdeclarative qtmultimedia qttexttospeech' # Adjust based on AVAILABLE_MODULES -  IMPORTANT
 
     - name: Set up MSVC
       uses: ilammy/msvc-dev-cmd@v1
@@ -48,19 +55,35 @@ jobs:
       run: ${{ runner.temp }}\qt\6.8.2\win64_msvc2022_64\bin\windeployqt --release EnglishLearningApp.exe
       shell: cmd
 
+    - name: Set version variable
+      id: version
+      run: |
+        if ("${{ github.event_name }}" -eq "release") {
+          echo "VERSION=${{ github.event.release.tag_name }}" >> $env:GITHUB_OUTPUT
+        } else {
+          echo "VERSION=latest" >> $env:GITHUB_OUTPUT
+        }
+      shell: powershell
+
     - name: Create ZIP
       working-directory: build/Release
-      run: "\"C:\\Program Files\\7-Zip\\7z.exe\" a EnglishLearningApp_v${{ github.event.release.tag_name || 'latest' }}.zip ./* -mx9"
-      shell: cmd
+      run: |
+        $zipName = "EnglishLearningApp_v${{ steps.version.outputs.VERSION }}.zip"
+        if (Test-Path "C:\Program Files\7-Zip\7z.exe") {
+          & "C:\Program Files\7-Zip\7z.exe" a $zipName ./* -mx9
+        } else {
+          Compress-Archive -Path ./* -DestinationPath $zipName -CompressionLevel Optimal
+        }
+      shell: powershell
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: EnglishLearningApp
-        path: build/Release/EnglishLearningApp_v${{ github.event.release.tag_name || 'latest' }}.zip
+        name: EnglishLearningApp_v${{ steps.version.outputs.VERSION }}
+        path: build/Release/EnglishLearningApp_v${{ steps.version.outputs.VERSION }}.zip
 
     - name: Upload to Release
       if: github.event_name == 'release'
       uses: softprops/action-gh-release@v2
       with:
-        files: build/Release/EnglishLearningApp_v${{ github.event.release.tag_name || 'latest' }}.zip
+        files: build/Release/EnglishLearningApp_v${{ steps.version.outputs.VERSION }}.zip
