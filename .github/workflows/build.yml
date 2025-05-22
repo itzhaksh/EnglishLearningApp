@@ -1,0 +1,65 @@
+name: Build EnglishLearningApp
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  release:
+    types: [ created ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v4
+      with:
+        version: '6.8.2'
+        host: 'windows'
+        target: 'desktop'
+        arch: 'win64_msvc2022_64'
+        dir: '${{ runner.temp }}/qt'
+
+    - name: Set up MSVC
+      uses: ilammy/msvc-dev-cmd@v1
+
+    - name: Create build directory
+      run: mkdir build
+      shell: cmd
+
+    - name: Configure CMake
+      working-directory: build
+      run: cmake -S .. -B . -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="${{ runner.temp }}/qt/6.8.2/win64_msvc2022_64"
+      shell: cmd
+
+    - name: Build
+      working-directory: build
+      run: cmake --build . --config Release
+      shell: cmd
+
+    - name: Deploy dependencies with windeployqt
+      working-directory: build/Release
+      run: ${{ runner.temp }}\qt\6.8.2\win64_msvc2022_64\bin\windeployqt --release EnglishLearningApp.exe
+      shell: cmd
+
+    - name: Create ZIP
+      working-directory: build/Release
+      run: "\"C:\\Program Files\\7-Zip\\7z.exe\" a EnglishLearningApp_v${{ github.event.release.tag_name || 'latest' }}.zip ./* -mx9"
+      shell: cmd
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: EnglishLearningApp
+        path: build/Release/EnglishLearningApp_v${{ github.event.release.tag_name || 'latest' }}.zip
+
+    - name: Upload to Release
+      if: github.event_name == 'release'
+      uses: softprops/action-gh-release@v2
+      with:
+        files: build/Release/EnglishLearningApp_v${{ github.event.release.tag_name || 'latest' }}.zip
