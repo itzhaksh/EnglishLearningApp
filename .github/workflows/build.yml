@@ -34,85 +34,15 @@ jobs:
         }
       shell: powershell
 
-    - name: Download Qt Installer
-      run: |
-        $installerUrl = "https://mirror.netcologne.de/qtproject/archive/online_installers/4.7/qt-unified-windows-x64-4.7.0-online.exe"
-        $installerPath = "$env:TEMP\qt-installer.exe"
-        try {
-          Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath -ErrorAction Stop
-          Write-Host "Qt installer downloaded successfully to $installerPath"
-        } catch {
-          Write-Error "Failed to download Qt installer from $installerUrl. Error: $_"
-          exit 1
-        }
-      shell: powershell
-
-    - name: Create Qt Installer Script
-      run: |
-        $scriptContent = @"
-        function Controller() {
-            installer.setMessageBoxAutoAnswer("licenseAgreement", "Yes");
-            installer.setMessageBoxAutoAnswer("installationError", "Ok");
-            installer.autoAcceptMessageBoxes();
-            installer.setDefaultPageVisible(QInstaller.TargetDirectory, false);
-            installer.setDefaultPageVisible(QInstaller.ComponentSelection, false);
-            installer.setDefaultPageVisible(QInstaller.LicenseCheck, false);
-            installer.setDefaultPageVisible(QInstaller.StartMenuSelection, false);
-            installer.setDefaultPageVisible(QInstaller.ReadyForInstallation, false);
-            installer.setDefaultPageVisible(QInstaller.PerformInstallation, false);
-            installer.setDefaultPageVisible(QInstaller.InstallationFinished, false);
-            installer.setDefaultPageVisible(QInstaller.FinishedPage, false);
-        }
-        Controller.prototype.WelcomePageCallback = function() {
-            console.log("WelcomePage: Clicking Next");
-            gui.clickButton(buttons.NextButton);
-        }
-        Controller.prototype.CredentialsPageCallback = function() {
-            var widget = gui.currentPageWidget();
-            console.log("CredentialsPage: Setting username and password");
-            widget.setUsername("${{ secrets.QT_EMAIL }}");
-            widget.setPassword("${{ secrets.QT_PW }}");
-            gui.clickButton(buttons.NextButton);
-        }
-        Controller.prototype.ComponentSelectionPageCallback = function() {
-            var widget = gui.currentPageWidget();
-            console.log("ComponentSelectionPage: Available components: " + widget.availableComponents());
-            widget.selectComponent("qt.qt6.682.msvc2022_64");
-            widget.selectComponent("qt.qt6.682.qtmultimedia");
-            widget.selectComponent("qt.qt6.682.qttexttospeech");
-            console.log("ComponentSelectionPage: Selected qt.qt6.682.msvc2022_64, qtmultimedia, qttexttospeech");
-            gui.clickButton(buttons.NextButton);
-        }
-        Controller.prototype.TargetDirectoryPageCallback = function() {
-            var widget = gui.currentPageWidget();
-            console.log("TargetDirectoryPage: Setting directory to ${{ runner.temp }}/qt");
-            widget.TargetDirectoryLineEdit.setText("${{ runner.temp }}/qt");
-            gui.clickButton(buttons.NextButton);
-        }
-        Controller.prototype.InstallationFinishedPageCallback = function() {
-            console.log("InstallationFinishedPage: Clicking Next");
-            gui.clickButton(buttons.NextButton);
-        }
-        Controller.prototype.FinishedPageCallback = function() {
-            console.log("FinishedPage: Clicking Finish");
-            gui.clickButton(buttons.FinishButton);
-        }
-        "@
-        Set-Content -Path "$env:TEMP\qt-installer-script.qs" -Value $scriptContent
-        Write-Host "Qt installer script created at $env:TEMP\qt-installer-script.qs"
-      shell: powershell
-
-    - name: Run Qt Installer
-      run: |
-        $installerPath = "$env:TEMP\qt-installer.exe"
-        $scriptPath = "$env:TEMP\qt-installer-script.qs"
-        if (-not (Test-Path $installerPath)) {
-          Write-Error "Qt installer not found at $installerPath"
-          exit 1
-        }
-        Start-Process -FilePath $installerPath -ArgumentList "--script", $scriptPath, "--verbose" -Wait
-        Write-Host "Qt installer executed"
-      shell: powershell
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v4
+      with:
+        version: '6.8.2'
+        host: 'windows'
+        target: 'desktop'
+        arch: 'win64_msvc2022_64'
+        dir: '${{ runner.temp }}/qt'
+        modules: 'qtmultimedia'
 
     - name: Verify Qt Installation
       run: |
