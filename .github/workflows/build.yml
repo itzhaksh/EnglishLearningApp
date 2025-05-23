@@ -16,19 +16,95 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.12'
-
-    - name: Install aqtinstall
+    - name: Ensure aqtinstall is installed
+      id: find_aqt_exe
       run: |
-        python -m pip install --upgrade pip
-        pip install aqtinstall==3.2.* py7zr==0.22.*
+        $python_base_path = "C:\hostedtoolcache\windows\Python\3.12.10\x64"
+        $python_exe_path = Join-Path $python_base_path "python.exe"
+        $aqt_scripts_dir = Join-Path $python_base_path "Scripts"
+        $aqt_exe_path = Join-Path $aqt_scripts_dir "aqt.exe"
+        Write-Host "Installing aqtinstall..."
+        & $python_exe_path -m pip install setuptools>=70.1.0 py7zr==0.22.* aqtinstall==3.2.*
+        if (Test-Path $aqt_exe_path) {
+          Write-Host "aqt.exe found at $aqt_exe_path"
+          echo "AQT_PATH=$aqt_exe_path" >> $env:GITHUB_OUTPUT
+        } else {
+          Write-Error "aqt.exe not found at $aqt_exe_path"
+          exit 1
+        }
+      shell: powershell
 
-    - name: Install Qt using aqtinstall
+    - name: Download Qt Installer
       run: |
-        aqt install-qt windows desktop 6.8.2 win64_msvc2022_64 -m qtbase qtmultimedia qttexttospeech --outputdir $env:RUNNER_TEMP\qt
+        $installerUrl = "https://mirror.netcologne.de/qtproject/archive/online_installers/4.7/qt-unified-windows-x64-4.7.0-online.exe"
+        $installerPath = "$env:TEMP\qt-installer.exe"
+        try {
+          Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath -ErrorAction Stop
+          Write-Host "Qt installer downloaded successfully to $installerPath"
+        } catch {
+          Write-Error "Failed to download Qt installer from $installerUrl. Error: $_"
+          exit 1
+        }
+      shell: powershell
+
+    - name: Create Qt Installer Script
+      run: |
+        $scriptContent = @"
+        function Controller() {
+            installer.setMessageBoxAutoAnswer("licenseAgreement", "Yes");
+            installer.setMessageBoxAutoAnswer("installationError", "Ok");
+            installer.autoAcceptMessageBoxes();
+            installer.setDefaultPageVisible(QInstaller.TargetDirectory, false);
+            installer.setDefaultPageVisible(QInstaller.ComponentSelection, false);
+            installer.setDefaultPageVisible(QInstaller.LicenseCheck, false);
+            installer.setDefaultPageVisible(QInstaller.StartMenuSelection, false);
+            installer.setDefaultPageVisible(QInstaller.ReadyForInstallation, false);
+            installer.setDefaultPageVisible(QInstaller.PerformInstallation, false);
+            installer.setDefaultPageVisible(QInstaller.InstallationFinished, false);
+            installer.setDefaultPageVisible(QInstaller.FinishedPage, false);
+        }
+        Controller.prototype.WelcomePageCallback = function() {
+            gui.clickButton(buttons.NextButton);
+        }
+        Controller.prototype.CredentialsPageCallback = function() {
+            var widget = gui.currentPageWidget();
+            widget.setUsername("${{ secrets.QT_EMAIL }}");
+            widget.setPassword("${{ secrets.QT_PW }}");
+            gui.clickButton(buttons.NextButton);
+        }
+        Controller.prototype.ComponentSelectionPageCallback = function() {
+            var widget = gui.currentPageWidget();
+            widget.selectComponent("qt.qt6.682.win64_msvc2022_64");
+            widget.selectComponent("qt.qt6.682.qtmultimedia");
+            widget.selectComponent("qt.qt6.682.qttexttospeech");
+            gui.clickButton(buttons.NextButton);
+        }
+        Controller.prototype.TargetDirectoryPageCallback = function() {
+            var widget = gui.currentPageWidget();
+            widget.TargetDirectoryLineEdit.setText("${{ runner.temp }}/qt");
+            gui.clickButton(buttons.NextButton);
+        }
+        Controller.prototype.InstallationFinishedPageCallback = function() {
+            gui.clickButton(buttons.NextButton);
+        }
+        Controller.prototype.FinishedPageCallback = function() {
+            gui.clickButton(buttons.FinishButton);
+        }
+        "@
+        Set-Content -Path "$env:TEMP\qt-installer-script.qs" -Value $scriptContent
+        Write-Host "Qt installer script created at $env:TEMP\qt-installer-script.qs"
+      shell: powershell
+
+    - name: Run Qt Installer
+      run: |
+        $installerPath = "$env:TEMP\qt-installer.exe"
+        $scriptPath = "$env:TEMP\qt-installer-script.qs"
+        if (-not (Test-Path $installerPath)) {
+          Write-Error "Qt installer not found at $installerPath"
+          exit 1
+        }
+        Start-Process -FilePath $installerPath -ArgumentList "--script", $scriptPath -Wait
+        Write-Host "Qt installer executed"
       shell: powershell
 
     - name: Set up MSVC
@@ -38,13 +114,26 @@ jobs:
       run: mkdir build
       shell: cmd
 
+    - name: Show Qt6Config.cmake paths
+      run: |
+        Get-ChildItem -Recurse -Filter Qt6Config.cmake "${{ runner.temp }}\qt" | Select-Object FullName
+      shell: powershell
+
     - name: Configure CMake
       working-directory: build
-      run: >
-        cmake -S .. -B . 
-        -DCMAKE_BUILD_TYPE=Release 
-        -DCMAKE_PREFIX_PATH="${{ runner.temp }}\qt\6.8.2\msvc2022_64"
-        -DQT_DEBUG_FIND_PACKAGE=ON
+      run: |
+        set qtPath=${{ runner.temp }}\qt\6.8.2\msvc2022_64
+        cmake -S .. -B . ^
+          -DCMAKE_BUILD_TYPE=Release ^
+          -DCMAKE_PREFIX_PATH="%qtPath%\lib\cmake" ^
+          -DQT_DEBUG_FIND_PACKAGE=ON
+      shell: cmd
+
+    - name: Debug Qt6TextToSpeech
+      if: failure()
+      working-directory: build
+      run: |
+        cmake -S .. -B . --debug-find-pkg=Qt6TextToSpeech
       shell: cmd
 
     - name: Build
@@ -54,7 +143,7 @@ jobs:
 
     - name: Deploy dependencies with windeployqt
       working-directory: build/Release
-      run: '%RUNNER_TEMP%\qt\6.8.2\msvc2022_64\bin\windeployqt.exe --release EnglishLearningApp.exe'
+      run: ${{ runner.temp }}\qt\6.8.2\msvc2022_64\bin\windeployqt --release EnglishLearningApp.exe
       shell: cmd
 
     - name: Set version variable
@@ -71,7 +160,11 @@ jobs:
       working-directory: build/Release
       run: |
         $zipName = "EnglishLearningApp_v${{ steps.version.outputs.VERSION }}.zip"
-        Compress-Archive -Path ./* -DestinationPath $zipName -CompressionLevel Optimal
+        if (Test-Path "C:\Program Files\7-Zip\7z.exe") {
+          & "C:\Program Files\7-Zip\7z.exe" a $zipName ./* -mx9
+        } else {
+          Compress-Archive -Path ./* -DestinationPath $zipName -CompressionLevel Optimal
+        }
       shell: powershell
 
     - name: Upload artifact
