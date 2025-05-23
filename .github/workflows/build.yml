@@ -58,9 +58,8 @@ jobs:
         dir: '${{ runner.temp }}/qt'
         modules: 'qtmultimedia qttexttospeech'
         use-official: true
-        email: ${{ secrets QT_EMAIL }}
-        pw: ${{ secrets QT_PW }}
-        base: 'https://mirrors.ocf.berkeley.edu/qt/'
+        email: ${{ secrets.QT_EMAIL }}
+        pw: ${{ secrets.QT_PW }}
 
     - name: Set up MSVC
       uses: ilammy/msvc-dev-cmd@v1
