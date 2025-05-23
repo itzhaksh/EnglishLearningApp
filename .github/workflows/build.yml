@@ -16,82 +16,55 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    # --- Step 1: Ensure aqtinstall is installed and find its executable path ---
-    # This step is critical to make sure 'aqt' is available for use.
-    - name: Ensure aqtinstall is installed and find its executable path
+    - name: Ensure aqtinstall is installed
       id: find_aqt_exe
       run: |
-        # Determine the Python executable path used by the runner
-        # Based on your latest logs, Python is 3.11.9 here.
         $python_base_path = "C:\hostedtoolcache\windows\Python\3.11.9\x64"
         $python_exe_path = Join-Path $python_base_path "python.exe"
         $aqt_scripts_dir = Join-Path $python_base_path "Scripts"
         $aqt_exe_path = Join-Path $aqt_scripts_dir "aqt.exe"
-
-        Write-Host "Using Python executable: $python_exe_path"
-        Write-Host "Expected aqt.exe path: $aqt_exe_path"
-
-        # Install aqtinstall specifically for this Python environment
         Write-Host "Installing aqtinstall..."
-        & $python_exe_path -m pip install aqtinstall==3.2.* 
-        
-        # Verify aqt.exe exists at the derived path
+        & $python_exe_path -m pip install aqtinstall==3.2.*
         if (Test-Path $aqt_exe_path) {
-          Write-Host "aqt.exe found at $aqt_exe_path. Installation successful."
-          # Set the full path to aqt.exe as an output variable for later steps
+          Write-Host "aqt.exe found at $aqt_exe_path"
           echo "AQT_PATH=$aqt_exe_path" >> $env:GITHUB_OUTPUT
         } else {
-          Write-Error "Error: aqt.exe not found at expected path: $aqt_exe_path after installation. Check pip logs for errors."
+          Write-Error "aqt.exe not found at $aqt_exe_path"
           exit 1
         }
       shell: powershell
 
-    # --- Step 2: List available Qt modules (for future reference/debugging, though already done) ---
-    - name: List available Qt modules (for future reference/debugging)
+    - name: Verify Qt 6.7.2 modules
       id: list_qt_modules
       run: |
         $aqt_executable = "${{ steps.find_aqt_exe.outputs.AQT_PATH }}"
         if (-not $aqt_executable) {
-          Write-Error "aqt executable path not found from previous step. Cannot list modules."
+          Write-Error "aqt executable path not found"
           exit 1
         }
-
-        Write-Host "Running aqt list-qt to find available modules..."
-        $available_modules_output = & $aqt_executable list-qt windows desktop --modules 6.8.2 win64_msvc2022_64 2>&1
-        
-        Write-Host "--- Available Qt Modules for 6.8.2 win64_msvc2022_64 ---"
+        Write-Host "Listing available Qt modules for 6.7.2 win64_msvc2022_64..."
+        $available_modules_output = & $aqt_executable list-qt windows desktop --modules 6.7.2 win64_msvc2022_64 2>&1
+        Write-Host "--- Available Qt Modules ---"
         Write-Host $available_modules_output
-        Write-Host "--------------------------------------------------------"
-
+        Write-Host "--------------------------"
+        if ($available_modules_output -match "qttexttospeech") {
+          Write-Host "qttexttospeech module is available for Qt 6.7.2"
+        } else {
+          Write-Error "qttexttospeech module is NOT available for Qt 6.7.2"
+          exit 1
+        }
       shell: powershell
 
-    # --- Step 3: Instructions (now that the fix is applied in the YAML) ---
-    - name: Instructions (Modules Corrected in this YAML)
-      run: |
-        Write-Host "*************************************************************************"
-        Write-Host "  The 'modules' list in the 'Install Qt' step has been corrected.        "
-        Write-Host "  Based on previous runs, 'qtmultimedia' is the only extra module needed."
-        Write-Host "  'qtbase' and 'qtdeclarative' are part of the core desktop install."
-        Write-Host "  'qttexttospeech' is NOT available for this version/arch."
-        Write-Host ""
-        Write-Host "  This workflow run should now proceed with Qt installation.           "
-        Write-Host "*************************************************************************"
-      shell: powershell
-
-    # --- Step 4: Actual Qt installation attempt (THIS LINE IS NOW CORRECTED!) ---
-    - name: Install Qt (Actual Installation Attempt - MODULES CORRECTED!)
+    - name: Install Qt
       uses: jurplel/install-qt-action@v3
       with:
-        version: '6.8.2'
+        version: '6.7.2'
         host: 'windows'
         target: 'desktop'
         arch: 'win64_msvc2022_64'
         dir: '${{ runner.temp }}/qt'
-        # <<< THIS LINE HAS BEEN CORRECTED! >>>
-        # Based on aqt list-qt output, 'qtmultimedia' is the only non-core module you requested that is available.
-        modules: 'qtmultimedia' # <-- THIS IS THE CRUCIAL CHANGE!
+        modules: 'qtmultimedia qttexttospeech'
 
-    # --- Remaining build steps (unchanged) ---
     - name: Set up MSVC
       uses: ilammy/msvc-dev-cmd@v1
 
@@ -101,7 +74,15 @@ jobs:
 
     - name: Configure CMake
       working-directory: build
-      run: cmake -S .. -B . -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="${{ runner.temp }}/qt/6.8.2/win64_msvc2022_64"
+      run: |
+        cmake -S .. -B . -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="${{ runner.temp }}/qt/6.7.2/win64_msvc2022_64" -DQT_DEBUG_FIND_PACKAGE=ON
+      shell: cmd
+
+    - name: Debug Qt6TextToSpeech
+      if: failure()
+      working-directory: build
+      run: |
+        cmake -S .. -B . --debug-find-pkg=Qt6TextToSpeech
       shell: cmd
 
     - name: Build
@@ -111,7 +92,7 @@ jobs:
 
     - name: Deploy dependencies with windeployqt
       working-directory: build/Release
-      run: ${{ runner.temp }}\qt\6.8.2\win64_msvc2022_64\bin\windeployqt --release EnglishLearningApp.exe
+      run: ${{ runner.temp }}\qt\6.7.2\win64_msvc2022_64\bin\windeployqt --release EnglishLearningApp.exe
       shell: cmd
 
     - name: Set version variable
