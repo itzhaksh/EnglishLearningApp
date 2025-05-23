@@ -43,15 +43,27 @@ jobs:
         arch: 'win64_msvc2022_64'
         dir: '${{ runner.temp }}/qt'
         modules: 'qtmultimedia'
+        aqtversion: '==3.2.*'
 
-    - name: Verify Qt Installation
+    - name: Find Qt Installation Path
+      id: find_qt_path
       run: |
-        $qtDir = "${{ runner.temp }}\qt\6.8.2\msvc2022_64"
-        if (Test-Path $qtDir) {
+        $qtBaseDir = "${{ runner.temp }}\qt\6.8.2"
+        $possibleDirs = @("msvc2022_64", "win64_msvc2022_64", "msvc2022")
+        $qtDir = $null
+        foreach ($dir in $possibleDirs) {
+          $testDir = Join-Path $qtBaseDir $dir
+          if (Test-Path $testDir) {
+            $qtDir = $testDir
+            break
+          }
+        }
+        if ($qtDir -and (Test-Path (Join-Path $qtDir "lib\cmake\Qt6\Qt6Config.cmake"))) {
           Write-Host "Qt installation found at $qtDir"
-          dir $qtDir -Recurse | Where-Object { $_.Name -eq "Qt6Config.cmake" } | ForEach-Object { Write-Host "Found Qt6Config.cmake at $($_.FullName)" }
+          Write-Host "Found Qt6Config.cmake at $(Join-Path $qtDir "lib\cmake\Qt6\Qt6Config.cmake")"
+          echo "QT_DIR=$qtDir" >> $env:GITHUB_OUTPUT
         } else {
-          Write-Error "Qt installation directory not found at $qtDir"
+          Write-Error "Qt installation directory not found in $qtBaseDir"
           dir "${{ runner.temp }}\qt" -Recurse | Write-Host
           exit 1
         }
@@ -67,7 +79,7 @@ jobs:
     - name: Configure CMake
       working-directory: build
       run: |
-        cmake -S .. -B . -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="${{ runner.temp }}/qt/6.8.2/msvc2022_64" -DQT_DEBUG_FIND_PACKAGE=ON
+        cmake -S .. -B . -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="${{ steps.find_qt_path.outputs.QT_DIR }}" -DQT_DEBUG_FIND_PACKAGE=ON
       shell: cmd
 
     - name: Debug Qt6TextToSpeech
@@ -84,7 +96,7 @@ jobs:
 
     - name: Deploy dependencies with windeployqt
       working-directory: build/Release
-      run: ${{ runner.temp }}\qt\6.8.2\msvc2022_64\bin\windeployqt --release EnglishLearningApp.exe
+      run: ${{ steps.find_qt_path.outputs.QT_DIR }}\bin\windeployqt --release EnglishLearningApp.exe
       shell: cmd
 
     - name: Set version variable
