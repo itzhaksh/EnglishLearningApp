@@ -16,27 +16,99 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v4
-      with:
-        version: '6.8.2'
-        host: 'windows'
-        target: 'desktop'
-        arch: 'win64_msvc2022_64'
-        dir: '${{ runner.temp }}/qt'
-        modules: 'qtmultimedia qttexttospeech'
-        aqtversion: '==3.2.*'
-        setup-python: 'true'
-        install-deps: 'true'
-        cache: 'true'
+    - name: Download Qt Installer
+      run: |
+        $installerUrl = "https://download.qt.io/official_releases/online_installers/qt-unified-windows-x64-4.8.0-online.exe"
+        $installerPath = "$env:TEMP\qt-installer.exe"
+        try {
+          Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath -ErrorAction Stop
+          Write-Host "Qt installer downloaded successfully to $installerPath"
+        } catch {
+          Write-Error "Failed to download Qt installer from $installerUrl. Error: $_"
+          exit 1
+        }
+      shell: powershell
+
+    - name: Create Qt Installer Script
+      run: |
+        $scriptContent = @"
+        function Controller() {
+            installer.setMessageBoxAutoAnswer("licenseAgreement", "Yes");
+            installer.setMessageBoxAutoAnswer("installationError", "Ok");
+            installer.autoAcceptMessageBoxes();
+            installer.setDefaultPageVisible(QInstaller.TargetDirectory, false);
+            installer.setDefaultPageVisible(QInstaller.ComponentSelection, false);
+            installer.setDefaultPageVisible(QInstaller.LicenseCheck, false);
+            installer.setDefaultPageVisible(QInstaller.StartMenuSelection, false);
+            installer.setDefaultPageVisible(QInstaller.ReadyForInstallation, false);
+            installer.setDefaultPageVisible(QInstaller.PerformInstallation, false);
+            installer.setDefaultPageVisible(QInstaller.InstallationFinished, false);
+            installer.setDefaultPageVisible(QInstaller.FinishedPage, false);
+        }
+        Controller.prototype.WelcomePageCallback = function() {
+            gui.clickButton(buttons.NextButton);
+        }
+        Controller.prototype.CredentialsPageCallback = function() {
+            var widget = gui.currentPageWidget();
+            widget.setUsername("${{ secrets.QT_EMAIL }}");
+            widget.setPassword("${{ secrets.QT_PW }}");
+            gui.clickButton(buttons.NextButton);
+        }
+        Controller.prototype.ComponentSelectionPageCallback = function() {
+            var widget = gui.currentPageWidget();
+            widget.selectComponent("qt.qt6.682.win64_msvc2022_64");
+            widget.selectComponent("qt.qt6.682.qtmultimedia");
+            widget.selectComponent("qt.qt6.682.qttexttospeech");
+            gui.clickButton(buttons.NextButton);
+        }
+        Controller.prototype.TargetDirectoryPageCallback = function() {
+            var widget = gui.currentPageWidget();
+            widget.TargetDirectoryLineEdit.setText("${{ runner.temp }}/qt/6.8.2/msvc2022_64");
+            gui.clickButton(buttons.NextButton);
+        }
+        Controller.prototype.InstallationFinishedPageCallback = function() {
+            gui.clickButton(buttons.NextButton);
+        }
+        Controller.prototype.FinishedPageCallback = function() {
+            gui.clickButton(buttons.FinishButton);
+        }
+        "@
+        Set-Content -Path "$env:TEMP\qt-installer-script.qs" -Value $scriptContent
+        Write-Host "Qt installer script created at $env:TEMP\qt-installer-script.qs"
+      shell: powershell
+
+    - name: Run Qt Installer
+      run: |
+        $installerPath = "$env:TEMP\qt-installer.exe"
+        $scriptPath = "$env:TEMP\qt-installer-script.qs"
+        if (-not (Test-Path $installerPath)) {
+          Write-Error "Qt installer not found at $installerPath"
+          exit 1
+        }
+        Start-Process -FilePath $installerPath -ArgumentList "--script", $scriptPath -Wait
+        Write-Host "Qt installer executed"
+      shell: powershell
 
     - name: Debug Qt Installation
       run: |
-        Write-Host "QT_ROOT_DIR: ${{ env.QT_ROOT_DIR }}"
+        $qtRootDir = "${{ runner.temp }}\qt\6.8.2\msvc2022_64"
+        Write-Host "QT_ROOT_DIR: $qtRootDir"
         Write-Host "Listing contents of ${{ runner.temp }}\qt:"
         Get-ChildItem -Recurse "${{ runner.temp }}\qt" | Select-Object FullName
         Write-Host "Checking for Qt6Config.cmake:"
         Get-ChildItem -Recurse -Filter Qt6Config.cmake "${{ runner.temp }}\qt" | Select-Object FullName
+      shell: powershell
+
+    - name: Verify Qt Installation
+      run: |
+        $qtRootDir = "${{ runner.temp }}\qt\6.8.2\msvc2022_64"
+        $qtConfigPath = Join-Path $qtRootDir "lib\cmake\Qt6\Qt6Config.cmake"
+        if (Test-Path $qtConfigPath) {
+          Write-Host "Qt6Config.cmake found at $qtConfigPath"
+        } else {
+          Write-Error "Qt6Config.cmake not found at $qtConfigPath"
+          exit 1
+        }
       shell: powershell
 
     - name: Set up MSVC
@@ -48,10 +120,11 @@ jobs:
 
     - name: Configure CMake
       working-directory: build
+      env:
+        QT_ROOT_DIR: ${{ runner.temp }}\qt\6.8.2\msvc2022_64
       run: |
         cmake -S .. -B . ^
           -DCMAKE_BUILD_TYPE=Release ^
-          -DCMAKE_PREFIX_PATH="${{ env.QT_ROOT_DIR }}/lib/cmake/Qt6" ^
           -DQT_DEBUG_FIND_PACKAGE=ON
       shell: cmd
 
@@ -69,7 +142,7 @@ jobs:
 
     - name: Deploy dependencies with windeployqt
       working-directory: build/Release
-      run: ${{ env.QT_ROOT_DIR }}\bin\windeployqt --release EnglishLearningApp.exe
+      run: ${{ runner.temp }}\qt\6.8.2\msvc2022_64\bin\windeployqt --release EnglishLearningApp.exe
       shell: cmd
 
     - name: Set version variable
