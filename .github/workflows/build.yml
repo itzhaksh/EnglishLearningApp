@@ -34,32 +34,69 @@ jobs:
         }
       shell: powershell
 
-    - name: Configure aqtinstall settings
+    - name: Download Qt Installer
       run: |
-        $aqt_settings_dir = "$env:APPDATA\aqt"
-        New-Item -ItemType Directory -Force -Path $aqt_settings_dir
-        $settings_content = @"
-        [requests]
-        max_retries_to_retrieve_hash = 5
-        [mirrors]
-        trusted_mirrors = ["https://mirrors.ocf.berkeley.edu/qt/", "https://ftp.fau.de/qtproject/", "https://mirror.netcologne.de/qtproject/"]
-        "@
-        Set-Content -Path "$aqt_settings_dir\settings.ini" -Value $settings_content
-        Write-Host "aqtinstall settings configured at $aqt_settings_dir\settings.ini"
+        $installerUrl = "https://mirrors.ocf.berkeley.edu/qt/archive/online_installers/4.8/qt-unified-windows-x64-4.8.0-online.exe"
+        $installerPath = "$env:TEMP\qt-installer.exe"
+        Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
+        Write-Host "Qt installer downloaded to $installerPath"
       shell: powershell
 
-    - name: Install Qt with Official Installer
-      uses: jurplel/install-qt-action@v4
-      with:
-        version: '6.8.2'
-        host: 'windows'
-        target: 'desktop'
-        arch: 'win64_msvc2022_64'
-        dir: '${{ runner.temp }}/qt'
-        modules: 'qtmultimedia qttexttospeech'
-        use-official: true
-        email: ${{ secrets.QT_EMAIL }}
-        pw: ${{ secrets.QT_PW }}
+    - name: Create Qt Installer Script
+      run: |
+        $scriptContent = @"
+        function Controller() {
+            installer.setMessageBoxAutoAnswer("licenseAgreement", "Yes");
+            installer.setMessageBoxAutoAnswer("installationError", "Ok");
+            installer.autoAcceptMessageBoxes();
+            installer.setDefaultPageVisible(QInstaller.TargetDirectory, false);
+            installer.setDefaultPageVisible(QInstaller.ComponentSelection, false);
+            installer.setDefaultPageVisible(QInstaller.LicenseCheck, false);
+            installer.setDefaultPageVisible(QInstaller.StartMenuSelection, false);
+            installer.setDefaultPageVisible(QInstaller.ReadyForInstallation, false);
+            installer.setDefaultPageVisible(QInstaller.PerformInstallation, false);
+            installer.setDefaultPageVisible(QInstaller.InstallationFinished, false);
+            installer.setDefaultPageVisible(QInstaller.FinishedPage, false);
+        }
+        Controller.prototype.WelcomePageCallback = function() {
+            gui.clickButton(buttons.NextButton);
+        }
+        Controller.prototype.CredentialsPageCallback = function() {
+            var widget = gui.currentPageWidget();
+            widget.setUsername("${{ secrets.QT_EMAIL }}");
+            widget.setPassword("${{ secrets.QT_PW }}");
+            gui.clickButton(buttons.NextButton);
+        }
+        Controller.prototype.ComponentSelectionPageCallback = function() {
+            var widget = gui.currentPageWidget();
+            widget.selectComponent("qt.qt6.682.win64_msvc2022_64");
+            widget.selectComponent("qt.qt6.682.qtmultimedia");
+            widget.selectComponent("qt.qt6.682.qttexttospeech");
+            gui.clickButton(buttons.NextButton);
+        }
+        Controller.prototype.TargetDirectoryPageCallback = function() {
+            var widget = gui.currentPageWidget();
+            widget.TargetDirectoryLineEdit.setText("${{ runner.temp }}/qt");
+            gui.clickButton(buttons.NextButton);
+        }
+        Controller.prototype.InstallationFinishedPageCallback = function() {
+            gui.clickButton(buttons.NextButton);
+        }
+        Controller.prototype.FinishedPageCallback = function() {
+            gui.clickButton(buttons.FinishButton);
+        }
+        "@
+        Set-Content -Path "$env:TEMP\qt-installer-script.qs" -Value $scriptContent
+        Write-Host "Qt installer script created at $env:TEMP\qt-installer-script.qs"
+      shell: powershell
+
+    - name: Run Qt Installer
+      run: |
+        $installerPath = "$env:TEMP\qt-installer.exe"
+        $scriptPath = "$env:TEMP\qt-installer-script.qs"
+        Start-Process -FilePath $installerPath -ArgumentList "--script", $scriptPath -Wait
+        Write-Host "Qt installer executed"
+      shell: powershell
 
     - name: Set up MSVC
       uses: ilammy/msvc-dev-cmd@v1
@@ -71,7 +108,7 @@ jobs:
     - name: Configure CMake
       working-directory: build
       run: |
-        cmake -S .. -B . -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="${{ runner.temp }}/qt/6.8.2/win64_msvc2022_64" -DQT_DEBUG_FIND_PACKAGE=ON
+        cmake -S .. -B . -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="${{ runner.temp }}/qt/6.8.2/msvc2022_64" -DQT_DEBUG_FIND_PACKAGE=ON
       shell: cmd
 
     - name: Debug Qt6TextToSpeech
@@ -88,7 +125,7 @@ jobs:
 
     - name: Deploy dependencies with windeployqt
       working-directory: build/Release
-      run: ${{ runner.temp }}\qt\6.8.2\win64_msvc2022_64\bin\windeployqt --release EnglishLearningApp.exe
+      run: ${{ runner.temp }}\qt\6.8.2\msvc2022_64\bin\windeployqt --release EnglishLearningApp.exe
       shell: cmd
 
     - name: Set version variable
