@@ -18,7 +18,7 @@ jobs:
 
     - name: Download Qt Installer
       run: |
-        $installerUrl = "https://download.qt.io/official_releases/online_installers/qt-unified-windows-x64-4.8.0-online.exe"
+        $installerUrl = "https://mirror.netcologne.de/qtproject/archive/online_installers/4.7/qt-unified-windows-x64-4.7.0-online.exe"
         $installerPath = "$env:TEMP\qt-installer.exe"
         try {
           Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath -ErrorAction Stop
