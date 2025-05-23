@@ -64,30 +64,37 @@ jobs:
             installer.setDefaultPageVisible(QInstaller.FinishedPage, false);
         }
         Controller.prototype.WelcomePageCallback = function() {
+            console.log("WelcomePage: Clicking Next");
             gui.clickButton(buttons.NextButton);
         }
         Controller.prototype.CredentialsPageCallback = function() {
             var widget = gui.currentPageWidget();
+            console.log("CredentialsPage: Setting username and password");
             widget.setUsername("${{ secrets.QT_EMAIL }}");
             widget.setPassword("${{ secrets.QT_PW }}");
             gui.clickButton(buttons.NextButton);
         }
         Controller.prototype.ComponentSelectionPageCallback = function() {
             var widget = gui.currentPageWidget();
-            widget.selectComponent("qt.qt6.682.win64_msvc2022_64");
+            console.log("ComponentSelectionPage: Available components: " + widget.availableComponents());
+            widget.selectComponent("qt.qt6.682.msvc2022_64");
             widget.selectComponent("qt.qt6.682.qtmultimedia");
             widget.selectComponent("qt.qt6.682.qttexttospeech");
+            console.log("ComponentSelectionPage: Selected qt.qt6.682.msvc2022_64, qtmultimedia, qttexttospeech");
             gui.clickButton(buttons.NextButton);
         }
         Controller.prototype.TargetDirectoryPageCallback = function() {
             var widget = gui.currentPageWidget();
+            console.log("TargetDirectoryPage: Setting directory to ${{ runner.temp }}/qt");
             widget.TargetDirectoryLineEdit.setText("${{ runner.temp }}/qt");
             gui.clickButton(buttons.NextButton);
         }
         Controller.prototype.InstallationFinishedPageCallback = function() {
+            console.log("InstallationFinishedPage: Clicking Next");
             gui.clickButton(buttons.NextButton);
         }
         Controller.prototype.FinishedPageCallback = function() {
+            console.log("FinishedPage: Clicking Finish");
             gui.clickButton(buttons.FinishButton);
         }
         "@
@@ -103,8 +110,21 @@ jobs:
           Write-Error "Qt installer not found at $installerPath"
           exit 1
         }
-        Start-Process -FilePath $installerPath -ArgumentList "--script", $scriptPath -Wait
+        Start-Process -FilePath $installerPath -ArgumentList "--script", $scriptPath, "--verbose" -Wait
         Write-Host "Qt installer executed"
+      shell: powershell
+
+    - name: Verify Qt Installation
+      run: |
+        $qtDir = "${{ runner.temp }}\qt\6.8.2\msvc2022_64"
+        if (Test-Path $qtDir) {
+          Write-Host "Qt installation found at $qtDir"
+          dir $qtDir -Recurse | Where-Object { $_.Name -eq "Qt6Config.cmake" } | ForEach-Object { Write-Host "Found Qt6Config.cmake at $($_.FullName)" }
+        } else {
+          Write-Error "Qt installation directory not found at $qtDir"
+          dir "${{ runner.temp }}\qt" -Recurse | Write-Host
+          exit 1
+        }
       shell: powershell
 
     - name: Set up MSVC
