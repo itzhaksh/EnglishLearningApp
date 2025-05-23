@@ -14,23 +14,93 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
-    - name: Install Python dependencies and aqtinstall
-      run: |
-        python -m pip install setuptools>=70.1.0 py7zr==0.22.* aqtinstall==3.2.*
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v4
+      with:
+        version: '6.8.2'
+        host: 'windows'
+        target: 'desktop'
+        arch: 'win64_msvc2022_64'
+        dir: '${{ runner.temp }}/qt'
+        modules: 'qtmultimedia qttexttospeech'
+        aqtversion: '==3.2.*'
+        setup-python: 'true'
+        install-deps: 'true'
+        cache: 'true'
 
-    - name: Install Qt 6.8.2 for MSVC 2022 using aqtinstall
+    - name: Debug Qt Installation
       run: |
-        aqt install-qt windows desktop 6.8.2 win64_msvc2022_64 -O $env:RUNNER_TEMP\qt
-      shell: pwsh
+        Write-Host "QT_ROOT_DIR: ${{ env.QT_ROOT_DIR }}"
+        Write-Host "Listing contents of ${{ runner.temp }}\qt:"
+        Get-ChildItem -Recurse "${{ runner.temp }}\qt" | Select-Object FullName
+        Write-Host "Checking for Qt6Config.cmake:"
+        Get-ChildItem -Recurse -Filter Qt6Config.cmake "${{ runner.temp }}\qt" | Select-Object FullName
+      shell: powershell
 
-    - name: Configure with CMake
+    - name: Set up MSVC
+      uses: ilammy/msvc-dev-cmd@v1
+
+    - name: Create build directory
+      run: mkdir build
+      shell: cmd
+
+    - name: Configure CMake
+      working-directory: build
       run: |
-        $env:Qt6_DIR = "$env:RUNNER_TEMP\qt\6.8.2\msvc2022_64"
-        cmake -B build -S . -DCMAKE_PREFIX_PATH="$env:Qt6_DIR"
-      shell: pwsh
+        cmake -S .. -B . ^
+          -DCMAKE_BUILD_TYPE=Release ^
+          -DCMAKE_PREFIX_PATH="${{ env.QT_ROOT_DIR }}/lib/cmake/Qt6" ^
+          -DQT_DEBUG_FIND_PACKAGE=ON
+      shell: cmd
+
+    - name: Debug Qt6TextToSpeech
+      if: failure()
+      working-directory: build
+      run: |
+        cmake -S .. -B . --debug-find-pkg=Qt6TextToSpeech
+      shell: cmd
 
     - name: Build
-      run: cmake --build build --config Release
-      shell: pwsh
+      working-directory: build
+      run: cmake --build . --config Release
+      shell: cmd
+
+    - name: Deploy dependencies with windeployqt
+      working-directory: build/Release
+      run: ${{ env.QT_ROOT_DIR }}\bin\windeployqt --release EnglishLearningApp.exe
+      shell: cmd
+
+    - name: Set version variable
+      id: version
+      run: |
+        if ("${{ github.event_name }}" -eq "release") {
+          echo "VERSION=${{ github.event.release.tag_name }}" >> $env:GITHUB_OUTPUT
+        } else {
+          echo "VERSION=latest" >> $env:GITHUB_OUTPUT
+        }
+      shell: powershell
+
+    - name: Create ZIP
+      working-directory: build/Release
+      run: |
+        $zipName = "EnglishLearningApp_v${{ steps.version.outputs.VERSION }}.zip"
+        if (Test-Path "C:\Program Files\7-Zip\7z.exe") {
+          & "C:\Program Files\7-Zip\7z.exe" a $zipName ./* -mx9
+        } else {
+          Compress-Archive -Path ./* -DestinationPath $zipName -CompressionLevel Optimal
+        }
+      shell: powershell
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: EnglishLearningApp_v${{ steps.version.outputs.VERSION }}
+        path: build/Release/EnglishLearningApp_v${{ steps.version.outputs.VERSION }}.zip
+
+    - name: Upload to Release
+      if: github.event_name == 'release'
+      uses: softprops/action-gh-release@v2
+      with:
+        files: build/Release/EnglishLearningApp_v${{ steps.version.outputs.VERSION }}.zip
