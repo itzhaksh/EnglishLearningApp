@@ -44,6 +44,7 @@ jobs:
         dir: '${{ runner.temp }}/qt'
         modules: 'qtmultimedia qttexttospeech'
         use-official: true
+        # Ensure that QT_EMAIL and QT_PW are set in your repository secrets
         email: ${{ secrets.QT_EMAIL }}
         pw: ${{ secrets.QT_PW }}
 
