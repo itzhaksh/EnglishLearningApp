@@ -28,7 +28,7 @@ jobs:
 
     - name: Install Qt using aqtinstall
       run: |
-        aqt install-qt windows desktop 6.8.2 win64_msvc2019_64 -m qtbase qtmultimedia qttexttospeech --outputdir $env:RUNNER_TEMP\qt
+        aqt install-qt windows desktop 6.8.2 win64_msvc2022_64 -m qtbase qtmultimedia qttexttospeech --outputdir $env:RUNNER_TEMP\qt
       shell: powershell
 
     - name: Set up MSVC
@@ -43,7 +43,7 @@ jobs:
       run: >
         cmake -S .. -B . 
         -DCMAKE_BUILD_TYPE=Release 
-        -DCMAKE_PREFIX_PATH="${{ runner.temp }}\qt\6.8.2\msvc2019_64"
+        -DCMAKE_PREFIX_PATH="${{ runner.temp }}\qt\6.8.2\msvc2022_64"
         -DQT_DEBUG_FIND_PACKAGE=ON
       shell: cmd
 
@@ -54,7 +54,7 @@ jobs:
 
     - name: Deploy dependencies with windeployqt
       working-directory: build/Release
-      run: "C:/Qt/6.8.2/msvc2022_64/bin/windeployqt.exe --release EnglishLearningApp.exe"
+      run: '%RUNNER_TEMP%\qt\6.8.2\msvc2022_64\bin\windeployqt.exe --release EnglishLearningApp.exe'
       shell: cmd
 
     - name: Set version variable
