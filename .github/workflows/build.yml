@@ -44,26 +44,26 @@ jobs:
         dir: '${{ runner.temp }}/qt'
         modules: 'qtmultimedia'
         aqtversion: '==3.2.*'
+        setup-python: 'false'
+        install-deps: 'true'
+        cache: 'true'
+
+    - name: Debug Qt Installation
+      run: |
+        dir "${{ runner.temp }}\qt" -Recurse | Write-Host
+      shell: powershell
 
     - name: Find Qt Installation Path
       id: find_qt_path
       run: |
-        $qtBaseDir = "${{ runner.temp }}\qt\6.8.2"
-        $possibleDirs = @("msvc2022_64", "win64_msvc2022_64", "msvc2022")
-        $qtDir = $null
-        foreach ($dir in $possibleDirs) {
-          $testDir = Join-Path $qtBaseDir $dir
-          if (Test-Path $testDir) {
-            $qtDir = $testDir
-            break
-          }
-        }
+        $qtDir = "${{ env.QT_ROOT_DIR }}"
         if ($qtDir -and (Test-Path (Join-Path $qtDir "lib\cmake\Qt6\Qt6Config.cmake"))) {
           Write-Host "Qt installation found at $qtDir"
           Write-Host "Found Qt6Config.cmake at $(Join-Path $qtDir "lib\cmake\Qt6\Qt6Config.cmake")"
           echo "QT_DIR=$qtDir" >> $env:GITHUB_OUTPUT
         } else {
-          Write-Error "Qt installation directory not found in $qtBaseDir"
+          Write-Error "Qt installation directory not found at $qtDir"
+          Write-Host "Listing contents of ${{ runner.temp }}\qt:"
           dir "${{ runner.temp }}\qt" -Recurse | Write-Host
           exit 1
         }
@@ -79,7 +79,7 @@ jobs:
     - name: Configure CMake
       working-directory: build
       run: |
-        cmake -S .. -B . -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="${{ steps.find_qt_path.outputs.QT_DIR }}" -DQT_DEBUG_FIND_PACKAGE=ON
+        cmake -S .. -B . -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="${{ steps.find_qt_path.outputs.QT_DIR }}/lib/cmake" -DQT_DEBUG_FIND_PACKAGE=ON
       shell: cmd
 
     - name: Debug Qt6TextToSpeech
