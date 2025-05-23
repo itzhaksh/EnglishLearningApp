@@ -34,36 +34,18 @@ jobs:
         }
       shell: powershell
 
-    - name: Verify Qt 6.7.2 modules
-      id: list_qt_modules
-      run: |
-        $aqt_executable = "${{ steps.find_aqt_exe.outputs.AQT_PATH }}"
-        if (-not $aqt_executable) {
-          Write-Error "aqt executable path not found"
-          exit 1
-        }
-        Write-Host "Listing available Qt modules for 6.7.2 win64_msvc2022_64..."
-        $available_modules_output = & $aqt_executable list-qt windows desktop --modules 6.7.2 win64_msvc2022_64 2>&1
-        Write-Host "--- Available Qt Modules ---"
-        Write-Host $available_modules_output
-        Write-Host "--------------------------"
-        if ($available_modules_output -match "qttexttospeech") {
-          Write-Host "qttexttospeech module is available for Qt 6.7.2"
-        } else {
-          Write-Error "qttexttospeech module is NOT available for Qt 6.7.2"
-          exit 1
-        }
-      shell: powershell
-
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v3
+    - name: Install Qt with Official Installer
+      uses: jurplel/install-qt-action@v4
       with:
-        version: '6.7.2'
+        version: '6.8.2'
         host: 'windows'
         target: 'desktop'
         arch: 'win64_msvc2022_64'
         dir: '${{ runner.temp }}/qt'
         modules: 'qtmultimedia qttexttospeech'
+        use-official: true
+        email: ${{ secrets.QT_EMAIL }}
+        pw: ${{ secrets.QT_PW }}
 
     - name: Set up MSVC
       uses: ilammy/msvc-dev-cmd@v1
@@ -75,7 +57,7 @@ jobs:
     - name: Configure CMake
       working-directory: build
       run: |
-        cmake -S .. -B . -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="${{ runner.temp }}/qt/6.7.2/win64_msvc2022_64" -DQT_DEBUG_FIND_PACKAGE=ON
+        cmake -S .. -B . -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="${{ runner.temp }}/qt/6.8.2/win64_msvc2022_64" -DQT_DEBUG_FIND_PACKAGE=ON
       shell: cmd
 
     - name: Debug Qt6TextToSpeech
@@ -92,7 +74,7 @@ jobs:
 
     - name: Deploy dependencies with windeployqt
       working-directory: build/Release
-      run: ${{ runner.temp }}\qt\6.7.2\win64_msvc2022_64\bin\windeployqt --release EnglishLearningApp.exe
+      run: ${{ runner.temp }}\qt\6.8.2\win64_msvc2022_64\bin\windeployqt --release EnglishLearningApp.exe
       shell: cmd
 
     - name: Set version variable
