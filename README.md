@@ -22,7 +22,7 @@ Designed for Hebrew speakers, this application provides multiple engaging learni
 
 ## 📝 Download & Installation
 
-### 🔗 [Download Latest Release](https://github.com/itzhaksh/EnglishLearningApp/releases/download/v1.0.1/LearnEnglish-v1.0.1.zip)
+### 🔗 [Download Latest Release](https://github.com/itzhaksh/EnglishLearningApp/releases/download/v1.0.2/EnglishLearningApp_v0.1.zip)
 
 ### Installation Instructions
 
