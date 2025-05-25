@@ -57,12 +57,14 @@ jobs:
         cd build/Release
         $qtPath = "$env:RUNNER_WORKSPACE\Qt\${{ env.QT_VERSION }}\msvc2022_64\bin\windeployqt.exe"
         if (Test-Path $qtPath) {
+          Write-Host "Found windeployqt.exe at: $qtPath"
           & $qtPath EnglishLearningApp.exe --qmldir ../../ --compiler-runtime --verbose 2
         } else {
           # Fallback: try to find windeployqt.exe
+          Write-Host "Searching for windeployqt.exe..."
           $qtDirs = Get-ChildItem -Path "$env:RUNNER_WORKSPACE" -Recurse -Name "windeployqt.exe" -ErrorAction SilentlyContinue
           if ($qtDirs.Count -gt 0) {
-            $qtPath = $qtDirs[0]
+            $qtPath = Join-Path $env:RUNNER_WORKSPACE $qtDirs[0]
             Write-Host "Found windeployqt.exe at: $qtPath"
             & $qtPath EnglishLearningApp.exe --qmldir ../../ --compiler-runtime --verbose 2
           } else {
@@ -75,14 +77,30 @@ jobs:
       shell: pwsh
       run: |
         if (Test-Path "resources") {
+          Write-Host "Copying resources..."
           Copy-Item -Path "resources" -Destination "build/Release/resources" -Recurse -Force
+        } else {
+          Write-Host "No resources directory found, skipping..."
         }
         
     - name: Package Application
       shell: pwsh
       run: |
-        New-Item -ItemType Directory -Path "package" -Force
-        Copy-Item -Path "build/Release/*" -Destination "package/EnglishLearningApp/" -Recurse -Force
+        # Remove package directory if it exists
+        if (Test-Path "package") {
+          Remove-Item -Path "package" -Recurse -Force
+        }
+        
+        # Create fresh package structure
+        New-Item -ItemType Directory -Path "package\EnglishLearningApp" -Force
+        
+        # Copy all files from build/Release
+        Write-Host "Copying application files..."
+        Get-ChildItem -Path "build\Release\*" | Copy-Item -Destination "package\EnglishLearningApp\" -Recurse -Force
+        
+        # List contents for verification
+        Write-Host "Package contents:"
+        Get-ChildItem -Path "package\EnglishLearningApp\" -Recurse | Format-Table Name, Length
         
     - name: Upload Windows Artifact
       uses: actions/upload-artifact@v4
@@ -91,244 +109,38 @@ jobs:
         path: package/
         retention-days: 30
 
-  build-linux:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y \
-          build-essential \
-          libgl1-mesa-dev \
-          libxkbcommon-x11-0 \
-          libxcb-icccm4 \
-          libxcb-image0 \
-          libxcb-keysyms1 \
-          libxcb-randr0 \
-          libxcb-render-util0 \
-          libxcb-xinerama0 \
-          libxcb-xinput0 \
-          libxcb-xfixes0 \
-          libxcb-cursor0 \
-          libasound2-dev \
-          libpulse-dev \
-          libfontconfig1-dev \
-          libfreetype6-dev \
-          libx11-dev \
-          libxext-dev \
-          libxfixes-dev \
-          libxi-dev \
-          libxrender-dev \
-          libxcb1-dev \
-          libx11-xcb-dev \
-          libxcb-glx0-dev \
-          file
-        
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v4
-      with:
-        version: ${{ env.QT_VERSION }}
-        host: linux
-        target: desktop
-        modules: 'qtmultimedia qtspeech'
-        cache: true
-        
-    - name: Setup CMake
-      uses: jwlawson/actions-setup-cmake@v2
-      with:
-        cmake-version: ${{ env.CMAKE_VERSION }}
-        
-    - name: Configure CMake
-      run: |
-        mkdir build
-        cd build
-        cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
-        
-    - name: Build
-      run: |
-        cd build
-        make -j$(nproc)
-        
-    - name: Create AppImage
-      run: |
-        # Create AppDir structure
-        mkdir -p appdir/usr/bin
-        mkdir -p appdir/usr/share/applications
-        mkdir -p appdir/usr/share/icons/hicolor/256x256/apps
-        mkdir -p appdir/usr/share/metainfo
-        
-        # Copy executable
-        cp build/EnglishLearningApp appdir/usr/bin/
-        
-        # Copy resources if they exist
-        if [ -d "resources" ]; then
-          cp -r resources appdir/usr/bin/
-        fi
-        
-        # Create desktop file
-        cat > appdir/usr/share/applications/EnglishLearningApp.desktop << EOF
-        [Desktop Entry]
-        Type=Application
-        Name=English Learning App
-        Comment=Learn English with interactive exercises
-        Exec=EnglishLearningApp
-        Icon=EnglishLearningApp
-        Categories=Education;Language;
-        StartupNotify=true
-        EOF
-        
-        # Create AppStream metadata
-        cat > appdir/usr/share/metainfo/EnglishLearningApp.appdata.xml << EOF
-        <?xml version="1.0" encoding="UTF-8"?>
-        <component type="desktop-application">
-          <id>EnglishLearningApp</id>
-          <metadata_license>CC0-1.0</metadata_license>
-          <project_license>MIT</project_license>
-          <name>English Learning App</name>
-          <summary>Interactive English learning application</summary>
-          <description>
-            <p>Learn English with interactive exercises and multimedia content.</p>
-          </description>
-          <categories>
-            <category>Education</category>
-            <category>Language</category>
-          </categories>
-        </component>
-        EOF
-        
-        # Use default icon if custom one doesn't exist
-        if [ -f "resources/Learn-English-Icon.png" ]; then
-          cp resources/Learn-English-Icon.png appdir/usr/share/icons/hicolor/256x256/apps/EnglishLearningApp.png
-        else
-          # Create a simple default icon
-          convert -size 256x256 xc:lightblue -font DejaVu-Sans -pointsize 24 -fill darkblue -gravity center -annotate +0+0 "ELA" appdir/usr/share/icons/hicolor/256x256/apps/EnglishLearningApp.png 2>/dev/null || echo "Warning: Could not create icon"
-        fi
-        
-        # Download linuxdeploy tools
-        wget -c -nv "https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage"
-        wget -c -nv "https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage"
-        chmod +x linuxdeploy*.AppImage
-        
-        # Set environment for Qt plugin
-        export QML_SOURCES_PATHS=.
-        export QMAKE=$Qt6_DIR/bin/qmake
-        
-        # Create AppImage
-        ./linuxdeploy-x86_64.AppImage --appdir appdir --plugin qt --output appimage --desktop-file appdir/usr/share/applications/EnglishLearningApp.desktop
-        
-    - name: Upload Linux Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: EnglishLearningApp-Linux-x86_64
-        path: "*.AppImage"
-        retention-days: 30
-
-  build-macos:
-    runs-on: macos-latest
-    
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v4
-      with:
-        version: ${{ env.QT_VERSION }}
-        host: mac
-        target: desktop
-        modules: 'qtmultimedia qtspeech'
-        cache: true
-        
-    - name: Setup CMake
-      uses: jwlawson/actions-setup-cmake@v2
-      with:
-        cmake-version: ${{ env.CMAKE_VERSION }}
-        
-    - name: Configure CMake
-      run: |
-        mkdir build
-        cd build
-        cmake .. -DCMAKE_BUILD_TYPE=Release
-        
-    - name: Build
-      run: |
-        cd build
-        make -j$(sysctl -n hw.ncpu)
-        
-    - name: Copy Resources
-      run: |
-        if [ -d "resources" ]; then
-          cp -r resources build/EnglishLearningApp.app/Contents/Resources/
-        fi
-        
-    - name: Deploy Qt
-      run: |
-        cd build
-        macdeployqt_path="$Qt6_DIR/../../../bin/macdeployqt"
-        if [ -f "$macdeployqt_path" ]; then
-          $macdeployqt_path EnglishLearningApp.app -dmg -verbose=2
-        else
-          echo "macdeployqt not found at expected location, searching..."
-          find $RUNNER_WORKSPACE -name "macdeployqt" -type f 2>/dev/null | head -1 | xargs -I {} {} EnglishLearningApp.app -dmg -verbose=2
-        fi
-        
-    - name: Upload macOS Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: EnglishLearningApp-macOS
-        path: build/*.dmg
-        retention-days: 30
-
   create-release:
     if: github.event_name == 'release'
-    needs: [build-windows, build-linux, build-macos]
+    needs: [build-windows]
     runs-on: ubuntu-latest
     permissions:
       contents: write
     
     steps:
-    - name: Download all artifacts
+    - name: Download Windows artifact
       uses: actions/download-artifact@v4
       with:
-        path: artifacts
+        name: EnglishLearningApp-Windows-x64
+        path: artifacts/EnglishLearningApp-Windows-x64
         
-    - name: Create release archives
+    - name: Create release archive
       run: |
-        # Windows
         cd artifacts/EnglishLearningApp-Windows-x64
         zip -r ../../EnglishLearningApp-Windows-x64.zip .
         cd ../..
         
-        # Linux - AppImage is already a single file
-        if [ -f artifacts/EnglishLearningApp-Linux-x86_64/*.AppImage ]; then
-          cp artifacts/EnglishLearningApp-Linux-x86_64/*.AppImage ./EnglishLearningApp-Linux-x86_64.AppImage
-        fi
-        
-        # macOS - DMG is already packaged
-        if [ -f artifacts/EnglishLearningApp-macOS/*.dmg ]; then
-          cp artifacts/EnglishLearningApp-macOS/*.dmg ./EnglishLearningApp-macOS.dmg
-        fi
-        
-        # List created files
-        ls -la *.zip *.AppImage *.dmg 2>/dev/null || echo "Some files may be missing"
+        # Verify archive was created
+        ls -la *.zip
         
     - name: Upload release assets
       uses: softprops/action-gh-release@v2
       with:
-        files: |
-          EnglishLearningApp-Windows-x64.zip
-          EnglishLearningApp-Linux-x86_64.AppImage
-          EnglishLearningApp-macOS.dmg
-        fail_on_unmatched_files: false
+        files: EnglishLearningApp-Windows-x64.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     
     steps:
     - name: Checkout code
@@ -338,48 +150,49 @@ jobs:
       uses: jurplel/install-qt-action@v4
       with:
         version: ${{ env.QT_VERSION }}
-        host: linux
+        host: windows
         target: desktop
+        arch: win64_msvc2022_64
         modules: 'qtmultimedia qtspeech'
         cache: true
+        
+    - name: Setup MSVC
+      uses: ilammy/msvc-dev-cmd@v1
+      with:
+        arch: x64
         
     - name: Setup CMake
       uses: jwlawson/actions-setup-cmake@v2
       with:
         cmake-version: ${{ env.CMAKE_VERSION }}
         
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y build-essential libgl1-mesa-dev xvfb
-        
     - name: Configure CMake (Debug)
       run: |
         mkdir build
         cd build
-        cmake .. -DCMAKE_BUILD_TYPE=Debug
+        cmake .. -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug
         
     - name: Build (Debug)
       run: |
         cd build
-        make -j$(nproc)
+        cmake --build . --config Debug --parallel
         
     - name: Test build success
+      shell: pwsh
       run: |
-        if [ -f "build/EnglishLearningApp" ]; then
-          echo "✅ Build successful!"
-          echo "File info:"
-          file build/EnglishLearningApp
-          echo "File size:"
-          ls -lh build/EnglishLearningApp
-        else
-          echo "❌ Build failed - executable not found"
-          echo "Contents of build directory:"
-          ls -la build/
+        if (Test-Path "build\Debug\EnglishLearningApp.exe") {
+          Write-Host "✅ Build successful!"
+          Write-Host "File info:"
+          Get-Item "build\Debug\EnglishLearningApp.exe" | Format-List Name, Length, CreationTime
+        } else {
+          Write-Host "❌ Build failed - executable not found"
+          Write-Host "Contents of Debug directory:"
+          if (Test-Path "build\Debug") {
+            Get-ChildItem "build\Debug" | Format-Table Name, Length
+          } else {
+            Write-Host "Debug directory doesn't exist"
+          }
+          Write-Host "Contents of build directory:"
+          Get-ChildItem "build" | Format-Table Name, Length
           exit 1
-        fi
-        
-    - name: Basic functionality test
-      run: |
-        cd build
-        timeout 10s xvfb-run -a ./EnglishLearningApp --help 2>/dev/null || echo "App started (timeout or help not available)"
+        }
