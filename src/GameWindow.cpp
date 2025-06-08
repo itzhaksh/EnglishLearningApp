@@ -12,21 +12,22 @@
 #include <QInputMethod>
 #include <QPainter>
 #include <QScreen>
+#include <QRandomGenerator>
 
 GameWindow::GameWindow(const QString& mode, const QString& level, QWidget* parent)
     : QMainWindow(parent),
-    mode(mode),
-    currentLevel(level),
-    score(0),
-    currentWordCount(0),
-    tts(new QTextToSpeech(this)),
-    voiceButtonGroup(new QButtonGroup(this)),
-    showAnswerButton(new QPushButton("הראה תשובה", this)) 
+      mode(mode),
+      currentLevel(level),
+      score(0),
+      currentWordCount(0),
+      tts(new QTextToSpeech(this)),
+      voiceButtonGroup(new QButtonGroup(this)),
+      showAnswerButton(new QPushButton("הראה תשובה", this)),
+      showExampleButton(new QPushButton("הצג דוגמא", this))
 {
     if (mode == "English") {
         voiceLayout = new QHBoxLayout();
-    }
-    else {
+    } else {
         voiceLayout = new QVBoxLayout();
     }
 
@@ -35,11 +36,12 @@ GameWindow::GameWindow(const QString& mode, const QString& level, QWidget* paren
     setupQuestion();
 
     connect(btnCheck, &QPushButton::clicked, this, &GameWindow::checkAnswer);
+    connect(showExampleButton, &QPushButton::clicked, this, &GameWindow::showExample);
+    connect(showAnswerButton, &QPushButton::clicked, this, &GameWindow::revealAnswer);
 
     if (mode == "Hebrew") {
         tts->setLocale(QLocale(QLocale::Hebrew, QLocale::Israel));
-    }
-    else {
+    } else {
         tts->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
     }
 
@@ -101,7 +103,7 @@ void GameWindow::setupUI()
 
     labelScore = new QLabel("Score: 0", this);
     labelScore->setFont(labelFont);
-    labelScore->setStyleSheet("color: black;");
+    labelFeedback->setStyleSheet("color: black;");
 
     lineEditAnswer = new QLineEdit(this);
     lineEditAnswer->setFont(labelFont);
@@ -111,8 +113,7 @@ void GameWindow::setupUI()
         "   color: black;"
         "   border: 1px solid white;"
         "   padding: 10px;"
-        "}"
-    );
+        "}");
 
     QString buttonStyle =
         "QPushButton {"
@@ -130,17 +131,23 @@ void GameWindow::setupUI()
         "   background-color: #f5d33f;"
         "}";
 
-    btnAudio = new QPushButton("🔊 השמע שוב", this); 
+    btnAudio = new QPushButton("🔊 השמע שוב", this);
     btnAudio->setFont(buttonFont);
     btnAudio->setStyleSheet(buttonStyle);
 
-    btnCheck = new QPushButton("בדוק תשובה", this); 
+    btnCheck = new QPushButton("בדוק תשובה", this);
     btnCheck->setFont(buttonFont);
     btnCheck->setStyleSheet(buttonStyle);
 
-    btnClose = new QPushButton("סגור", this); 
+    btnClose = new QPushButton("סגור", this);
     btnClose->setFont(buttonFont);
     btnClose->setStyleSheet(buttonStyle);
+
+    showAnswerButton->setFont(buttonFont);
+    showAnswerButton->setStyleSheet(buttonStyle);
+
+    showExampleButton->setFont(buttonFont);
+    showExampleButton->setStyleSheet(buttonStyle);
 
     contentLayout->addWidget(labelQuestion);
 
@@ -153,17 +160,15 @@ void GameWindow::setupUI()
     contentLayout->addWidget(frame);
 
     lineEditAnswer->setPlaceholderText(mode == "Hebrew" ?
-        "הקלד את התרגום..." :
-        "Type your translation here...");
+        "...Type the English translation" : 
+        "...הקלד את התרגום לעברית");       
 
     contentLayout->addWidget(btnCheck);
     contentLayout->addWidget(btnAudio);
     voiceLayout->addWidget(showAnswerButton);
-    showAnswerButton->setFont(buttonFont);
-    showAnswerButton->setStyleSheet(buttonStyle);
+    voiceLayout->addWidget(showExampleButton);
     contentLayout->addWidget(labelFeedback);
     contentLayout->addWidget(labelScore);
-
     contentLayout->addLayout(voiceLayout);
     contentLayout->addWidget(btnClose);
 
@@ -189,31 +194,26 @@ void GameWindow::updateVoiceButtons()
 {
     QLayoutItem* child;
     while ((child = voiceLayout->takeAt(0)) != nullptr) {
-        if (child->widget() && child->widget() != showAnswerButton) {
+        if (child->widget() && child->widget() != showAnswerButton && child->widget() != showExampleButton) {
             delete child->widget();
         }
         delete child;
     }
 
     voiceLayout->addWidget(showAnswerButton);
+    voiceLayout->addWidget(showExampleButton);
 
     voiceButtonGroup->setExclusive(true);
 
     QList<QVoice> filteredVoices;
     for (const QVoice& voice : voices) {
         if (mode == "Hebrew") {
-            if (voice.locale().language() == QLocale::Hebrew &&
-                voice.name().contains("Asaf"))
-            {
+            if (voice.locale().language() == QLocale::Hebrew && voice.name().contains("Asaf")) {
                 filteredVoices.append(voice);
             }
-        }
-        else {
+        } else {
             if (voice.locale().language() == QLocale::English &&
-                (voice.name().contains("David") ||
-                    voice.name().contains("Mark") ||
-                    voice.name().contains("Zira")))
-            {
+                (voice.name().contains("David") || voice.name().contains("Mark") || voice.name().contains("Zira"))) {
                 filteredVoices.append(voice);
             }
         }
@@ -221,7 +221,7 @@ void GameWindow::updateVoiceButtons()
 
     if (filteredVoices.isEmpty()) {
         qWarning() << "No voices available for the selected language.";
-        QMessageBox::warning(this, "Voice Error", "No voices available for the selected language.");
+        QMessageBox::warning(this, "Voice Error", "אין קולות זמינים עבור השפה שנבחרה.");
         return;
     }
 
@@ -243,167 +243,213 @@ void GameWindow::updateVoiceButtons()
         "   background-color: #f5d33f;"
         "}";
 
-    for (int i = 0; i < voices.size(); ++i) {
-        QString voiceName = voices[i].name();
-        QString icon = (voiceName.contains("David") ||
-            voiceName.contains("Mark") ||
-            voiceName.contains("Asaf")) ? "👨" : "👩";
+    if (mode != "Hebrew") {
+        for (int i = 0; i < voices.size(); ++i) {
+            QString voiceName = voices[i].name();
+            QString icon = (voiceName.contains("David") || voiceName.contains("Mark")) ? "👨" : "👩";
+            voiceName.replace("Microsoft ", "");
+            QPushButton* btnVoice = new QPushButton(icon + " " + voiceName, this);
+            btnVoice->setStyleSheet(voiceButtonStyle);
+            btnVoice->setCheckable(true);
+            voiceButtonGroup->addButton(btnVoice, i);
+            voiceLayout->addWidget(btnVoice);
 
-        voiceName.replace("Microsoft ", "");
-        QPushButton* btnVoice = new QPushButton(icon + " " + voiceName, this);
-        btnVoice->setStyleSheet(voiceButtonStyle);
-        btnVoice->setCheckable(true);
-        voiceButtonGroup->addButton(btnVoice, i);
-        voiceLayout->addWidget(btnVoice);
-
-        connect(btnVoice, &QPushButton::clicked, this, [=]() {
-            selectVoice(i);
-        });
+            connect(btnVoice, &QPushButton::clicked, this, [=]() {
+                selectVoice(i);
+            });
+        }
     }
 
     if (!voiceButtonGroup->buttons().isEmpty()) {
         voiceButtonGroup->button(0)->setChecked(true);
         selectVoice(0);
+    } else if (!voices.isEmpty()) {
+        selectVoice(0); 
     }
 }
 
 void GameWindow::revealAnswer()
 {
-    if (mode == "Hebrew") {
-        labelFeedback->setText(QString("The answer is: %1").arg(currentQuestion));
-    }
-    else {
-        labelFeedback->setText(QString("The answer is: %1").arg(correctAnswer));
-    }
+    QString answerText = (mode == "Hebrew") ? 
+        QString("התשובה היא: %1").arg(correctAnswer) :
+        QString("התשובה היא: %1").arg(correctAnswer);
+
+    labelFeedback->setText(answerText);
     labelFeedback->setStyleSheet(
         "color: black;"
         "font-weight: bold;"
         "font-size: 18px;"
     );
-    lineEditAnswer->setText((mode == "Hebrew") ? currentQuestion : correctAnswer);
+    lineEditAnswer->setText(correctAnswer);
     showAnswerButton->setEnabled(false);
+}
+
+void GameWindow::showExample()
+{
+   if (examplesMap.contains(currentKey)) {
+        QPair<QString, QString> examples = examplesMap[currentKey];
+        QString exampleText;
+
+        if (examples.first.isEmpty() && examples.second.isEmpty()) {
+            exampleText = "אין דוגמא זמינה.";
+        } else {
+            QString hebrewText = examples.second.isEmpty() ? "משפט בעברית חסר" : examples.second;
+            QString englishText = examples.first.isEmpty() ? "משפט באנגלית חסר" : examples.first;
+            exampleText = QString("משפט: %1\nתרגום: %2").arg(hebrewText).arg(englishText);
+        }
+
+        labelFeedback->setText(exampleText);
+        labelFeedback->setStyleSheet(
+            "color: black;"
+            "font-weight: bold;"
+            "font-size: 16px;"
+        );
+    } else {
+        labelFeedback->setText("אין דוגמא זמינה.");
+        labelFeedback->setStyleSheet(
+            "color: black;"
+            "font-weight: bold;"
+            "font-size: 16px;"
+        );
+    }
 }
 
 void GameWindow::selectVoice(int voiceIndex)
 {
     if (voiceIndex >= 0 && voiceIndex < voices.size()) {
         tts->setVoice(voices[voiceIndex]);
-        qDebug() << "Using voice:" << voices[voiceIndex].name()
-            << "Locale:" << voices[voiceIndex].locale().name();
+        qDebug() << "בחירת קול:" << voices[voiceIndex].name()
+                 << "שפה:" << voices[voiceIndex].locale().name();
     }
 }
 
 void GameWindow::playAudio()
 {
     if (voices.isEmpty()) {
-        qWarning() << "No voices available.";
+        qWarning() << "אין קולות זמינים.";
         return;
     }
 
-    QString textToSpeak = labelQuestion->text();
+    QString textToSpeak = currentQuestion;
     tts->say(textToSpeak);
 }
 
-void GameWindow::loadDictionary(const QString& level)
-{
+void GameWindow::loadDictionary(const QString& level) {
     QString filePath = QString("resources/%1").arg(level);
-    qDebug() << "Trying to open dictionary file:" << filePath;
     QFile file(filePath);
-
     if (!file.open(QIODevice::ReadOnly)) {
-        QMessageBox::critical(this, "Error",
-            QString("Failed to load dictionary file for level %1").arg(level));
+        qWarning() << "לא ניתן לפתוח קובץ מילון:" << filePath;
+        QMessageBox::critical(this, "שגיאה", QString("נכשל בטעינת קובץ מילון: %1").arg(filePath));
         return;
     }
 
     QByteArray data = file.readAll();
-    QJsonDocument document = QJsonDocument::fromJson(data);
-    if (document.isObject()) {
-        dictionary = document.object();
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    dictionary.clear();
+    examplesMap.clear();
+
+    if (doc.isObject()) {
+        QJsonObject jsonObject = doc.object();
+        for (auto it = jsonObject.begin(); it != jsonObject.end(); ++it) {
+            QString englishWord = it.key();
+            QJsonObject wordObj = it.value().toObject();
+            QString hebrewWord = removeHebrewDiacritics(wordObj["translation"].toString());
+            QString exampleEn = wordObj["ex_en"].toString();
+            QString exampleHe = wordObj["ex_he"].toString();
+
+            if (mode == "Hebrew") {
+                dictionary.insert(hebrewWord, englishWord);
+                examplesMap.insert(hebrewWord, qMakePair(exampleEn, exampleHe));
+            } else {
+                dictionary.insert(englishWord, hebrewWord);
+                examplesMap.insert(englishWord, qMakePair(exampleEn, exampleHe));
+            }
+        }
     }
-    else {
-        QMessageBox::critical(this, "Error", "Invalid JSON format.");
-    }
+
     file.close();
+    qDebug() << "נטענו" << dictionary.size() << "מילים במצב" << mode;
 }
 
 void GameWindow::setupQuestion()
 {
     showAnswerButton->setEnabled(true);
+    showExampleButton->setEnabled(true);
     QStringList keys = dictionary.keys();
+
     if (keys.isEmpty()) {
-        labelQuestion->setText("No questions available");
+        labelQuestion->setText("אין שאלות זמינות");
         return;
     }
 
-    currentQuestion = keys.at(rand() % keys.size());
-    correctAnswer = dictionary[currentQuestion].toString();
-
+    int randomIndex = QRandomGenerator::global()->bounded(keys.size());
+    currentKey = keys.at(randomIndex);
+    
     if (mode == "Hebrew") {
-        labelQuestion->setText(QString("%1").arg(correctAnswer));
-    }
-    else {
-        labelQuestion->setText(QString("%1").arg(currentQuestion));
+       
+        currentQuestion = currentKey;     
+        correctAnswer = dictionary[currentKey]; 
+    } else {
+        currentQuestion = currentKey;  
+        correctAnswer = dictionary[currentKey]; 
     }
 
+    labelQuestion->setText(currentQuestion);
     labelQuestion->setStyleSheet(
         "color: black;"
-        "border: 3px solid white;"
-        "padding: 15px;"
+        "border: 2px solid white;"
+        "padding: 10px;"
         "font-size: 26px;"
-        "background-color: rgba(255, 255, 255, 0.5);"
-        "border-radius: 10px;"
+        "background-color: rgba(255, 255, 255, 0.3);"
+        "border-radius: 8px;"
     );
     labelQuestion->setAlignment(Qt::AlignCenter);
     labelQuestion->setMinimumWidth(200);
     labelQuestion->setMinimumHeight(60);
+
+    lineEditAnswer->clear();
+    labelFeedback->clear();
 }
 
-QString GameWindow::removeHebrewDiacritics(const QString& text)
-{
-    QRegularExpression diacriticsRegex("[\u0591-\u05C7]");
-    QString result = text;
-    return result.remove(diacriticsRegex);
+QString GameWindow::removeHebrewDiacritics(const QString& text) {
+    static QRegularExpression diacriticsRegex(QString::fromUtf8("[\\u0591-\\u05C7\\u05B0-\\u05BC\\u05C1-\\u05C2\\u05C4-\\u05C5\\u05C7]"));
+    return text.normalized(QString::NormalizationForm_D).remove(diacriticsRegex);
 }
 
-void GameWindow::checkAnswer()
-{
-    QString userAnswer = lineEditAnswer->text();
-
-    QString correct = (mode == "Hebrew") ? currentQuestion : correctAnswer;
-
+void GameWindow::checkAnswer() {
+    QString userAnswer = lineEditAnswer->text().trimmed();
+    
     if (userAnswer.isEmpty()) {
-        labelFeedback->setText("Please enter the translation");
+        labelFeedback->setText("אנא הכנס תרגום");
         labelFeedback->setStyleSheet(
-            "font: Yu Mincho Light;"
             "color: black;"
             "font-size: 18px;"
             "font-weight: bold;"
-            "text-shadow: 2px 2px #ff0000;"
         );
         return;
     }
 
-    if (removeHebrewDiacritics(userAnswer.toLower()) ==
-        removeHebrewDiacritics(correct.toLower()))
-    {
-        labelFeedback->setText("Correct!");
+    QString cleanUserAnswer = removeHebrewDiacritics(userAnswer.toLower());
+    QString cleanCorrectAnswer = removeHebrewDiacritics(correctAnswer.toLower());
+
+    if (cleanUserAnswer == cleanCorrectAnswer) {
+        labelFeedback->setText("נכון!");
         labelFeedback->setStyleSheet(
             "color: black;"
             "font-weight: bold;"
             "font-size: 18px;"
         );
         score++;
-        labelScore->setText(QString("Score: %1").arg(score));
+        labelScore->setText(QString("ניקוד: %1").arg(score));
         labelScore->setStyleSheet(
             "font-size: 22px;"
             "color: black;"
         );
         currentWordCount++;
         if (currentWordCount >= dictionary.count()) {
-            QString levelText = QString("Level %1").arg(currentLevel);
-            QMessageBox::information(this, "Level Complete",
-                QString("Congratulations! You've completed %1!\nFinal Score: %2/%3")
+            QString levelText = QString("שלב %1").arg(currentLevel);
+            QMessageBox::information(this, "השלב הושלם",
+                QString("כל הכבוד! השלמת את %1!\nניקוד סופי: %2/%3")
                 .arg(levelText)
                 .arg(score)
                 .arg(dictionary.count()));
@@ -412,13 +458,12 @@ void GameWindow::checkAnswer()
         }
         setupQuestion();
         playAudio();
-    }
-    else {
-        labelFeedback->setText("Incorrect. Try again!");
+    } else {
+        labelFeedback->setText("לא נכון, נסה שוב!");
         labelFeedback->setStyleSheet(
-            "font: Arial;"
             "color: black;"
             "font-size: 18px;"
+            "font-weight: bold;"
         );
     }
 
@@ -443,15 +488,14 @@ void GameWindow::checkKeyboardLanguage()
 
         if ((mode == "Hebrew" && isHebrew) || (mode == "English" && !isHebrew)) {
             labelFeedback->setText(mode == "Hebrew" ?
-                "Please switch to English keyboard" :
+                "נא החלף למקלדת אנגלית" :
                 "נא החלף למקלדת עברית");
             labelFeedback->setStyleSheet(
-                "color: black;"
+                "color: red;"
                 "font-size: 16px;"
                 "font-weight: bold;"
             );
-        }
-        else {
+        } else {
             labelFeedback->clear();
         }
     }

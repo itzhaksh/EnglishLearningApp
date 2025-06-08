@@ -24,6 +24,7 @@ private slots:
     void playAudio();
     void checkKeyboardLanguage();
     void revealAnswer();
+    void showExample();
 
 private:
     void loadDictionary(const QString& level);
@@ -39,8 +40,10 @@ private:
     QPushButton* btnClose;
     QPushButton* btnAudio;
     QPushButton* showAnswerButton;
-
-    QJsonObject dictionary;
+    QPushButton* showExampleButton;
+    QMap<QString, QPair<QString, QString>> examplesMap;
+    QMap<QString, QString> dictionary;
+    QString currentKey;
     QString currentQuestion;
     QString correctAnswer;
     QString mode;

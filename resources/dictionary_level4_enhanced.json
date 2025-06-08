@@ -1,0 +1,1597 @@
+{
+  "courageous": {
+    "translation": "אַמִיץ",
+    "ex_en": "He showed courageous bravery during the rescue mission.",
+    "ex_he": "הוא הראה אומץ ואמיצות במהלך משימת ההצלה."
+  },
+  "provision": {
+    "translation": "אַספָּקָה",
+    "ex_en": "The hotel made a special provision for late check-ins.",
+    "ex_he": "המלון עשה הפנייה מיוחדת לצ'ק-אין מאוחרים."
+  },
+  "ancestor": {
+    "translation": "אָב קַדמוֹן",
+    "ex_en": "My ancestors came from Ireland.",
+    "ex_he": "האבות שלי באו מאירלנד."
+  },
+  "closet": {
+    "translation": "אָרוֹן",
+    "ex_en": "I keep my shoes organized in the closet.",
+    "ex_he": "אני שומר את הנעליים שלי מאורגנות בארון."
+  },
+  "prohibition": {
+    "translation": "איסור",
+    "ex_en": "There is a strict prohibition against littering in the park.",
+    "ex_he": "יש איסור קשה על השטחה בפארק."
+  },
+  "precaution": {
+    "translation": "אמצעי זהירות",
+    "ex_en": "As a precaution, she always wears sunscreen at the beach.",
+    "ex_he": "כאמצעי זהירות, היא תמיד לובשת קרם הגנה בחוף."
+  },
+  "delusion": {
+    "translation": "אשליה",
+    "ex_en": "She was under the delusion that she had won the lottery.",
+    "ex_he": "היא הייתה תחת הטעות שניצחה בהגרלה."
+  },
+  "probe": {
+    "translation": "בְּדִיקָה",
+    "ex_en": "The doctor used a probe to examine the wound.",
+    "ex_he": "הרופא השתמש במחקר כדי לבדוק את הפצע."
+  },
+  "approximately": {
+    "translation": "בְּעֵרֶך",
+    "ex_en": "The hike to the waterfall takes approximately one hour.",
+    "ex_he": "הטיול למפל לוקח בערך שעה אחת."
+  },
+  "inevitable": {
+    "translation": "בִּלתִי נִמנַע",
+    "ex_en": "Change is inevitable in life; we must adapt.",
+    "ex_he": "שינוי הוא בלתי נמנע בחיים; עלינו להסתגל."
+  },
+  "domestic": {
+    "translation": "בֵּיתִי",
+    "ex_en": "She prefers domestic travel over international adventures.",
+    "ex_he": "היא מעדיפה נסיעות בארץ על פני הרפתקאות בינלאומיות."
+  },
+  "cloth": {
+    "translation": "בַּד",
+    "ex_en": "She wiped the table with a damp cloth.",
+    "ex_he": "היא ניגבה את השולחן במטלית לחה."
+  },
+  "continuously": {
+    "translation": "באופן רציף",
+    "ex_en": "The rain fell continuously throughout the night.",
+    "ex_he": "הגשם נפל בתדירות לאורך כל הלילה."
+  },
+  "clothes": {
+    "translation": "בגדים",
+    "ex_en": "I need to buy new clothes for the summer.",
+    "ex_he": "אני צריך לקנות בגדים חדשים לקיץ."
+  },
+  "decidedly": {
+    "translation": "בהחלט",
+    "ex_en": "I am decidedly going to the beach tomorrow.",
+    "ex_he": "אני הולך לחוף מחר."
+  },
+  "indignantly": {
+    "translation": "בהתמרמרות",
+    "ex_en": "She refused to apologize and left the room indignantly.",
+    "ex_he": "היא סרבה להתנצל ועזבה את החדר בזעם."
+  },
+  "concrete": {
+    "translation": "בטון",
+    "ex_en": "The sidewalk was made of smooth concrete.",
+    "ex_he": "המדרכה עשויה מבטון חלק."
+  },
+  "purposefully": {
+    "translation": "בכוונה",
+    "ex_en": "She purposefully practiced her speech before the big presentation.",
+    "ex_he": "היא תרגלה במכוון את הדיבור שלה לפני ההצגה הגדולה."
+  },
+  "justifiably": {
+    "translation": "בצדק",
+    "ex_en": "Her anger was justifiably directed at her irresponsible brother.",
+    "ex_he": "הכעס שלה הופנה בצדק לאח שלה שאינו אחראי."
+  },
+  "proficient": {
+    "translation": "בקיא",
+    "ex_en": "She is proficient in playing the piano.",
+    "ex_he": "היא מיומנת בנגינה על הפסנתר."
+  },
+  "cattle": {
+    "translation": "בקר",
+    "ex_en": "The farmer raises cattle on his ranch.",
+    "ex_he": "החקלאי מגדל בקר בחוותו."
+  },
+  "mercifully": {
+    "translation": "ברחמים",
+    "ex_en": "The rain mercifully stopped just in time for the picnic.",
+    "ex_he": "הגשם חדל ברחמים בזמן לפיקניק."
+  },
+  "deficit": {
+    "translation": "גֵרָעוֹן",
+    "ex_en": "The country is facing a budget deficit this year.",
+    "ex_he": "המדינה נתקלת בפגיעת תקציב השנה."
+  },
+  "coarse": {
+    "translation": "גַס",
+    "ex_en": "The sandpaper has a coarse texture for smoothing wood.",
+    "ex_he": "השטיחון יש לו מרקם גס לטיחוח עץ."
+  },
+  "captivity": {
+    "translation": "גָלוּת",
+    "ex_en": "The lion was kept in captivity at the zoo.",
+    "ex_he": "האריה נשמר בשבי בגן החיות."
+  },
+  "pitch": {
+    "translation": "גובה הצליל",
+    "ex_en": "The baseball pitcher threw a fast pitch.",
+    "ex_he": "המשיק של הבייסבול זרק כדור מהיר."
+  },
+  "diversity": {
+    "translation": "גיוון",
+    "ex_en": "Diversity is important for a healthy ecosystem.",
+    "ex_he": "רב סוגיות חשוב לאקוסיסטם בריא"
+  },
+  "crude": {
+    "translation": "גס",
+    "ex_en": "The artist used crude materials to make the sculpture.",
+    "ex_he": "האמן השתמש בחומרים גסים כדי ליצור את הפסל."
+  },
+  "concern": {
+    "translation": "דְאָגָה",
+    "ex_en": "I appreciate your concern for my well-being.",
+    "ex_he": "אני מעריך את דאגתך לרווחתי."
+  },
+  "adherence": {
+    "translation": "דְבֵקוּת",
+    "ex_en": "She believes in strict adherence to the rules.",
+    "ex_he": "היא מאמינה בהקפדה קפדנית על החוקים."
+  },
+  "deliberation": {
+    "translation": "דִיוּן",
+    "ex_en": "After much deliberation, she decided to accept the job offer.",
+    "ex_he": "לאחר הרבה התלבטויות, היא החליטה לקבל את ההצעת עבודה."
+  },
+  "quite": {
+    "translation": "דַי",
+    "ex_en": "I'm quite tired after working all day.",
+    "ex_he": "אני די עייף אחרי עבודה כל היום."
+  },
+  "doctrine": {
+    "translation": "דוֹקטרִינָה",
+    "ex_en": "The company's doctrine emphasized honesty and transparency in business dealings.",
+    "ex_he": "התורה של החברה הדגישה אמינות ושקיפות בעסקאות העסקיות."
+  },
+  "ambiguous": {
+    "translation": "דו - משמעי",
+    "ex_en": "The directions were ambiguous and confusing.",
+    "ex_he": "ההוראות היו עמומות ומבלבלות."
+  },
+  "accuracy": {
+    "translation": "דיוק",
+    "ex_en": "The accuracy of the weather forecast was impressive.",
+    "ex_he": "די מדויקות של התחזית המזג אוויר הייתה מרשימה."
+  },
+  "prejudice": {
+    "translation": "דעה קדומה",
+    "ex_en": "She tried to overcome her prejudice against spiders.",
+    "ex_he": "היא ניסתה להתגבר על הקידוש שלה נגד עכבישים."
+  },
+  "durance": {
+    "translation": "הִמָשְׁכוּת",
+    "ex_en": "He endured the durance of a long winter.",
+    "ex_he": "עמד במשך החורף הארוך."
+  },
+  "addiction": {
+    "translation": "הִתמַכְּרוּת",
+    "ex_en": "She developed an addiction to caffeine after working late nights.",
+    "ex_he": "פיתחה התמכרות לקפאין לאחר שעות עבודה מאוחרות."
+  },
+  "collision": {
+    "translation": "הִתנַגְשׁוּת",
+    "ex_en": "The two cars were damaged in a head-on collision.",
+    "ex_he": "שני הרכבים נפגעו בהתנגשות חזיתית."
+  },
+  "Intrusion": {
+    "translation": "הִתעָרְבוּת",
+    "ex_en": "I don't appreciate your constant intrusion into my personal space.",
+    "ex_he": "אני לא מעריך את התערבותך התמידית במרחב האישי שלי."
+  },
+  "intimidating": {
+    "translation": "הַטָלַת אֵימָה",
+    "ex_en": "The large dog looked intimidating to the small child.",
+    "ex_he": "הכלב הגדול נראה מאיים על הילד הקטן."
+  },
+  "intake": {
+    "translation": "הַכנָסָה",
+    "ex_en": "I monitor my daily water intake to stay hydrated.",
+    "ex_he": "אני מעקב אחר צריכת המים היומית שלי כדי לשמור על ההתרענות שלי."
+  },
+  "declaration": {
+    "translation": "הַצהָרָה",
+    "ex_en": "He made a declaration of love to her.",
+    "ex_he": "הוא עשה הצהרת אהבה לה."
+  },
+  "inspiration": {
+    "translation": "הַשׁרָאָה",
+    "ex_en": "She found inspiration in nature for her artwork.",
+    "ex_he": "היא מצאה השראה בטבע ליצירת יצירות האמנות שלה."
+  },
+  "inception": {
+    "translation": "הַתחָלָה",
+    "ex_en": "The inception of her business was last year.",
+    "ex_he": "ההתחלה של עסקה הייתה בשנה שעברה."
+  },
+  "decent": {
+    "translation": "הָגוּן",
+    "ex_en": "She received a decent score on her test.",
+    "ex_he": "קיבלה ציון נאה על המבחן שלה."
+  },
+  "deception": {
+    "translation": "הונאה",
+    "ex_en": "Appearances can be deceiving, always question what you see.",
+    "ex_he": "המראות יכולות להיות מטעותות, תמיד שאל מה אתה רואה."
+  },
+  "compliance": {
+    "translation": "הענות",
+    "ex_en": "The company must ensure compliance with all safety regulations.",
+    "ex_he": "החברה חייבת להבטיח עמידה בכל התקני בטיחות."
+  },
+  "demonstration": {
+    "translation": "הפגנה",
+    "ex_en": "She gave a demonstration on how to bake cookies.",
+    "ex_he": "היא נתנה הדגמה על איך לאפות עוגיות."
+  },
+  "affiliation": {
+    "translation": "השתייכות",
+    "ex_en": "She ended her affiliation with the company.",
+    "ex_he": "היא סיימה את קשרה עם החברה."
+  },
+  "drape": {
+    "translation": "וִילוֹן",
+    "ex_en": "She used a light drape to cover the window.",
+    "ex_he": "היא השתמשה בפריט קל כדי לכסות את החלון."
+  },
+  "committee": {
+    "translation": "וַעֲדָה",
+    "ex_en": "The committee will meet tomorrow to discuss the budget.",
+    "ex_he": "הוועדה תפגש מחר כדי לדון בתקציב."
+  },
+  "pollution": {
+    "translation": "זיהום",
+    "ex_en": "Pollution is harmful to the environment and human health.",
+    "ex_he": "הזיה היא מזיקה לסביבה ולבריאות האדם."
+  },
+  "injection": {
+    "translation": "זריקה",
+    "ex_en": "The nurse gave me an injection before the surgery.",
+    "ex_he": "האחות נתנה לי חיסון לפני הניתוח."
+  },
+  "division": {
+    "translation": "חֲלוּקָה",
+    "ex_en": "There is a division between the two political parties.",
+    "ex_he": "יש חילוק בין שתי המפלגות הפוליטיות."
+  },
+  "interrogation": {
+    "translation": "חֲקִירָה",
+    "ex_en": "The suspect was taken in for police interrogation.",
+    "ex_he": "החשוד הובא לחקירת משטרה."
+  },
+  "importance": {
+    "translation": "חֲשִׁיבוּת",
+    "ex_en": "Education is of utmost importance for future success.",
+    "ex_he": "החינוך הוא חשוב ביותר להצלחה בעתיד."
+  },
+  "insect": {
+    "translation": "חֶרֶק",
+    "ex_en": "There is a spider in the corner.",
+    "ex_he": "יש עכביש בפינה."
+  },
+  "agriculture": {
+    "translation": "חַקלָאוּת",
+    "ex_en": "Agriculture provides food and resources for communities around the world.",
+    "ex_he": "חקלאות מספקת מזון ומשאבים לקהילות ברחבי העולם."
+  },
+  "innovation": {
+    "translation": "חדשנות",
+    "ex_en": "The company's innovation led to increased sales and growth.",
+    "ex_he": "החדשנות של החברה הובילה לגידול במכירות ובצמיחה."
+  },
+  "debt": {
+    "translation": "חוֹב",
+    "ex_en": "I have to pay off my credit card debt soon.",
+    "ex_he": "אני צריך לשלם את חובת כרטיס האשראי שלי בקרוב."
+  },
+  "audacity": {
+    "translation": "חוּצפָּה",
+    "ex_en": "I can't believe the audacity of that man!",
+    "ex_he": "אני לא יכול להאמין בהוזותו של האיש ההוא!"
+  },
+  "disgrace": {
+    "translation": "חרפה",
+    "ex_en": "Her actions brought disgrace to the entire family.",
+    "ex_he": "מעשיה הביאו בושה על כל המשפחה."
+  },
+  "prey": {
+    "translation": "טֶרֶף",
+    "ex_en": "The lioness stalked her prey through the tall grass.",
+    "ex_he": "הלביאה ציפה אחר טרפה שלה דרך הדשא הגבוה."
+  },
+  "inherent": {
+    "translation": "טָבוּעַ",
+    "ex_en": "Curiosity is an inherent trait in young children.",
+    "ex_he": "סקרנות היא מאפיין טבעי בילדים צעירים."
+  },
+  "decline": {
+    "translation": "יְרִידָה",
+    "ex_en": "Her health began to decline after the surgery.",
+    "ex_he": "בריאותה החלה לרדת לאחר הניתוח."
+  },
+  "inheritance": {
+    "translation": "יְרוּשָׁה",
+    "ex_en": "She received a large inheritance from her grandparents.",
+    "ex_he": "קיבלה נכסים גדולים מהסבים שלה."
+  },
+  "anniversary": {
+    "translation": "יוֹם הַשָׁנָה",
+    "ex_en": "Today is our wedding anniversary.",
+    "ex_he": "היום הוא יום הנפשות שלנו."
+  },
+  "prestigious": {
+    "translation": "יוקרתי",
+    "ex_en": "She received a prestigious award for her research in biology.",
+    "ex_he": "קיבלה פרס נכבד על מחקרה בביולוגיה."
+  },
+  "Implementation": {
+    "translation": "יישום",
+    "ex_en": "The implementation of new safety measures was successful.",
+    "ex_he": "היישום של צעדי בטיחות חדשים היה מוצלח."
+  },
+  "medieval": {
+    "translation": "ימי הביניים",
+    "ex_en": "The medieval castle stood tall against the bright blue sky.",
+    "ex_he": "הטירה הביניים עמדה גבוהה נגד השמיים הכחולים הבהירים."
+  },
+  "aptitude": {
+    "translation": "כִּשָׁרוֹן",
+    "ex_en": "She has an aptitude for learning new languages.",
+    "ex_he": "יש לה כשרון ללמידת שפות חדשות."
+  },
+  "multiplication": {
+    "translation": "כֶּפֶל",
+    "ex_en": "I am learning how to do multiplication in school.",
+    "ex_he": "אני לומד איך לעשות כפל בבית ספר."
+  },
+  "presumably": {
+    "translation": "כַּנִראֶה",
+    "ex_en": "She is presumably going to the store later.",
+    "ex_he": "היא כנראה הולכת לחנות מאוחר יותר."
+  },
+  "chronology": {
+    "translation": "כרונולוגיה",
+    "ex_en": "I studied the chronology of ancient civilizations in history class.",
+    "ex_he": "למדתי את הכרונולוגיה של האזרחויות העתיקות בשיעור ההיסטוריה."
+  },
+  "consequently": {
+    "translation": "כתוצאה מכך",
+    "ex_en": "He forgot his umbrella, consequently he got wet.",
+    "ex_he": "שכח את המטריה שלו, ובגלל זה הוא נסע."
+  },
+  "acclimate": {
+    "translation": "לְאַקלֵם",
+    "ex_en": "It took a few days to acclimate to the high altitude.",
+    "ex_he": "לקח כמה ימים להסתגל לגובה הגבוה."
+  },
+  "commit": {
+    "translation": "לְבַצֵעַ",
+    "ex_en": "She didn't want to commit to a long-term relationship.",
+    "ex_he": "היא לא רצתה להתחייב לקשר ארוך טווח."
+  },
+  "condemn": {
+    "translation": "לְגַנוֹת",
+    "ex_en": "The judge will condemn the criminal for his actions.",
+    "ex_he": "השופט ירשיע את הפושע על מעשיו."
+  },
+  "provoke": {
+    "translation": "לְגָרוֹת",
+    "ex_en": "His rude comments can provoke anger in others.",
+    "ex_he": "ההערות הגסות שלו עשויות לגרום לכעס באחרים."
+  },
+  "deteriorate": {
+    "translation": "לְהִתְדַרְדֵר",
+    "ex_en": "Leaving the fruit out too long caused it to deteriorate.",
+    "ex_he": "השארת הפירות בחוץ לזמן רב גרמה להם להתדרדר."
+  },
+  "accuse": {
+    "translation": "לְהַאֲשִׁים",
+    "ex_en": "She will accuse him of stealing the money.",
+    "ex_he": "היא תאשים אותו בגניבת הכסף."
+  },
+  "distinguish": {
+    "translation": "לְהַבחִין",
+    "ex_en": "It's easy to distinguish between an apple and an orange.",
+    "ex_he": "קל להבחין בין תפוח לכתום."
+  },
+  "augment": {
+    "translation": "לְהַגדִיל",
+    "ex_en": "She decided to augment her income by taking on extra shifts.",
+    "ex_he": "היא החליטה להוסיף להכנסות שלה על ידי קבלת משמרות נוספות."
+  },
+  "astonish": {
+    "translation": "לְהַדהִים",
+    "ex_en": "The magician's tricks never fail to astonish the audience.",
+    "ex_he": "הקסם של הקוסם אף פעם לא נכשל להפתיע את הקהל."
+  },
+  "preach": {
+    "translation": "לְהַטִיף",
+    "ex_en": "My uncle likes to preach about healthy living.",
+    "ex_he": "הדוד שלי אוהב להטיף על חיים בריאים."
+  },
+  "consist": {
+    "translation": "לְהַכִיל",
+    "ex_en": "My breakfast consists of oatmeal and fruit.",
+    "ex_he": "ארוחת הבוקר שלי מורכבת מקוואקר ופירות."
+  },
+  "deduce": {
+    "translation": "לְהַסִיק",
+    "ex_en": "From the evidence, we can deduce that she's lying.",
+    "ex_he": "מהראיות, אנו יכולים להסיק כי היא משקרת."
+  },
+  "conceal": {
+    "translation": "לְהַסתִיר",
+    "ex_en": "She tried to conceal her surprise with a smile.",
+    "ex_he": "היא ניסתה להסתיר את ההפתעה שלה עם חיוך."
+  },
+  "insult": {
+    "translation": "לְהַעֲלִיב",
+    "ex_en": "He felt hurt by the insult she made.",
+    "ex_he": "הוא הרגיש כאב מהפגיעה שעשתה."
+  },
+  "penalize": {
+    "translation": "לְהַעֲנִישׁ",
+    "ex_en": "Students who cheat may be penalized with a failing grade.",
+    "ex_he": "תלמידים שמצאיבים עשויים להיענש בציון נכשל."
+  },
+  "attest": {
+    "translation": "לְהַעִיד",
+    "ex_en": "I can attest to his honesty and integrity.",
+    "ex_he": "אני יכול להעיד על תמימותו ותקינותו."
+  },
+  "deposit": {
+    "translation": "לְהַפְקִיד",
+    "ex_en": "I need to make a deposit at the bank.",
+    "ex_he": "אני צריך לבצע הפקדה בבנק."
+  },
+  "diminish": {
+    "translation": "לְהַפחִית",
+    "ex_en": "The amount of water in the reservoir will diminish soon.",
+    "ex_he": "כמות המים במאגר תצמח בקרוב."
+  },
+  "precede": {
+    "translation": "לְהַקְדִים",
+    "ex_en": "Dinner always precedes dessert at our family gatherings.",
+    "ex_he": "ארוחת ערב תמיד מקדימה לקינוח באירועי המשפחה שלנו."
+  },
+  "decrease": {
+    "translation": "לְהַקְטִין",
+    "ex_en": "The temperature will decrease in the evening.",
+    "ex_he": "הטמפרטורה תירד בערב."
+  },
+  "allocate": {
+    "translation": "לְהַקְצוֹת",
+    "ex_en": "The company will allocate funds for research and development.",
+    "ex_he": "החברה תקצה כספים למחקר ופיתוח."
+  },
+  "influence": {
+    "translation": "לְהַשְׁפִּיעַ",
+    "ex_en": "His positive attitude had a great influence on her mood.",
+    "ex_he": "היחס החיובי שלו תרם להשפעה רבה על מצבה."
+  },
+  "induce": {
+    "translation": "לְהַשְׁרוֹת",
+    "ex_en": "The doctor may induce labor if necessary.",
+    "ex_he": "הרופא עשוי לגרום ללידה אם נחוץ."
+  },
+  "accomplish": {
+    "translation": "לְהַשִׂיג",
+    "ex_en": "She worked hard to accomplish her goals.",
+    "ex_he": "היא עבדה קשה כדי להשיג את מטרותיה."
+  },
+  "inform": {
+    "translation": "לְהוֹדִיעַ",
+    "ex_en": "He will inform us about the meeting schedule tomorrow.",
+    "ex_he": "הוא יודיע לנו על לוח הזמנים של הפגישה מחר."
+  },
+  "piece": {
+    "translation": "לְחַבֵּר",
+    "ex_en": "Can I have a piece of your cake?",
+    "ex_he": "האם אני יכול לקבל חתיכה מהעוגה שלך?"
+  },
+  "cleanse": {
+    "translation": "לְטַהֵר",
+    "ex_en": "I cleanse my face with gentle soap every morning.",
+    "ex_he": "אני מנקה את פניי בסבון עדין כל בוקר."
+  },
+  "distort": {
+    "translation": "לְסַלֵף",
+    "ex_en": "The funhouse mirrors distort our reflections in amusing ways.",
+    "ex_he": "המראות בבית הפיצוץ משנים את השתקפותנו בדרכים משעשעות."
+  },
+  "detain": {
+    "translation": "לְעַכֵּב",
+    "ex_en": "The police had to detain the suspect for questioning.",
+    "ex_he": "המשטרה הייתה צריכה לעצור את החשוד לחקירה."
+  },
+  "advertise": {
+    "translation": "לְפַרְסֵם",
+    "ex_en": "Local businesses often advertise in the community newspaper.",
+    "ex_he": "עסקים מקומיים תמיד מפרסמים בעיתון המקומי."
+  },
+  "disassemble": {
+    "translation": "לְפַרֵק",
+    "ex_en": "My dad had to disassemble the old bookshelf.",
+    "ex_he": "אבא שלי היה צריך לפרק את המדף הישן."
+  },
+  "disrupt": {
+    "translation": "לְשַׁבֵּשׁ",
+    "ex_en": "The loud noise disrupted my concentration during the exam.",
+    "ex_he": "הרעש הגדול הפריע לריכוז שלי במהלך המבחן."
+  },
+  "convince": {
+    "translation": "לְשַׁכְנֵעַ",
+    "ex_en": "I convinced my friend to try sushi for the first time.",
+    "ex_he": "שכנעתי את חברי לנסות סושי לראשונה."
+  },
+  "merit": {
+    "translation": "לִזכּוֹת",
+    "ex_en": "Hard work should be rewarded based on merit.",
+    "ex_he": "עבודה קשה צריכה לקבל שכר על פי ראוות."
+  },
+  "plead": {
+    "translation": "לִטעוֹן",
+    "ex_en": "The defendant decided to plead guilty in court.",
+    "ex_he": "הנאשם החליט להודות באשמה בבית המשפט."
+  },
+  "conquer": {
+    "translation": "לִכבּוֹשׁ",
+    "ex_en": "Alexander the Great set out to conquer the known world.",
+    "ex_he": "אלכסנדר הגדול יצא לכבוש את העולם הידוע."
+  },
+  "rebuke": {
+    "translation": "לִנְזוֹף",
+    "ex_en": "He received a stern rebuke for his unprofessional behavior.",
+    "ex_he": "קיבל געגוע קשה על ההתנהגות הלא מקצועית שלו."
+  },
+  "redeem": {
+    "translation": "לִפְדוֹת",
+    "ex_en": "She wanted to redeem her coupon before it expired.",
+    "ex_he": "היא רצתה לגאול את הקופון שלה לפני שיפוג."
+  },
+  "invade": {
+    "translation": "לִפְלוֹשׁ",
+    "ex_en": "The army was preparing to invade the neighboring country.",
+    "ex_he": "הצבא היה מתכונן לפלוש למדינה השכנה."
+  },
+  "accumulate": {
+    "translation": "לִצְבּוֹר",
+    "ex_en": "Over time, dust can accumulate on shelves and surfaces.",
+    "ex_he": "במהלך הזמן, עלות על המדפים והמשטחים."
+  },
+  "permanently": {
+    "translation": "לִצְמִיתוּת",
+    "ex_en": "He decided to permanently move to the countryside.",
+    "ex_he": "הוא החליט לעבור לציפורן לצמיתות."
+  },
+  "aspire": {
+    "translation": "לִשְׁאוֹף",
+    "ex_en": "She aspires to become a doctor.",
+    "ex_he": "היא מתאמצת להפוך לרופאה."
+  },
+  "dominate": {
+    "translation": "לִשְׁלוֹט",
+    "ex_en": "In basketball, he can dominate the game with his skills.",
+    "ex_he": "בכדורסל, הוא יכול לשלוט במשחק עם הכישורים שלו."
+  },
+  "Impose": {
+    "translation": "לֶאֱכוֹף",
+    "ex_en": "The teacher will impose a deadline for the project.",
+    "ex_he": "המורה יקבע מועד אחרון לפרויקט."
+  },
+  "demolish": {
+    "translation": "לַהֲרוֹס",
+    "ex_en": "The old building was demolished to make way for new apartments.",
+    "ex_he": "הבניין הישן נהרס כדי להפנות מקום לדירות חדשות."
+  },
+  "conceive": {
+    "translation": "לַהֲרוֹת",
+    "ex_en": "She couldn't conceive why he was acting so distant.",
+    "ex_he": "היא לא יכלה להבין למה הוא נתנשא כל כך רחוק."
+  },
+  "inhabit": {
+    "translation": "לָגוּר",
+    "ex_en": "Many animals inhabit the forest.",
+    "ex_he": "רבים מהחיות גרות ביער."
+  },
+  "Inadequate": {
+    "translation": "לָקוּי",
+    "ex_en": "The supplies were inadequate for the entire team.",
+    "ex_he": "הציוד היה לא מספיק עבור כל הצוות."
+  },
+  "Impersonal": {
+    "translation": "לֹא אִישִׁי",
+    "ex_en": "I find the doctor's bedside manner quite impersonal.",
+    "ex_he": "אני מוצא את דרך ההתנהלות של הרופא לא אישית מאוד."
+  },
+  "inconsiderate": {
+    "translation": "לֹא מִתְחַשֵׁב",
+    "ex_en": "It was inconsiderate of him to leave without saying goodbye.",
+    "ex_he": "זה היה בלתי נעים שלו לעזוב בלי לומר להתראות."
+  },
+  "inoffensive": {
+    "translation": "לֹא פּוֹגֵעַ",
+    "ex_en": "The comedian's jokes were light-hearted and inoffensive.",
+    "ex_he": "הבדיחות של הקומיקאי היו קלות לב ולא מכעיסות."
+  },
+  "incomprehensible": {
+    "translation": "לא מובן",
+    "ex_en": "The professor's explanation was incomprehensible to the students.",
+    "ex_he": "ההסבר של הפרופסור היה בלתי מובן לתלמידים."
+  },
+  "articulate": {
+    "translation": "לבטא",
+    "ex_en": "She was able to articulate her thoughts clearly.",
+    "ex_he": "היא יכולה להביע את חשיבותיה בבהירות."
+  },
+  "discourage": {
+    "translation": "לדכא",
+    "ex_en": "Don't let failures discourage you from trying again.",
+    "ex_he": "אל תתיאש מהנסיונות שנכשלו מלנסות שוב."
+  },
+  "accelerate": {
+    "translation": "להאיץ",
+    "ex_en": "Cars accelerate quickly on the highway.",
+    "ex_he": "מכוניות מאיצות במהירות על הכביש."
+  },
+  "increase": {
+    "translation": "להגביר",
+    "ex_en": "The price of gas is expected to increase next week.",
+    "ex_he": "מחיר הדלק צפוי לעלות בשבוע הבא."
+  },
+  "deceive": {
+    "translation": "להטעות",
+    "ex_en": "Don't deceive yourself into thinking that it's okay.",
+    "ex_he": "אל תרמוז לעצמך לחשוב שזה בסדר."
+  },
+  "devote": {
+    "translation": "להקדיש",
+    "ex_en": "She decided to devote her time to volunteering at the shelter.",
+    "ex_he": "היא החליטה להקדיש את זמנה להתנדבות במקלט."
+  },
+  "accustom": {
+    "translation": "להרגיל",
+    "ex_en": "It took a while to accustom himself to the new routine.",
+    "ex_he": "לקח זמן להתרגל לסדר חיים החדש."
+  },
+  "accommodate": {
+    "translation": "להתאים",
+    "ex_en": "The hotel can accommodate up to four guests comfortably.",
+    "ex_he": "המלון יכול לארח עד ארבעה אורחים בנוחות."
+  },
+  "persist": {
+    "translation": "להתמיד",
+    "ex_en": "Despite the challenges, she persisted in pursuing her dreams.",
+    "ex_he": "למרות האתגרים, היא התעקשה במרדף אחר החלומות שלה."
+  },
+  "assassinate": {
+    "translation": "להתנקש",
+    "ex_en": "The terrorist planned to assassinate the political leader.",
+    "ex_he": "המחבל תכנן להתנקש במנהיג הפוליטי."
+  },
+  "mingle": {
+    "translation": "להתערבב",
+    "ex_en": "At the party, guests mingle and chat.",
+    "ex_he": "במסיבה, האורחים מתערבים ושיחה."
+  },
+  "despite": {
+    "translation": "למרות",
+    "ex_en": "Despite the rain, we decided to go for a walk.",
+    "ex_he": "למרות הגשם, החלטנו לצאת לטיול."
+  },
+  "drain": {
+    "translation": "לנקז",
+    "ex_en": "The sink was clogged, so I had to drain it.",
+    "ex_he": "הכיור היה מצונזר, ולכן נאלצתי לנקות אותו."
+  },
+  "intercept": {
+    "translation": "לעכב",
+    "ex_en": "The police were able to intercept the stolen vehicle.",
+    "ex_he": "המשטרה הצליחה לחסום את הרכב שנגנב."
+  },
+  "deploy": {
+    "translation": "לפרוס",
+    "ex_en": "The military will deploy troops to the border.",
+    "ex_he": "הצבא יפנה חיילים לגבול."
+  },
+  "contribute": {
+    "translation": "לתרום",
+    "ex_en": "Volunteers contribute their time to help clean up the park.",
+    "ex_he": "המתנדבים משקיעים את זמנם כדי לעזור בניקיון הפארק."
+  },
+  "populous": {
+    "translation": "מְאוּכלָס בִּצְפִיפוּת",
+    "ex_en": "Tokyo is a populous city in Japan.",
+    "ex_he": "טוקיו היא עיר צפופה ביפן."
+  },
+  "depressed": {
+    "translation": "מְדוּכָּא",
+    "ex_en": "After breaking up with her boyfriend, she felt depressed.",
+    "ex_he": "לאחר הפרידה מהחבר שלה, היא הרגישה נפולה."
+  },
+  "commitment": {
+    "translation": "מְחוּיָבוּת",
+    "ex_en": "She showed great commitment to her job.",
+    "ex_he": "היא הצגה מחויבות רבה לעבודתה."
+  },
+  "craft": {
+    "translation": "מְלָאכָה",
+    "ex_en": "She enjoys creating handmade crafts in her spare time.",
+    "ex_he": "היא נהנית מיצירת יצירות עשויות ידיים בזמנה הפנוי."
+  },
+  "persuasive": {
+    "translation": "מְשַׁכנֵעַ",
+    "ex_en": "Her persuasive argument convinced me to change my mind.",
+    "ex_he": "הטיעון המשכנע שלה שכנע אותי לשנות את דעתי."
+  },
+  "pronunciation": {
+    "translation": "מִבטָא",
+    "ex_en": "She struggled with the pronunciation of the word \"library\".",
+    "ex_he": "היא נאבקה עם ההגייה של המילה \"ספרייה\"."
+  },
+  "cuisine": {
+    "translation": "מִטְבָּח",
+    "ex_en": "I love trying different types of Asian cuisine.",
+    "ex_he": "אני אוהב לנסות סוגים שונים של מטבח אסייתי."
+  },
+  "classification": {
+    "translation": "מִיוּן",
+    "ex_en": "The classification of animals is based on their characteristics.",
+    "ex_he": "הסיווג של בעלי החיים מבוסס על המאפיינים שלהם."
+  },
+  "probable": {
+    "translation": "מִסתַבֵּר",
+    "ex_en": "It is probable that it will rain tomorrow.",
+    "ex_he": "סביר שיגיע גשם מחר."
+  },
+  "monocle": {
+    "translation": "מִשׁקָף",
+    "ex_en": "He wore a monocle to read the fine print.",
+    "ex_he": "הוא נשען על מונוקל כדי לקרוא את הטקסט הקטן."
+  },
+  "rebellion": {
+    "translation": "מֶרֶד",
+    "ex_en": "The students organized a rebellion against the strict dress code.",
+    "ex_he": "התלמידים ארגנו מרד נגד הקוד לבוש המחמיר."
+  },
+  "Imprisonment": {
+    "translation": "מַאֲסָר",
+    "ex_en": "He was sentenced to ten years of imprisonment for his crime.",
+    "ex_he": "נידון לעשר שנות מאסר על פשעו."
+  },
+  "pastry": {
+    "translation": "מַאֲפֶה",
+    "ex_en": "I enjoy eating a warm pastry with my coffee.",
+    "ex_he": "אני נהנה לאכול פאסטרי חמים עם הקפה שלי."
+  },
+  "deprivation": {
+    "translation": "מַחְסוֹר",
+    "ex_en": "Sleep deprivation can affect your mood and productivity.",
+    "ex_he": "חסר שינה יכול להשפיע על מצב הרוח והיציבות שלך."
+  },
+  "dispute": {
+    "translation": "מַחֲלוֹקֶת",
+    "ex_en": "They are in a dispute over the property line.",
+    "ex_he": "הם נמצאים בסכסוך על קו הגבולות."
+  },
+  "complimentary": {
+    "translation": "מַחמִיא",
+    "ex_en": "The hotel offers complimentary breakfast to all guests.",
+    "ex_he": "המלון מציע ארוחת בוקר חינם לכל האורחים."
+  },
+  "arsenal": {
+    "translation": "מַחסָן נֶשֶׁק",
+    "ex_en": "The football team has a strong arsenal of strikers.",
+    "ex_he": "הקבוצה יש לה ארסנל חזק של חלוצים."
+  },
+  "currency": {
+    "translation": "מַטְבֵּעַ",
+    "ex_en": "I exchanged my dollars for euros at the currency exchange.",
+    "ex_he": "החלפתי את הדולרים שלי ליורו במרכז החליפין."
+  },
+  "intention": {
+    "translation": "מַטָרָה",
+    "ex_en": "I have every intention of finishing my work today.",
+    "ex_he": "יש לי כל כוונה לסיים את העבודה שלי היום."
+  },
+  "crucial": {
+    "translation": "מַכרִיעַ",
+    "ex_en": "Sleep is crucial for overall health and well-being.",
+    "ex_he": "השינה חיונית לבריאות כללית ולרווחה."
+  },
+  "delicacy": {
+    "translation": "מַעֲדָן",
+    "ex_en": "Caviar is considered a luxurious delicacy in many cultures.",
+    "ex_he": "קוויאר מוערך כמאכל מפנק ויקר בתרבויות רבות."
+  },
+  "ingredient": {
+    "translation": "מַרכִּיב",
+    "ex_en": "Salt is a common ingredient in many recipes.",
+    "ex_he": "מלח הוא מרכיב נפוץ ברב המתכונים."
+  },
+  "implication": {
+    "translation": "מַשְׁמָעוּת",
+    "ex_en": "Her silence had a negative implication in the conversation.",
+    "ex_he": "שתיקתה גרמה להשפעה שלילית בשיחה."
+  },
+  "pledge": {
+    "translation": "מַשׁכּוֹן",
+    "ex_en": "I pledge to work hard and do my best.",
+    "ex_he": "אני מתחייב לעבוד קשה ולעשות את המיטב שביכולתי."
+  },
+  "addict": {
+    "translation": "מָכוּר",
+    "ex_en": "He's addicted to playing video games.",
+    "ex_he": "הוא מכור למשחקי וידאו."
+  },
+  "comprise": {
+    "translation": "מהווה",
+    "ex_en": "The team comprises students from different countries.",
+    "ex_he": "הקבוצה מורכבת מסטודנטים ממדינות שונות."
+  },
+  "comprehensible": {
+    "translation": "מוּבָן",
+    "ex_en": "The instructions were clear and comprehensible to everyone.",
+    "ex_he": "ההוראות היו ברורות ונגישות לכולם."
+  },
+  "confined": {
+    "translation": "מוּגבָּל",
+    "ex_en": "The cat was confined to the backyard.",
+    "ex_he": "החתול הוחזק בחזית הבית."
+  },
+  "peculiar": {
+    "translation": "מוּזָר",
+    "ex_en": "Her peculiar laugh always brightens up my day.",
+    "ex_he": "צחוקה המיוחד שלה תמיד מאירה לי את היום."
+  },
+  "conventional": {
+    "translation": "מוּסכָּם",
+    "ex_en": "She prefers conventional methods over modern approaches for cooking.",
+    "ex_he": "היא מעדיפה שיטות מסורתיות על פני גישות מודרניות לבישול."
+  },
+  "complexity": {
+    "translation": "מוּרכָּבוּת",
+    "ex_en": "The complexity of the situation made it difficult to solve.",
+    "ex_he": "קושי בפתרון המצב הופך."
+  },
+  "concept": {
+    "translation": "מוּשָׂג",
+    "ex_en": "I don't quite grasp the concept of quantum physics.",
+    "ex_he": "אני לא מבין באופן מוחלט את המושג של פיזיקה קוונטית."
+  },
+  "circulation": {
+    "translation": "מחזור",
+    "ex_en": "The doctor checked my circulation during the physical exam.",
+    "ex_he": "הרופא בידק את הזרימה שלי במהלך הבדיקה הגופנית."
+  },
+  "instantaneously": {
+    "translation": "מיידי",
+    "ex_en": "The light bulb turned on instantaneously when I flipped the switch.",
+    "ex_he": "הנורה התחילה להאיר מיד כאשר הפעלתי את המתג."
+  },
+  "addictive": {
+    "translation": "ממכר",
+    "ex_en": "Video games can be addictive for some people.",
+    "ex_he": "משחקי וידאו יכולים להיות ממכרים לאנשים מסוימים."
+  },
+  "certain": {
+    "translation": "מסוים",
+    "ex_en": "I am certain that it will rain tomorrow.",
+    "ex_he": "אני בטוח שירד גשם מחר."
+  },
+  "devoted": {
+    "translation": "מסור",
+    "ex_en": "She is a devoted mother who always puts her children first.",
+    "ex_he": "היא אם מסורה שתמיד מעלה את ילדיה לראש."
+  },
+  "appreciate": {
+    "translation": "מעריך",
+    "ex_en": "I appreciate your help with my homework.",
+    "ex_he": "אני מעריך את העזרה שלך עם השעורי בית שלי."
+  },
+  "dubious": {
+    "translation": "מפוקפק",
+    "ex_en": "I have a dubious feeling about his story.",
+    "ex_he": "יש לי תחושה ספקנית על סיפורו."
+  },
+  "mortgage": {
+    "translation": "משכנתא",
+    "ex_en": "We took out a mortgage to buy our first home.",
+    "ex_he": "לקחנו משכנתא כדי לקנות את הבית הראשון שלנו."
+  },
+  "discipline": {
+    "translation": "משמעת",
+    "ex_en": "She has great discipline when it comes to studying.",
+    "ex_he": "יש לה תיקון גדול כאשר מדובר בלימודים."
+  },
+  "intend": {
+    "translation": "מתכוון",
+    "ex_en": "I intend to study for my exam tomorrow.",
+    "ex_he": "אני מתכוון ללמוד למבחן שלי מחר."
+  },
+  "adequate": {
+    "translation": "נאות",
+    "ex_en": "She had adequate time to finish her project.",
+    "ex_he": "הייתה לה זמן מספיק כדי לסיים את הפרויקט שלה."
+  },
+  "prophecies": {
+    "translation": "נבואות",
+    "ex_en": "Many ancient cultures have prophecies about the end of the world.",
+    "ex_he": "רבות מתרבויות עתיקות יש להן נבואות על סוף העולם."
+  },
+  "carpenter": {
+    "translation": "נגר",
+    "ex_en": "The carpenter built a new bookshelf for the library.",
+    "ex_he": "הנגר בנה מדף חדש לספריה."
+  },
+  "juvenile": {
+    "translation": "נוער",
+    "ex_en": "The juvenile deer frolicked in the meadow.",
+    "ex_he": "הצבי הצעיר נהנה בשדה."
+  },
+  "determined": {
+    "translation": "נחוש",
+    "ex_en": "She was determined to finish the race despite the rain.",
+    "ex_he": "היא הייתה נחושה לסיים את המרוץ למרות הגשם."
+  },
+  "determination": {
+    "translation": "נחישות",
+    "ex_en": "She faced many obstacles with determination and perseverance.",
+    "ex_he": "היא נתקלה במכשולים רבים בתשוקה והתמדה."
+  },
+  "contradiction": {
+    "translation": "סְתִירָה",
+    "ex_en": "She says she's vegan, but eats meat - contradiction.",
+    "ex_he": "היא אומרת שהיא טבעונית, אבל אוכלת בשר - סתירה."
+  },
+  "indication": {
+    "translation": "סִימָן",
+    "ex_en": "His frown was an indication of his displeasure.",
+    "ex_he": "הצצתו הייתה רמז לרגזו."
+  },
+  "jeopardy": {
+    "translation": "סַכָּנָה",
+    "ex_en": "His reckless actions put their friendship in jeopardy.",
+    "ex_he": "הפעולות הבלתי זהירות שלו הביאו לסכנת הידידות שלהם."
+  },
+  "merchant": {
+    "translation": "סוֹחֵר",
+    "ex_en": "The merchant sold fresh fruits at the market.",
+    "ex_he": "הסוחר מכר פירות טריים בשוק."
+  },
+  "diabetes": {
+    "translation": "סוכרת",
+    "ex_en": "My uncle manages his diabetes by monitoring his blood sugar levels.",
+    "ex_he": "הדוד שלי ניהל את סוכרתו על ידי מעקב אחר רמות הסוכר בדם שלו."
+  },
+  "prospect": {
+    "translation": "סיכוי עתידי",
+    "ex_en": "The job prospect looks promising for recent graduates.",
+    "ex_he": "ההזדמנות לעבודה נראית מבטיחה עבור בוגרים חדשים."
+  },
+  "conclusion": {
+    "translation": "סיכום",
+    "ex_en": "In conclusion, the experiment results were inconclusive.",
+    "ex_he": "בסיכום, תוצאות הניסוי לא היו סופיות."
+  },
+  "autumn": {
+    "translation": "סתָיו",
+    "ex_en": "I love taking walks in the park during autumn.",
+    "ex_he": "אני אוהב לטייל בפארק בעונת הסתיו."
+  },
+  "contemporary": {
+    "translation": "עַכשָׁוִי",
+    "ex_en": "I enjoy reading contemporary novels in my free time.",
+    "ex_he": "אני נהנה לקרוא רומנים עכשווים בזמני הפנוי שלי."
+  },
+  "delicate": {
+    "translation": "עָדִין",
+    "ex_en": "She held the delicate flower in her hand gently.",
+    "ex_he": "היא אחזה בפרח העדין בידה בעדינות."
+  },
+  "profound": {
+    "translation": "עָמוֹק",
+    "ex_en": "She had a profound impact on his life.",
+    "ex_he": "היא תרמה להשפעה עמוקה על חייו."
+  },
+  "depth": {
+    "translation": "עוֹמֶק",
+    "ex_en": "The ocean's depth is unknown to many.",
+    "ex_he": "עומק האוקיינוס לא ידוע לרבים."
+  },
+  "debate": {
+    "translation": "עימות",
+    "ex_en": "They got into a heated debate over politics.",
+    "ex_he": "הם נכנסו לדיון חם על פוליטיקה."
+  },
+  "immense": {
+    "translation": "עצום",
+    "ex_en": "The mountain range had an immense presence.",
+    "ex_he": "הרי הר היו בעלי נוכחות עצומה."
+  },
+  "independent": {
+    "translation": "עצמאי",
+    "ex_en": "She is an independent woman who lives on her own.",
+    "ex_he": "היא אישה עצמאית שחייה לבד."
+  },
+  "commentator": {
+    "translation": "פַּרשָׁן",
+    "ex_en": "The sports commentator provided live coverage of the game.",
+    "ex_he": "המגיש תקציר ספורטיבי סינכרוני של המשחק."
+  },
+  "injurious": {
+    "translation": "פּוֹגֵעַ",
+    "ex_en": "Smoking is injurious to your health.",
+    "ex_he": "העישון מזיק לבריאותך."
+  },
+  "Intruder": {
+    "translation": "פּוֹלֵשׁ",
+    "ex_en": "There was an intruder in our backyard last night.",
+    "ex_he": "היה פורץ בחצר שלנו אמש."
+  },
+  "punctuation": {
+    "translation": "פיסוק",
+    "ex_en": "Remember to use correct punctuation when writing formal emails.",
+    "ex_he": "זכור להשתמש בפיסוק נכון בכתיבת מיילים רשמיים."
+  },
+  "compensation": {
+    "translation": "פיצוי",
+    "ex_en": "She received fair compensation for her work.",
+    "ex_he": "קיבלה פיצוי הוגן על עבודתה."
+  },
+  "pivot": {
+    "translation": "צִיר",
+    "ex_en": "She had to pivot her focus to a new project.",
+    "ex_he": "היא הייתה צריכה לשנות את מיקודה לפרויקט חדש."
+  },
+  "coincidence": {
+    "translation": "צירוף מקרים",
+    "ex_en": "It was a coincidence that we both wore blue shirts.",
+    "ex_he": "זה היה מקרי ששנינו לבשנו חולצות כחולות."
+  },
+  "proximity": {
+    "translation": "קִרבָה",
+    "ex_en": "I like living near the beach because of its proximity.",
+    "ex_he": "אני אוהב לגור ליד החוף בגלל הקרבה שלו."
+  },
+  "croak": {
+    "translation": "קִרקוּר",
+    "ex_en": "The frog let out a loud croak by the pond.",
+    "ex_he": "הצפרדע הוציאה צעקה רועשת על ידי האגם."
+  },
+  "constant": {
+    "translation": "קָבוּעַ",
+    "ex_en": "Her constant smile brightened everyone's day.",
+    "ex_he": "חיוך קבוע שלה הבהיר את יום כולם."
+  },
+  "petite": {
+    "translation": "קָטָן",
+    "ex_en": "She wore a petite dress to the party.",
+    "ex_he": "היא לבשה שמלה קטנה למסיבה."
+  },
+  "component": {
+    "translation": "רְכִיב",
+    "ex_en": "The engine is a crucial component of a car.",
+    "ex_he": "המנוע הוא רכיב חיוני של רכב."
+  },
+  "acquisition": {
+    "translation": "רְכִישָׁה",
+    "ex_en": "The company made an acquisition of a smaller business.",
+    "ex_he": "החברה רכשה עסק קטן."
+  },
+  "permission": {
+    "translation": "רְשׁוּת",
+    "ex_en": "She asked for permission to leave the room early.",
+    "ex_he": "ביקשה רשות לצאת מהחדר מוקדם."
+  },
+  "multinational": {
+    "translation": "רב-לאומיות",
+    "ex_en": "My dad works for a multinational company.",
+    "ex_he": "אבא שלי עובד בחברה רב-לאומית."
+  },
+  "multilingual": {
+    "translation": "רב לשוני",
+    "ex_en": "She is multilingual and can speak four languages fluently.",
+    "ex_he": "היא רב-לשונית ויכולה לדבר באופן שוטף ארבע שפות."
+  },
+  "prevalence": {
+    "translation": "שְׁכִיחוּת",
+    "ex_en": "The prevalence of smartphones has increased among teenagers.",
+    "ex_he": "נפיץ הסמארטפונים התרבה בקרב המתבגרים."
+  },
+  "preservation": {
+    "translation": "שְׁמִירָה",
+    "ex_en": "The preservation of historical documents is crucial for future generations.",
+    "ex_he": "שמירת מסמכים היסטוריים חיונית לדורות הבאים."
+  },
+  "muscle": {
+    "translation": "שְׁרִיר",
+    "ex_en": "She flexed her bicep to show off her muscle.",
+    "ex_he": "היא גמישה את השריר שלה כדי להראות את השריר שלה."
+  },
+  "ivory": {
+    "translation": "שֶׁנהָב",
+    "ex_en": "She collected ivory trinkets from her travels around the world.",
+    "ex_he": "היא אספה פיסות שין מהטיולים שלה מסביב לעולם."
+  },
+  "prosperity": {
+    "translation": "שִׂגשׂוּג",
+    "ex_en": "Hard work and determination lead to prosperity in life.",
+    "ex_he": "עבודה קשה והחלטות נחושות מובילות לשגשוג בחיים."
+  },
+  "conversation": {
+    "translation": "שִׂיחָה",
+    "ex_en": "I had a great conversation with my friend yesterday.",
+    "ex_he": "נהייתה לי שיחה נהדרת עם חבר שלי אתמול."
+  },
+  "dawn": {
+    "translation": "שחר",
+    "ex_en": "Every morning, the birds sing at dawn.",
+    "ex_he": "כל בוקר, הציפורים שרות בשחר"
+  },
+  "collaboration": {
+    "translation": "שיתוף פעולה",
+    "ex_en": "The team showed great collaboration on the project.",
+    "ex_he": "הקבוצה הראתה שיתוף פעולה נהדר על הפרויקט."
+  },
+  "minister": {
+    "translation": "שר בממשלה",
+    "ex_en": "The minister conducted a wedding ceremony in the church.",
+    "ex_he": "השר הנחיל טקס חתונה בכנסייה."
+  },
+  "claim": {
+    "translation": "תְבִיעָה",
+    "ex_en": "She will claim her prize at the end of the contest.",
+    "ex_he": "היא תטעה את פרסה בסוף התחרות."
+  },
+  "attribute": {
+    "translation": "תְכוּנָה",
+    "ex_en": "Her kindness is a great attribute of hers.",
+    "ex_he": "חסדה הוא תכונה גדולה שלה."
+  },
+  "corporation": {
+    "translation": "תַאֲגִיד",
+    "ex_en": "My uncle works for a large corporation in the city.",
+    "ex_he": "הדוד שלי עובד בתאגיד גדול בעיר."
+  },
+  "pattern": {
+    "translation": "תַבְנִית",
+    "ex_en": "The pattern on her dress was floral and colorful.",
+    "ex_he": "התבנית על השמלה שלה הייתה פרחונית וצבעונית."
+  },
+  "competition": {
+    "translation": "תַחֲרוּת",
+    "ex_en": "I am excited to participate in the upcoming swimming competition.",
+    "ex_he": "אני מתרגש להשתתף בתחרות השחייה הקרובה."
+  },
+  "conformity": {
+    "translation": "קונפורמיות",
+    "ex_en": "Sheep often exhibit conformity by following the leader.",
+    "ex_he": "כבשים לעתים קרובות מציגים עקביות על ידי עקיפת המנהיג."
+  },
+  "consequence": {
+    "translation": "תוֹצָאָה",
+    "ex_en": "One possible consequence of not studying is failing the exam.",
+    "ex_he": "תוצאה אפשרית של אי לימוד היא כישלון במבחן."
+  },
+  "queue": {
+    "translation": "תוֹר",
+    "ex_en": "I waited in line at the grocery store queue.",
+    "ex_he": "חיכיתי בתור בתור הקופה בחנות המכולת."
+  },
+  "inhabitant": {
+    "translation": "תוֹשָׁב",
+    "ex_en": "The desert has few inhabitants due to its harsh conditions.",
+    "ex_he": "המדבר יש בו מעט תושבים בגלל תנאיו הקשים."
+  },
+  "paycheck": {
+    "translation": "תלוש משכורת",
+    "ex_en": "I received my paycheck on Friday.",
+    "ex_he": "קיבלתי את השכר שלי ביום שישי."
+  },
+  "perception": {
+    "translation": "תפיסה",
+    "ex_en": "My perception of the situation may be different from yours.",
+    "ex_he": "תפיסתי של המצב עשויה להיות שונה משלך."
+  },
+  "Dread": {
+    "translation": "אֵימָה",
+    "ex_en": "I dread going to the dentist next week.",
+    "ex_he": "אני פוחד ללכת לרופא שיניים בשבוע הבא."
+  },
+  "Affection": {
+    "translation": "אַהֲבָה",
+    "ex_en": "She showed affection by hugging her friend tightly.",
+    "ex_he": "היא הראתה חיבה על ידי לחיבוק חברתה באופן צמוד."
+  },
+  "Expectant": {
+    "translation": "בְּהֵרָיוֹן",
+    "ex_en": "She was expectant with her first child.",
+    "ex_he": "היא הייתה בהריון עם ילדה הראשון שלה."
+  },
+  "Conscientious": {
+    "translation": "בַּעַל מַצְפּוּן",
+    "ex_en": "She is a conscientious student who always completes her homework.",
+    "ex_he": "היא תלמידה רצינית שתמיד משלימה את שיעורי הבית שלה."
+  },
+  "Contempt": {
+    "translation": "בּוּז",
+    "ex_en": "She looked at him with utter contempt.",
+    "ex_he": "היא הביטה בו בבוז כולל."
+  },
+  "Assured": {
+    "translation": "בטוח",
+    "ex_en": "He assured me that he would be there on time.",
+    "ex_he": "הוא הבטיח לי שהוא יהיה שם בזמן."
+  },
+  "Ambiguous": {
+    "translation": "דו - משמעי",
+    "ex_en": "His response was ambiguous, leaving us confused.",
+    "ex_he": "תגובתו הייתה דו־משמעית, והשאירה אותנו מבולבלים."
+  },
+  "Enthusiasm": {
+    "translation": "הִתלַהֲבוּת",
+    "ex_en": "She tackled her project with great enthusiasm.",
+    "ex_he": "היא עסקה בפרויקט שלה בתשוקה רבה."
+  },
+  "Attachment": {
+    "translation": "הִתקַשְׁרוּת",
+    "ex_en": "She has a strong attachment to her childhood teddy bear.",
+    "ex_he": "יש לה קשר חזק לדובון הפלא של ילדותה."
+  },
+  "Adoration": {
+    "translation": "הַעֲרָצָה",
+    "ex_en": "She looked at him with adoration in her eyes.",
+    "ex_he": "היא הסתכלה עליו בהערצה בעיניה."
+  },
+  "Destructive": {
+    "translation": "הַרסָנִי",
+    "ex_en": "The hurricane caused destructive damage to the coastal town.",
+    "ex_he": "הסופה גרמה לנזק נוראי בעיירת החוף."
+  },
+  "Humiliation": {
+    "translation": "הַשׁפָּלָה",
+    "ex_en": "He felt a deep sense of humiliation after the public rejection.",
+    "ex_he": "הוא הרגיש תחושת בושה עמוקה לאחר הדחייה הציבורית."
+  },
+  "Loan": {
+    "translation": "הלוואה",
+    "ex_en": "I need to apply for a loan to buy a car.",
+    "ex_he": "אני צריך להגיש בקשה להלוואה כדי לקנות רכב."
+  },
+  "Hesitant": {
+    "translation": "הססני",
+    "ex_en": "She was hesitant to try the new food.",
+    "ex_he": "היא הייתה מתלבטת לנסות את האוכל החדש."
+  },
+  "Admiration": {
+    "translation": "הערצה",
+    "ex_en": "She gazed at the painting with admiration.",
+    "ex_he": "היא הביטה בתמימות בציור."
+  },
+  "Grim": {
+    "translation": "זוֹעֵף",
+    "ex_en": "The weather forecast looks grim for tomorrow's picnic.",
+    "ex_he": "התחזית למזג האוויר נראית קשה לפיקניק של מחר."
+  },
+  "contamination": {
+    "translation": "זיהום",
+    "ex_en": "The river is polluted due to contamination from factories.",
+    "ex_he": "הנהר מוזהב עקב זיהום ממפעלים."
+  },
+  "Intolerant": {
+    "translation": "חסר סבלנות",
+    "ex_en": "I can't be friends with someone intolerant of others.",
+    "ex_he": "אני לא יכול להיות חבר עם מישהו שאינו סובל את האחרים."
+  },
+  "Charged": {
+    "translation": "טעון",
+    "ex_en": "The store charged me $20 for the shirt.",
+    "ex_he": "החנות גבתה ממני 20 דולר על החולצה."
+  },
+  "Bothered": {
+    "translation": "טרח",
+    "ex_en": "I'm not bothered by the rain.",
+    "ex_he": "אני לא מושפע מהגשם."
+  },
+  "Arrogant": {
+    "translation": "יָהִיר",
+    "ex_en": "He always acts so arrogant around his classmates.",
+    "ex_he": "הוא תמיד נוהג כל כך ערירי סביב חברי הכיתה שלו."
+  },
+  "Agony": {
+    "translation": "יסורים",
+    "ex_en": "She was in agony after stubbing her toe.",
+    "ex_he": "היא הייתה בכאב אחרי שהיא דחפה את האצבע שלה."
+  },
+  "decode": {
+    "translation": "לְפַעֲנֵחַ",
+    "ex_en": "I need to decode this secret message.",
+    "ex_he": "אני צריך לפענח את ההודעה הסודית הזאת."
+  },
+  "exaggerate": {
+    "translation": "להגזים",
+    "ex_en": "She tends to exaggerate her stories to make them more exciting.",
+    "ex_he": "היא נוטה להגזים את סיפוריה כדי להפוך אותם למרתקים יותר."
+  },
+  "Combative": {
+    "translation": "לוחמני",
+    "ex_en": "He tends to become combative during arguments.",
+    "ex_he": "הוא נוטה להפוך לקרבי במהלך טענות."
+  },
+  "perceive": {
+    "translation": "לתפוס",
+    "ex_en": "I perceive a sweet scent of flowers in the garden.",
+    "ex_he": "אני מרגיש ריח מתוק של פרחים בגינה."
+  },
+  "Diverse": {
+    "translation": "מְגוּוָן",
+    "ex_en": "The class had a diverse group of students.",
+    "ex_he": "הכיתה כללה קבוצה מגוונת של תלמידים."
+  },
+  "Glum": {
+    "translation": "מְדוּכדָך",
+    "ex_en": "After failing the test, she felt glum all day.",
+    "ex_he": "אחרי שנכשלה במבחן, הרגישה עגומה כל היום."
+  },
+  "Delightful": {
+    "translation": "מְהַנֶה",
+    "ex_en": "The garden was filled with delightful flowers.",
+    "ex_he": "הגינה הופכת מלאה בפרחים נעימים."
+  },
+  "Bewitched": {
+    "translation": "מְכוּשָׁף",
+    "ex_en": "She was bewitched by the beauty of the sunset.",
+    "ex_he": "היא נכשלה על ידי יופיו של השקיעה."
+  },
+  "Grumpy": {
+    "translation": "מְמוּרמָר",
+    "ex_en": "My dad gets grumpy when he's hungry.",
+    "ex_he": "אבא שלי מתעצבן כשהוא רעב."
+  },
+  "Encouraging": {
+    "translation": "מְעוֹדֵד",
+    "ex_en": "Her positive feedback was encouraging to the team.",
+    "ex_he": "המשוב החיובי שלה היה מעודד לצוות."
+  },
+  "Glorious": {
+    "translation": "מְפוֹאָר",
+    "ex_en": "The sunrise this morning was absolutely glorious.",
+    "ex_he": "הזריחה הבוקר הייתה מהממת לחלוטין."
+  },
+  "Envious": {
+    "translation": "מְקַנֵא",
+    "ex_en": "She felt envious of her friend's new car.",
+    "ex_he": "היא הרגישה קנאה לרכב החדש של החברה שלה."
+  },
+  "Bitterness": {
+    "translation": "מְרִירוּת",
+    "ex_en": "The bitterness of the medicine made her grimace.",
+    "ex_he": "המרירות של התרופה גרמה לה לצער."
+  },
+  "Homesick": {
+    "translation": "מִתגַעֲגֵעַ הַבַּיתָה",
+    "ex_en": "After being away for so long, she felt homesick.",
+    "ex_he": "אחרי שהייתה רחוקה כל כך הרבה זמן, היא הרגישה געגועים."
+  },
+  "Considerate": {
+    "translation": "מִתחַשֵׁב",
+    "ex_en": "She is always considerate of other people's feelings.",
+    "ex_he": "היא תמיד נעימה לרגשות של אנשים אחרים."
+  },
+  "Intimidated": {
+    "translation": "מאוים",
+    "ex_en": "She felt intimidated by his strong presence.",
+    "ex_he": "היא הרגישה מופחתת מהנוכחות החזקה שלו."
+  },
+  "Alarmed": {
+    "translation": "מבוהל",
+    "ex_en": "She was alarmed by the loud noise outside.",
+    "ex_he": "היא התבהלה מהרעש הגדול בחוץ."
+  },
+  "Demeaned": {
+    "translation": "מוּשׁפָל",
+    "ex_en": "His rude comments demeaned her in front of everyone.",
+    "ex_he": "ההערות הגסות שלו השפילו אותה לפני כולם."
+  },
+  "Bold": {
+    "translation": "מודגש",
+    "ex_en": "She wore a bold red dress to the party.",
+    "ex_he": "היא לבשה שמלה אדומה מודפסת למסיבה."
+  },
+  "doubtful": {
+    "translation": "מוטל בספק",
+    "ex_en": "She seemed doubtful about the plan's success.",
+    "ex_he": "נראתה ספקנית לגבי הצלחת התוכנית."
+  },
+  "Disturbed": {
+    "translation": "מוטרד",
+    "ex_en": "The loud noise disturbed my concentration while studying.",
+    "ex_he": "הרעש הגבוה הפריע לריכוז שלי בזמן הלימודים."
+  },
+  "Trap": {
+    "translation": "מלכודת",
+    "ex_en": "Watch out for the mouse trap in the shed.",
+    "ex_he": "זהירות מפלטת העכברים במחסן."
+  },
+  "Income tax": {
+    "translation": "מס הכנסה",
+    "ex_en": "I need to file my income tax return soon.",
+    "ex_he": "אני צריך להגיש את ההחזר המס שלי בקרוב."
+  },
+  "Capable": {
+    "translation": "מסוגל",
+    "ex_en": "She is capable of fixing the broken dishwasher.",
+    "ex_he": "היא מסוגלת לתקן את המדיח כלים השבור."
+  },
+  "Devoted": {
+    "translation": "מסור",
+    "ex_en": "She is a devoted friend who always supports me.",
+    "ex_he": "היא חברה מסורה שתמיד תומכת בי."
+  },
+  "Hilarious": {
+    "translation": "מצחיק מאוד",
+    "ex_en": "The comedian's jokes were hilarious.",
+    "ex_he": "הבדיחות של הקומיקאי היו מצחיקות."
+  },
+  "Amused": {
+    "translation": "משועשע",
+    "ex_en": "She was amused by the funny joke.",
+    "ex_he": "היא צחקה על הבדיחה המצחיקה."
+  },
+  "Mortgage": {
+    "translation": "משכנתא",
+    "ex_en": "We took out a mortgage to buy our first home.",
+    "ex_he": "לקחנו משכנתא כדי לקנות את הבית הראשון שלנו."
+  },
+  "Dull": {
+    "translation": "משעמם",
+    "ex_en": "The lecture was dull and uninteresting.",
+    "ex_he": "ההרצאה הייתה קצת צנועה ולא מעניינת."
+  },
+  "Enraged": {
+    "translation": "נִזעָם",
+    "ex_en": "His rude comment enraged her.",
+    "ex_he": "ההערה הגסה שלו הכעיסה אותה."
+  },
+  "Generous": {
+    "translation": "נָדִיב",
+    "ex_en": "She is generous with her time and resources.",
+    "ex_he": "היא נדיבה עם זמנה ומשאביה."
+  },
+  "Welfare": {
+    "translation": "רוחה",
+    "ex_en": "Many families rely on welfare for financial support.",
+    "ex_he": "הרבה משפחות סומכות על רווחה לתמיכה כלכלית."
+  },
+  "Edgy": {
+    "translation": "עַצבָּנִי",
+    "ex_en": "Her edgy hairstyle caught everyone's attention at the party.",
+    "ex_he": "התסרוקת המרה שלה תיפסה את תשומת הלב של כולם במסיבה."
+  },
+  "ancient": {
+    "translation": "עָתִיק",
+    "ex_en": "The ancient ruins were a popular tourist destination.",
+    "ex_he": "הרסים עתיקים היו יעד תיירות מוביל."
+  },
+  "Hostility": {
+    "translation": "עוֹיְנוּת",
+    "ex_en": "There was clear hostility between the two rival groups.",
+    "ex_he": "הייתה לכאורה ליחה ברורה בין שני הקבוצות המתחרות."
+  },
+  "principal": {
+    "translation": "עיקרי",
+    "ex_en": "The principal of the school greeted the students warmly.",
+    "ex_he": "המנהל של בית הספר ברך את התלמידים בחמימות."
+  },
+  "Ferocious": {
+    "translation": "פְּרָאִי",
+    "ex_en": "The lion's roar was ferocious and intimidating.",
+    "ex_he": "שאותו שאור של האריה היה איום ומרתיק."
+  },
+  "Grief": {
+    "translation": "צַעַר",
+    "ex_en": "She was overwhelmed with grief after losing her pet.",
+    "ex_he": "היא הייתה מוכה בכאב לאחר שאיבדה את חיות המחמד שלה."
+  },
+  "Righteous": {
+    "translation": "צדיק",
+    "ex_en": "He believed that his cause was righteous and just.",
+    "ex_he": "הוא האמין כי הסיבה שלו הייתה צדקנית וצודקת."
+  },
+  "Humble": {
+    "translation": "צנוע",
+    "ex_en": "She is known for her humble and kind demeanor.",
+    "ex_he": "היא ידועה בענוותה ואדיבותה."
+  },
+  "Acceptance": {
+    "translation": "קַבָּלָה",
+    "ex_en": "She finally found acceptance within her new community.",
+    "ex_he": "היא מצאה סופית קבלה בקרב קהילתה החדשה."
+  },
+  "helpline": {
+    "translation": "קו סיוע",
+    "ex_en": "She called the helpline for assistance with her computer issue.",
+    "ex_he": "היא התקשרה לקו העזרה לקבלת עזרה עם בעיה במחשב שלה."
+  },
+  "Gloomy": {
+    "translation": "קודר",
+    "ex_en": "The weather forecast predicted a gloomy day ahead.",
+    "ex_he": "התחזית המזג אוויר חיזתה יום עגום בקרוב."
+  },
+  "conspiracy": {
+    "translation": "קונספרציה",
+    "ex_en": "The group planned a conspiracy to overthrow the government.",
+    "ex_he": "הקבוצה תכננה קשר להעביר את הממשלה."
+  },
+  "paw": {
+    "translation": "רֶגֶל",
+    "ex_en": "The puppy's paw left muddy prints on the floor.",
+    "ex_he": "כף הרגל של הגור עזבה סימנים מוצפים בטיט על הרצפה."
+  },
+  "Greedy": {
+    "translation": "רודף בצע",
+    "ex_en": "He was greedy and refused to share his dessert.",
+    "ex_he": "הוא היה בצנען וסירב לחלוק את הקינוח שלו."
+  },
+  "Embassy": {
+    "translation": "שגרירות",
+    "ex_en": "My friend works at the Canadian Embassy in Washington, D.C.",
+    "ex_he": "החבר שלי עובד בשגרירות קנדה בוושינגטון, די.סי."
+  },
+  "Gloating": {
+    "translation": "שמחה לאיד",
+    "ex_en": "He couldn't help gloating over his victory.",
+    "ex_he": "הוא לא יכול היה להימנע מלהתרגש על ניצחונו."
+  },
+  "Conservative": {
+    "translation": "שמרני",
+    "ex_en": "She has conservative views on social issues.",
+    "ex_he": "יש לה עמדות משירות בנושאים חברתיים."
+  },
+  "Exhausted": {
+    "translation": "תָשׁוּשׁ",
+    "ex_en": "After running a marathon, she felt completely exhausted.",
+    "ex_he": "לאחר שרצתה מרתון, הרגישה כולית עייפה."
+  },
+  "Amazement": {
+    "translation": "תדהמה",
+    "ex_en": "I watched in amazement as the magician made the rabbit disappear.",
+    "ex_he": "ראיתי בהתלהבות כשהקוסם עשה לארנבון להיעלם."
+  },
+  "Insightful": {
+    "translation": "תובנה",
+    "ex_en": "She offered insightful advice on the matter.",
+    "ex_he": "היא הציעה עצות משובחות בנושא."
+  },
+  "Dependence": {
+    "translation": "תלות",
+    "ex_en": "Children often have a dependence on their parents for support.",
+    "ex_he": "ילדים לעתים קרובות תלויים בהוריהם לתמיכה."
+  },
+  "prominent": {
+    "translation": "בולט",
+    "ex_en": "Her prominent blue eyes sparkled in the sunlight.",
+    "ex_he": "עיניה הכחולות והבולטות ברקו באור השמש."
+  }
+}

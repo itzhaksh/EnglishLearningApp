@@ -9,12 +9,82 @@
 #include <QScreen>
 #include <QGuiApplication>
 #include <QPainter>
+#include <QPropertyAnimation>
+#include <QParallelAnimationGroup>
+#include <QSoundEffect>
 
 MemoryGame::MemoryGame(const QString& jsonFilePath, QWidget* parent)
     : QMainWindow(parent), jsonFilePath(jsonFilePath) {
     loadWords(jsonFilePath);
+    setupSoundEffects();
     initializeUI();
     setupGameBoard();
+}
+
+void MemoryGame::setupSoundEffects() {
+    matchSound = new QSoundEffect(this);
+    matchSound->setSource(QUrl::fromLocalFile(":/sounds/match.wav"));
+    matchSound->setVolume(0.5f);
+
+    mismatchSound = new QSoundEffect(this);
+    mismatchSound->setSource(QUrl::fromLocalFile(":/sounds/mismatch.wav"));
+    mismatchSound->setVolume(0.5f);
+
+    flipSound = new QSoundEffect(this);
+    flipSound->setSource(QUrl::fromLocalFile(":/sounds/flip.wav"));
+    flipSound->setVolume(0.5f);
+}
+
+void MemoryGame::playCardFlipAnimation(QPushButton* button) {
+    QPropertyAnimation* animation = new QPropertyAnimation(button, "geometry");
+    animation->setDuration(300);
+    animation->setStartValue(button->geometry());
+    animation->setEndValue(QRect(button->x(), button->y() - 10, button->width(), button->height()));
+    animation->setEasingCurve(QEasingCurve::OutBounce);
+    animation->start(QAbstractAnimation::DeleteWhenStopped);
+    flipSound->play();
+}
+
+void MemoryGame::playMatchAnimation(QPushButton* button1, QPushButton* button2) {
+    QParallelAnimationGroup* group = new QParallelAnimationGroup(this);
+
+    QPropertyAnimation* anim1 = new QPropertyAnimation(button1, "geometry");
+    anim1->setDuration(500);
+    anim1->setStartValue(button1->geometry());
+    anim1->setEndValue(QRect(button1->x(), button1->y() - 20, button1->width(), button1->height()));
+    anim1->setEasingCurve(QEasingCurve::OutBounce);
+
+    QPropertyAnimation* anim2 = new QPropertyAnimation(button2, "geometry");
+    anim2->setDuration(500);
+    anim2->setStartValue(button2->geometry());
+    anim2->setEndValue(QRect(button2->x(), button2->y() - 20, button2->width(), button2->height()));
+    anim2->setEasingCurve(QEasingCurve::OutBounce);
+
+    group->addAnimation(anim1);
+    group->addAnimation(anim2);
+    group->start(QAbstractAnimation::DeleteWhenStopped);
+    matchSound->play();
+}
+
+void MemoryGame::playMismatchAnimation(QPushButton* button1, QPushButton* button2) {
+    QParallelAnimationGroup* group = new QParallelAnimationGroup(this);
+
+    QPropertyAnimation* anim1 = new QPropertyAnimation(button1, "geometry");
+    anim1->setDuration(200);
+    anim1->setStartValue(button1->geometry());
+    anim1->setEndValue(QRect(button1->x() - 5, button1->y(), button1->width(), button1->height()));
+    anim1->setEasingCurve(QEasingCurve::InOutQuad);
+
+    QPropertyAnimation* anim2 = new QPropertyAnimation(button2, "geometry");
+    anim2->setDuration(200);
+    anim2->setStartValue(button2->geometry());
+    anim2->setEndValue(QRect(button2->x() + 5, button2->y(), button2->width(), button2->height()));
+    anim2->setEasingCurve(QEasingCurve::InOutQuad);
+
+    group->addAnimation(anim1);
+    group->addAnimation(anim2);
+    group->start(QAbstractAnimation::DeleteWhenStopped);
+    mismatchSound->play();
 }
 
 void MemoryGame::loadWords(const QString& level) {
@@ -22,8 +92,9 @@ void MemoryGame::loadWords(const QString& level) {
     if (!filePath.startsWith("resources/")) {
         filePath = QString("resources/%1").arg(level);
     }
-    qDebug() << "Trying to open dictionary file:" << filePath;
 
+    filePath = filePath.replace(".json", "_enhanced.json");
+    
     QFile file(filePath);
     if (!file.open(QIODevice::ReadOnly)) {
         qWarning() << "Could not open words JSON file:" << filePath;
@@ -36,12 +107,15 @@ void MemoryGame::loadWords(const QString& level) {
     if (doc.isObject()) {
         QJsonObject jsonObject = doc.object();
         wordsMap.clear();
+        englishWords.clear();
+        
         for (auto it = jsonObject.begin(); it != jsonObject.end(); ++it) {
-            wordsMap.insert(it.key(), it.value().toString());
+            QJsonObject wordObj = it.value().toObject();
+            QString englishWord = it.key();
+            QString hebrewWord = wordObj["translation"].toString();
+            wordsMap.insert(englishWord, hebrewWord);
+            englishWords.append(englishWord);
         }
-        englishWords = wordsMap.keys();
-    } else {
-        QMessageBox::critical(this, "Error", "Invalid JSON format.");
     }
     file.close();
 }
@@ -182,6 +256,8 @@ void MemoryGame::handleCardClick() {
 
     if (!clickedButton->isEnabled()) return;
 
+    playCardFlipAnimation(clickedButton);
+
     if (!firstSelectedButton) {
         firstSelectedButton = clickedButton;
         setButtonStyle(firstSelectedButton, "#ffe066"); 
@@ -201,8 +277,10 @@ void MemoryGame::handleCardClick() {
     QPushButton* firstButton = firstSelectedButton;
 
     if (isMatch) {
+        playMatchAnimation(firstButton, clickedButton);
         handleMatch(firstButton, clickedButton);
     } else {
+        playMismatchAnimation(firstButton, clickedButton);
         QTimer::singleShot(1000, this, [this, firstButton, clickedButton]() {
             handleMismatch(firstButton, clickedButton);
         });

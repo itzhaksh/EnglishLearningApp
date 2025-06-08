@@ -1,6 +1,14 @@
 <RCC>
-    <qresource>
+    <qresource prefix="/">
         <file>Learn-English.png</file>
         <file>Learn-English-Icon.png</file>
+        <file>dictionary_level1_enhanced.json</file>
+        <file>dictionary_level2_enhanced.json</file>
+        <file>dictionary_level3_enhanced.json</file>
+        <file>dictionary_level4_enhanced.json</file>
+        <file>dictionary_level5_enhanced.json</file>
+        <file>sounds/match.wav</file>
+        <file>sounds/mismatch.wav</file>
+        <file>sounds/flip.wav</file>
     </qresource>
 </RCC>

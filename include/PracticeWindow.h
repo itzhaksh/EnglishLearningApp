@@ -37,7 +37,10 @@ private:
 
 
     QMap<QString, QString> wordsMap;
-    QList<QString> englishWords;
+    QStringList englishWords;
+    QMap<QString, QPair<QString, QString>> examplesMap; // מאחסן את הדוגמאות
+    QLabel* exampleEnLabel;
+    QLabel* exampleHeLabel;
     int currentIndex;
     QTextToSpeech* textToSpeech;
     QList<QVoice> voices;

@@ -115,20 +115,18 @@ void DifficultyWindow::setupUI()
 
 void DifficultyWindow::openLevel(int level)
 {
-    QString jsonFile = QString("dictionary_level%1.json").arg(level);
+    QString jsonFile = QString("dictionary_level%1_enhanced.json").arg(level);
     if (gameMode == "Hebrew" || gameMode == "English") {
         gameWindow = new GameWindow(gameMode, jsonFile, this);
         gameWindow->show();
     }
     else if (gameMode == "Memory") {
         openMemoryGame(level);
-        this->hide();
     }
     else if (gameMode == "Practice") {
         openPracticeWindow(level);
     }
-
-    this->hide(); 
+    this->hide();
 }
 
 void DifficultyWindow::openMemoryGame(int level)

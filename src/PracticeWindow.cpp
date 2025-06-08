@@ -101,6 +101,25 @@ PracticeWindow::PracticeWindow(const QString& jsonFile, QWidget* parent)
 
     contentLayout->addLayout(buttonLayout);
 
+    exampleEnLabel = new QLabel(this);
+    exampleHeLabel = new QLabel(this);
+    
+    QString exampleStyle =
+        "QLabel {"
+        "   background-color: rgba(235, 191, 0, 0.7);"
+        "   color: black;"
+        "   font-size: 16px;"
+        "   padding: 10px;"
+        "   border-radius: 8px;"
+        "   margin: 5px;"
+        "}";
+    
+    exampleEnLabel->setStyleSheet(exampleStyle);
+    exampleHeLabel->setStyleSheet(exampleStyle);
+    
+    contentLayout->addWidget(exampleEnLabel);
+    contentLayout->addWidget(exampleHeLabel);
+
     mainLayout->addWidget(contentWidget);
 
     resize(600, 400);
@@ -126,8 +145,9 @@ PracticeWindow::PracticeWindow(const QString& jsonFile, QWidget* parent)
 PracticeWindow::~PracticeWindow() {}
 
 void PracticeWindow::loadWords(const QString& jsonFile) {
-    QString filePath = QString("resources/%1").arg(jsonFile);
-    qDebug() << "Trying to open dictionary file:" << filePath;
+    QString fileName = jsonFile;
+    fileName.replace(".json", "_enhanced.json");
+    QString filePath = QString("resources/%1").arg(fileName);
 
     QFile file(filePath);
     if (!file.open(QIODevice::ReadOnly)) {
@@ -135,18 +155,26 @@ void PracticeWindow::loadWords(const QString& jsonFile) {
         QMessageBox::critical(this, "Error", QString("Failed to load dictionary file: %1").arg(filePath));
         return;
     }
+
     QByteArray data = file.readAll();
     QJsonDocument doc = QJsonDocument::fromJson(data);
     if (doc.isObject()) {
         QJsonObject jsonObject = doc.object();
         wordsMap.clear();
+        englishWords.clear();
+        examplesMap.clear();
+
         for (auto it = jsonObject.begin(); it != jsonObject.end(); ++it) {
-            wordsMap.insert(it.key(), it.value().toString());
+            QString englishWord = it.key();
+            QJsonObject wordObj = it.value().toObject();
+            QString hebrewWord = wordObj["translation"].toString();
+            QString exampleEn = wordObj["ex_en"].toString();
+            QString exampleHe = wordObj["ex_he"].toString();
+
+            wordsMap.insert(englishWord, hebrewWord);
+            englishWords.append(englishWord);
+            examplesMap[englishWord] = qMakePair(exampleEn, exampleHe);
         }
-        englishWords = wordsMap.keys();
-    }
-    else {
-        QMessageBox::critical(this, "Error", "Invalid JSON format.");
     }
     file.close();
 }
@@ -156,10 +184,18 @@ void PracticeWindow::updateDisplay() {
         return;
 
     QString englishWord = englishWords[currentIndex];
-    QString hebrewTranslation = wordsMap.value(englishWord);
-
+    QString hebrewWord = wordsMap.value(englishWord);
+    
+    // הצגת המילים
     englishWordLabel->setText(englishWord);
-    hebrewTranslationLabel->setText(hebrewTranslation);
+    hebrewTranslationLabel->setText(hebrewWord);
+
+    // הצגת הדוגמאות
+    if (examplesMap.contains(englishWord)) {
+        QPair<QString, QString> examples = examplesMap[englishWord];
+        exampleEnLabel->setText(examples.first);
+        exampleHeLabel->setText(examples.second);
+    }
 }
 
 void PracticeWindow::nextWord() {

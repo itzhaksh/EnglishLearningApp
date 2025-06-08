@@ -1,0 +1,2962 @@
+{
+  "university": {
+    "translation": "אוניברסיטה",
+    "ex_en": "I am studying psychology at the university.",
+    "ex_he": "אני לומד פסיכולוגיה באוניברסיטה."
+  },
+  "choice": {
+    "translation": "בחירה",
+    "ex_en": "I have a choice between pizza and salad for lunch.",
+    "ex_he": "יש לי בחירה בין פיצה וסלט לארוחת צהריים."
+  },
+  "too": {
+    "translation": "גם",
+    "ex_en": "I want some ice cream too.",
+    "ex_he": "אני רוצה גם קצת גלידה."
+  },
+  "surprise": {
+    "translation": "הפתעה",
+    "ex_en": "Her birthday surprise made her smile all day.",
+    "ex_he": "המפתיע של יום ההולדת שלה גרם לה לחייך כל היום."
+  },
+  "pilot": {
+    "translation": "טיס",
+    "ex_en": "The pilot flew the plane safely to its destination.",
+    "ex_he": "הטייס טס בטיסה בטוחה ליעדה."
+  },
+  "child": {
+    "translation": "ילד",
+    "ex_en": "The child played in the park with her friends.",
+    "ex_he": "הילד שיחק בפארק עם חבריה."
+  },
+  "children": {
+    "translation": "יְלָדִים",
+    "ex_en": "The children played happily in the park.",
+    "ex_he": "הילדים שיחקו בשמחה בפארק."
+  },
+  "journal": {
+    "translation": "כתב עת",
+    "ex_en": "She writes in her journal every night before bed.",
+    "ex_he": "היא כותבת ביומנה בכל לילה לפני השינה."
+  },
+  "add": {
+    "translation": "להוסיף",
+    "ex_en": "Can you add more sugar to the cake batter?",
+    "ex_he": "אתה יכול להוסיף עוד סוכר לבצק העוגה?"
+  },
+  "surround": {
+    "translation": "להקיף",
+    "ex_en": "The forest surrounds the peaceful cabin by the lake.",
+    "ex_he": "היער מקיף את הבקתה השקטה על יד האגם."
+  },
+  "study": {
+    "translation": "ללמוד",
+    "ex_en": "I have to study for my upcoming exams.",
+    "ex_he": "אני צריך ללמוד למבחנים הבאים שלי."
+  },
+  "shoot": {
+    "translation": "לירות",
+    "ex_en": "He likes to shoot hoops at the park.",
+    "ex_he": "הוא אוהב לזרוק כדורסל בפארק."
+  },
+  "smoking": {
+    "translation": "לעשן",
+    "ex_en": "I quit smoking last year and feel much healthier now.",
+    "ex_he": "פסקתי לעשן בשנה שעברה ועכשיו אני מרגיש הרבה יותר בריא."
+  },
+  "computer": {
+    "translation": "מחשב",
+    "ex_en": "I use my computer to check my emails every day.",
+    "ex_he": "אני משתמש במחשב שלי כדי לבדוק את האימיילים שלי מדי יום."
+  },
+  "center": {
+    "translation": "מרכז",
+    "ex_en": "The hospital is located in the center of town.",
+    "ex_he": "הבית חולים ממוקם במרכז העיר."
+  },
+  "subject": {
+    "translation": "נושא",
+    "ex_en": "Math is my favorite subject in school.",
+    "ex_he": "המתמטיקה היא הנושא האהוב עלי בבית ספר."
+  },
+  "style": {
+    "translation": "סִגְנוֹן",
+    "ex_en": "She has a unique style of decorating her home.",
+    "ex_he": "יש לה סגנון ייחודי בעיצוב הבית שלה."
+  },
+  "type": {
+    "translation": "סוּג",
+    "ex_en": "I like to type messages on my computer.",
+    "ex_he": "אני אוהב להקליד הודעות על המחשב שלי."
+  },
+  "movie": {
+    "translation": "סרט",
+    "ex_en": "Let's go see a movie at the cinema tonight.",
+    "ex_he": "בוא נלך לראות סרט בקולנוע הערב."
+  },
+  "job": {
+    "translation": "עבודה",
+    "ex_en": "I need to find a new job soon.",
+    "ex_he": "אני צריך למצוא עבודה חדשה בקרוב."
+  },
+  "still": {
+    "translation": "עוד",
+    "ex_en": "I can still hear the birds chirping outside.",
+    "ex_he": "אני עדיין יכול לשמוע את הציפורים מנצחות בחוץ."
+  },
+  "channel": {
+    "translation": "ערוץ",
+    "ex_en": "I watched a cooking show on the food channel.",
+    "ex_he": "ראיתי תוכנית בישול בערוץ האוכל."
+  },
+  "smoke": {
+    "translation": "עשן",
+    "ex_en": "I could smell smoke coming from the kitchen.",
+    "ex_he": "ריחיתי עשן בא מהמטבח."
+  },
+  "change": {
+    "translation": "שינוי",
+    "ex_en": "I need to change my schedule for tomorrow.",
+    "ex_he": "אני צריך לשנות את הלוז שלי למחר."
+  },
+  "tooth": {
+    "translation": "שן",
+    "ex_en": "I need to brush my teeth before bed.",
+    "ex_he": "אני צריך לשטוף את השיניים שלי לפני השינה."
+  },
+  "student": {
+    "translation": "תלמיד",
+    "ex_en": "The student is studying for her final exams next week.",
+    "ex_he": "התלמידה לומדת למבחני סיום שלה בשבוע הבא."
+  },
+  "father": {
+    "translation": "אבא",
+    "ex_en": "My father is taking me fishing this weekend.",
+    "ex_he": "אבא שלי מביא אותי לדוגית בסופ\"ש."
+  },
+  "Avocado": {
+    "translation": "אבוקדו",
+    "ex_en": "I love making guacamole with fresh avocados.",
+    "ex_he": "אני אוהב להכין גואקמולה עם אבוקדו טרי."
+  },
+  "Watermelon": {
+    "translation": "אבטיח",
+    "ex_en": "I love eating sweet, juicy watermelon on hot summer days.",
+    "ex_he": "אני אוהב לאכול אבטיח מתוק ומרענן בימי קיץ חמים."
+  },
+  "but": {
+    "translation": "אבל",
+    "ex_en": "I wanted to go to the movies, but I was too tired.",
+    "ex_he": "רציתי ללכת לסרטים, אך הייתי יותר מדי עייף."
+  },
+  "lake": {
+    "translation": "אגם",
+    "ex_en": "We went fishing at the lake yesterday.",
+    "ex_he": "הלכנו לדוג דייג באגם אתמול."
+  },
+  "Pear": {
+    "translation": "אגס",
+    "ex_en": "I enjoy eating a juicy ripe pear for breakfast.",
+    "ex_he": "אני נהנה לאכול אגס שמין ומרענן לארוחת בוקר."
+  },
+  "Red": {
+    "translation": "אדום",
+    "ex_en": "The apple was ripe and bright red.",
+    "ex_he": "התפוח היה בשל ואדום בהיר."
+  },
+  "love": {
+    "translation": "אהבה",
+    "ex_en": "I love spending time with my family.",
+    "ex_he": "אני אוהב לבלות זמן עם המשפחה שלי."
+  },
+  "light": {
+    "translation": "אוֹר",
+    "ex_en": "The room was filled with warm, soft light.",
+    "ex_he": "החדר היה מלא באור חם ורך."
+  },
+  "signal": {
+    "translation": "אוֹת",
+    "ex_en": "He gave me a signal to start the race.",
+    "ex_he": "נתן לי אות להתחיל את המרוץ."
+  },
+  "or": {
+    "translation": "או",
+    "ex_en": "You can have coffee or tea with breakfast.",
+    "ex_he": "אתה יכול לשתות קפה או תה עם ארוחת הבוקר."
+  },
+  "tent": {
+    "translation": "אוהל",
+    "ex_en": "We set up a tent to sleep under the stars.",
+    "ex_he": "הקמנו אוהל כדי לישון מתחת לכוכבים."
+  },
+  "Ear": {
+    "translation": "אוזן",
+    "ex_en": "I have an infection in my left ear.",
+    "ex_he": "יש לי דלקת באוזן השמאלית שלי."
+  },
+  "car": {
+    "translation": "אוטו",
+    "ex_en": "I need to take my car to the mechanic.",
+    "ex_he": "אני צריך לקחת את הרכב שלי למוסך."
+  },
+  "Bus": {
+    "translation": "אוטובוס",
+    "ex_en": "I take the bus to school every day.",
+    "ex_he": "אני נוסע באוטובוס לבית הספר כל יום."
+  },
+  "food": {
+    "translation": "אוכל",
+    "ex_en": "I love trying new types of food from different cultures.",
+    "ex_he": "אני אוהב לנסות סוגים חדשים של מזון מתרבויות שונות."
+  },
+  "Motorbike": {
+    "translation": "אופנוע",
+    "ex_en": "I ride my motorbike to work every day.",
+    "ex_he": "אני רוכב על האופנוע שלי לעבודה כל יום."
+  },
+  "Bicycle": {
+    "translation": "אופניים",
+    "ex_en": "I ride my bicycle to work every day.",
+    "ex_he": "אני רוכב על האופניים שלי לעבודה כל יום."
+  },
+  "alarm": {
+    "translation": "אזעקה",
+    "ex_en": "I set my alarm for 7 AM tomorrow.",
+    "ex_he": "אני שם את המעורר שלי ל-7 בבוקר מחר."
+  },
+  "brother": {
+    "translation": "אח",
+    "ex_en": "My brother is two years older than me.",
+    "ex_he": "אחי בן שנתיים גדול ממני."
+  },
+  "one": {
+    "translation": "אחד",
+    "ex_en": "I have one apple left in the fridge.",
+    "ex_he": "יש לי תפוח אחד שנשאר במקרר."
+  },
+  "sister": {
+    "translation": "אחות",
+    "ex_en": "My sister is coming to visit this weekend.",
+    "ex_he": "אחותי באה לבקר בסוף השבוע."
+  },
+  "other": {
+    "translation": "אחר",
+    "ex_en": "I prefer tea over other hot beverages like coffee.",
+    "ex_he": "אני מעדיף תה על פני משקאות חמים אחרים כמו קפה."
+  },
+  "which": {
+    "translation": "איזה",
+    "ex_en": "She couldn't decide which flavor of ice cream to choose.",
+    "ex_he": "היא לא יכלה להחליט איזה טעם של גלידה לבחור."
+  },
+  "how": {
+    "translation": "איך",
+    "ex_en": "Can you show me how to tie my shoes?",
+    "ex_he": "אתה יכול להראות לי איך לקשור את הנעליים שלי?"
+  },
+  "Internet": {
+    "translation": "אינטרנט",
+    "ex_en": "I check my email every morning on the Internet.",
+    "ex_he": "אני בודק את האימייל שלי בכל בוקר באינטרנט."
+  },
+  "inch": {
+    "translation": "אינץ'",
+    "ex_en": "I need to move the book an inch to the right.",
+    "ex_he": "אני צריך להזיז את הספר באינץ לימין."
+  },
+  "where": {
+    "translation": "איפה",
+    "ex_en": "Where is the nearest grocery store located?",
+    "ex_he": "איפה נמצא החנות הקרובה ביותר?"
+  },
+  "Man": {
+    "translation": "איש",
+    "ex_en": "The man walked his dog in the park.",
+    "ex_he": "האיש הלך עם הכלב שלו בפארק."
+  },
+  "woman": {
+    "translation": "אישה",
+    "ex_en": "She is a talented woman who loves to paint.",
+    "ex_he": "היא אישה מוכשרת שאוהבת לצייר."
+  },
+  "if": {
+    "translation": "אם",
+    "ex_en": "If it rains, we'll stay indoors.",
+    "ex_he": "אם יירד גשם, נשאר בפנים."
+  },
+  "mother": {
+    "translation": "אמא",
+    "ex_en": "My mother is making dinner for us tonight.",
+    "ex_he": "אמא שלי מכינה ארוחת ערב לנו הערב."
+  },
+  "middle": {
+    "translation": "אמצע",
+    "ex_en": "She sat in the middle of the room.",
+    "ex_he": "היא ישבה באמצע החדר."
+  },
+  "say": {
+    "translation": "אמר",
+    "ex_en": "She didn't say anything during the entire meeting.",
+    "ex_he": "היא לא אמרה דבר בזמן כל הפגישה."
+  },
+  "said": {
+    "translation": "אמר",
+    "ex_en": "She said she would call me later.",
+    "ex_he": "היא אמרה שהיא תתקשר אלי מאוחר יותר."
+  },
+  "we": {
+    "translation": "אנחנו",
+    "ex_en": "We went to the park to have a picnic.",
+    "ex_he": "הלכנו לפארק כדי לעשות פיקניק."
+  },
+  "i": {
+    "translation": "אני",
+    "ex_en": "I am going to the store.",
+    "ex_he": "אני הולך לחנות."
+  },
+  "Ship": {
+    "translation": "אניה",
+    "ex_en": "The cruise ship sailed across the ocean.",
+    "ex_he": "הספינת תיירים חרמשה על האוקיינוס."
+  },
+  "Pineapple": {
+    "translation": "אננס",
+    "ex_en": "I love eating fresh pineapple in the summertime.",
+    "ex_he": "אני אוהב לאכול אננס טרי בקיץ."
+  },
+  "Contacts": {
+    "translation": "אנשי קשר",
+    "ex_en": "I need to update my contacts on my phone.",
+    "ex_he": "אני צריך לעדכן את אנשי הקשר שלי בטלפון שלי."
+  },
+  "people": {
+    "translation": "אנשים",
+    "ex_en": "Most people enjoy spending time outdoors in nature.",
+    "ex_he": "רוב האנשים נהנים לבלות זמן בחוץ בטבע."
+  },
+  "Nose": {
+    "translation": "אף",
+    "ex_en": "He has a cold and his nose is running.",
+    "ex_he": "יש לו קור והאף שלו זורם."
+  },
+  "nose": {
+    "translation": "אף",
+    "ex_en": "She sneezed and wiped her nose with a tissue.",
+    "ex_he": "היא עשתה תינוקת ונגעה באף שלה עם מגבת."
+  },
+  "vest": {
+    "translation": "אפוד",
+    "ex_en": "I wear a vest to keep warm in the winter.",
+    "ex_he": "אני לובש חגורה כדי לשמור על החום בחורף."
+  },
+  "Grey": {
+    "translation": "אפור",
+    "ex_en": "The sky was grey and overcast.",
+    "ex_he": "השמיים היו אפורים ומטופסים."
+  },
+  "Peach": {
+    "translation": "אפרסק",
+    "ex_en": "She took a big bite of the juicy peach.",
+    "ex_he": "היא לקחה נשיקה גדולה מהאפרסק המעורר חמדה."
+  },
+  "Finger": {
+    "translation": "אצבע",
+    "ex_en": "He cut his finger while chopping vegetables for dinner.",
+    "ex_he": "חיתך את האצבע שלו בזמן שחיתך ירקות לארוחת ערב."
+  },
+  "gun": {
+    "translation": "אקדח",
+    "ex_en": "Hunters use a gun to shoot wild animals.",
+    "ex_he": "ציידים משתמשים ברובה כדי לירות בחיות פראיות."
+  },
+  "Four": {
+    "translation": "ארבע",
+    "ex_en": "There are four apples on the table.",
+    "ex_he": "יש ארבע תפוחים על השולחן."
+  },
+  "meal": {
+    "translation": "ארוחה",
+    "ex_en": "I had a delicious meal at the new restaurant.",
+    "ex_he": "אכלתי ארוחה טעימה במסעדה החדשה."
+  },
+  "long": {
+    "translation": "ארוך",
+    "ex_en": "I have a long list of chores to do.",
+    "ex_he": "יש לי רשימה ארוכה של עבודות לעשות."
+  },
+  "rabbit": {
+    "translation": "ארנבת",
+    "ex_en": "I saw a rabbit hopping in the garden yesterday.",
+    "ex_he": "ראיתי ארנבת קופצת בגינה אתמול."
+  },
+  "you": {
+    "translation": "אתה",
+    "ex_en": "Can you please pass me the salt?",
+    "ex_he": "אתה יכול בבקשה להעביר לי את המלח?"
+  },
+  "Athletics": {
+    "translation": "אתלטיקה",
+    "ex_en": "She enjoys participating in school athletics.",
+    "ex_he": "היא נהנית מהשתתפות בספורט בבית ספר."
+  },
+  "Site": {
+    "translation": "אתר",
+    "ex_en": "He selected the perfect site for his new business venture.",
+    "ex_he": "בחר את האתר המושלם למסע העסקי החדש שלו."
+  },
+  "Web site": {
+    "translation": "אתר אינטרנט",
+    "ex_en": "I visit the Web site for daily news updates.",
+    "ex_he": "אני בקר באתר האינטרנט לעדכוני חדשות יומיים."
+  },
+  "son": {
+    "translation": "בֵּן",
+    "ex_en": "He is my son.",
+    "ex_he": "הוא הבן שלי."
+  },
+  "balloon": {
+    "translation": "בַּלוֹן",
+    "ex_en": "The children played with a colorful balloon at the party.",
+    "ex_he": "הילדים שיחקו עם בלון צבעוני במסיבה."
+  },
+  "wish": {
+    "translation": "בַּקָשָׁה",
+    "ex_en": "I wish for a sunny day tomorrow.",
+    "ex_he": "אני מאחל ליום מוזר חמים מחר."
+  },
+  "doll": {
+    "translation": "בּוּבָּה",
+    "ex_en": "She played with her favorite doll in the garden.",
+    "ex_he": "שיחקה עם הבובה האהובה עליה בגינה."
+  },
+  "Bathing suit": {
+    "translation": "בגד ים",
+    "ex_en": "I need to buy a new bathing suit for the beach.",
+    "ex_he": "אני צריך לקנות בגד ים חדש לחוף."
+  },
+  "joke": {
+    "translation": "בדיחה",
+    "ex_en": "She told a funny joke at the party.",
+    "ex_he": "היא סיפרה בדיחה מצחיקה במסיבה."
+  },
+  "toe": {
+    "translation": "בוהן",
+    "ex_en": "I stubbed my toe on the coffee table.",
+    "ex_he": "קיבצתי את האצבע שלי על שולחן הקפה."
+  },
+  "morning": {
+    "translation": "בוקר",
+    "ex_en": "I go for a run every morning before work.",
+    "ex_he": "אני רץ כל בוקר לפני העבודה."
+  },
+  "while": {
+    "translation": "בזמן ש..",
+    "ex_en": "I read a book while waiting for the bus.",
+    "ex_he": "קראתי ספר בזמן שהמתינתי לאוטובוס."
+  },
+  "out": {
+    "translation": "בחוץ",
+    "ex_en": "She ran out of milk for her cereal.",
+    "ex_he": "היא נגמר לה חלב לדגנים שלה."
+  },
+  "Elections": {
+    "translation": "בחירות",
+    "ex_en": "The country will have elections next month.",
+    "ex_he": "המדינה תקיים בחודש הבא בחירות."
+  },
+  "select": {
+    "translation": "בחר",
+    "ex_en": "I will select the best candidate for the job.",
+    "ex_he": "אני אבחר את המועמד הטוב ביותר לעבודה."
+  },
+  "Egg": {
+    "translation": "ביצה",
+    "ex_en": "I like my eggs scrambled for breakfast.",
+    "ex_he": "אני אוהב את הביצים שלי מעורבבות לארוחת בוקר."
+  },
+  "Beer": {
+    "translation": "בירה",
+    "ex_en": "I enjoy a cold beer after a long day of work.",
+    "ex_he": "אני נהנה מבירה קרה אחרי יום עבודה ארוך."
+  },
+  "home": {
+    "translation": "בית",
+    "ex_en": "I can't wait to go home and relax.",
+    "ex_he": "אני לא יכול לחכות לחזור הביתה ולהירגע."
+  },
+  "Hotel": {
+    "translation": "בית מלון",
+    "ex_en": "I booked a room at the hotel for the weekend.",
+    "ex_he": "הזמנתי חדר במלון לסופ\"ש."
+  },
+  "school": {
+    "translation": "בית ספר",
+    "ex_en": "I have to go to school tomorrow morning.",
+    "ex_he": "אני חייב ללכת לבית ספר מחר בבוקר."
+  },
+  "person": {
+    "translation": "בן אדם",
+    "ex_en": "She is a kind person who always helps others.",
+    "ex_he": "היא אדם טובה שתמיד עוזרת לאחרים."
+  },
+  "banana": {
+    "translation": "בננה",
+    "ex_en": "I eat a banana every morning for breakfast.",
+    "ex_he": "אני אוכל בננה בכל בוקר לארוחת בוקר."
+  },
+  "Bank": {
+    "translation": "בנק",
+    "ex_en": "I need to go to the bank to withdraw money.",
+    "ex_he": "אני צריך ללכת לבנק כדי למשוך כסף."
+  },
+  "fine": {
+    "translation": "בסדר",
+    "ex_en": "I feel fine after a good night's sleep.",
+    "ex_he": "אני מרגיש טוב אחרי לילה טוב של שינה."
+  },
+  "Biscuit": {
+    "translation": "בסקוויט",
+    "ex_en": "I had a biscuit with my morning coffee.",
+    "ex_he": "הייתה לי עוגייה עם הקפה שלי בבוקר."
+  },
+  "Husband": {
+    "translation": "בעל",
+    "ex_en": "My husband is cooking dinner tonight.",
+    "ex_he": "הבעל שלי מבשל ארוחת ערב הערב."
+  },
+  "Onion": {
+    "translation": "בצל",
+    "ex_en": "I chopped up some onions for the soup.",
+    "ex_he": "קצתי בצלים למרק."
+  },
+  "welcome": {
+    "translation": "ברוך הבא",
+    "ex_en": "You are always welcome in our home.",
+    "ex_he": "אתה תמיד מוזמן לבית שלנו."
+  },
+  "Health": {
+    "translation": "בריאות",
+    "ex_en": "Regular exercise is important for maintaining good health.",
+    "ex_he": "תרגול קבוע חשוב לשמירה על בריאות טובה."
+  },
+  "Knee": {
+    "translation": "ברך",
+    "ex_en": "I hurt my knee while running in the park.",
+    "ex_he": "פצעתי את הברך שלי בזמן ריצה בפארק."
+  },
+  "Meat": {
+    "translation": "בשר",
+    "ex_en": "I love to grill meat on the barbecue.",
+    "ex_he": "אני אוהב לצלות בשר על הגריל."
+  },
+  "in": {
+    "translation": "בתוך",
+    "ex_en": "I will meet you in the park at noon.",
+    "ex_he": "אני אפגש אותך בפארק בצהריים."
+  },
+  "Jeep": {
+    "translation": "ג'יפ",
+    "ex_en": "My cousin prefers to drive a Jeep.",
+    "ex_he": "הבן דוד שלי מעדיף לנהוג בג'יפ."
+  },
+  "rain": {
+    "translation": "גֶשֶׁם",
+    "ex_en": "I love listening to the sound of rain.",
+    "ex_he": "אני אוהב להאזין לקול של גשם."
+  },
+  "Back": {
+    "translation": "גב",
+    "ex_en": "I hurt my back while lifting heavy boxes.",
+    "ex_he": "פצעתי את הגב שלי בעודי מרים קופסאות כבדות."
+  },
+  "Eyebrow": {
+    "translation": "גבה",
+    "ex_en": "She raised an eyebrow in surprise at the news.",
+    "ex_he": "היא הרימה גבה בהפתעה על החדשות."
+  },
+  "Cheese": {
+    "translation": "גבינה",
+    "ex_en": "I love to eat cheese with crackers for a snack.",
+    "ex_he": "אני אוהב לאכול גבינה עם קרקרים כחטיף."
+  },
+  "men": {
+    "translation": "גברים",
+    "ex_en": "The men are working in the garden.",
+    "ex_he": "הגברים עובדים בגינה."
+  },
+  "big": {
+    "translation": "גדול",
+    "ex_en": "My dog is big and fluffy.",
+    "ex_he": "הכלב שלי גדול ורך."
+  },
+  "high": {
+    "translation": "גובה",
+    "ex_en": "The airplane flew high above the clouds.",
+    "ex_he": "המטוס טס גבוה מעל העננים."
+  },
+  "size": {
+    "translation": "גודל",
+    "ex_en": "I wear a medium size shirt.",
+    "ex_he": "אני לובש חולצה במידה בינונית."
+  },
+  "Guava": {
+    "translation": "גויבה",
+    "ex_en": "I love eating ripe guava on a hot summer day.",
+    "ex_he": "אני אוהב לאכול גוואבה בשלה ביום קיץ חם."
+  },
+  "Carrot": {
+    "translation": "גזר",
+    "ex_en": "I like to eat carrots with hummus for a snack.",
+    "ex_he": "אני אוהב לאכול גזר עם חומוס כנשנוש."
+  },
+  "age": {
+    "translation": "גיל",
+    "ex_en": "She has started to show signs of aging.",
+    "ex_he": "היא החלה להראות סימנים של הזדקנות."
+  },
+  "Wave": {
+    "translation": "גל",
+    "ex_en": "She waved goodbye as the train pulled away.",
+    "ex_he": "היא ניפנה לשלום כשהרכבת נסחפת."
+  },
+  "wheel": {
+    "translation": "גלגל",
+    "ex_en": "The car's front wheel hit a pothole.",
+    "ex_he": "הגלגל הקדמי של הרכב פגע בפחות"
+  },
+  "Ice-cream": {
+    "translation": "גלידה",
+    "ex_en": "I love to eat ice-cream on hot summer days.",
+    "ex_he": "אני אוהב לאכול גלידה בימי הקיץ החמים."
+  },
+  "Surfing": {
+    "translation": "גלישה",
+    "ex_en": "I love surfing at the beach on weekends.",
+    "ex_he": "אני אוהב לגלוש בחוף בסופי שבוע."
+  },
+  "Camel": {
+    "translation": "גמל",
+    "ex_en": "Camels are known for their ability to survive in deserts.",
+    "ex_he": "גמלים מוכרים על יכולתם לשרוד במדברים."
+  },
+  "Neck": {
+    "translation": "גרון",
+    "ex_en": "She wore a necklace around her neck.",
+    "ex_he": "היא נעלה שרשרת סביב צווארה."
+  },
+  "flag": {
+    "translation": "דֶגֶל",
+    "ex_en": "I saw a big American flag waving in the wind.",
+    "ex_he": "ראיתי דגל אמריקני גדול תופס רוח."
+  },
+  "worry": {
+    "translation": "דאגה",
+    "ex_en": "Don't worry, everything will be okay.",
+    "ex_he": "אל תדאג, הכל יהיה בסדר."
+  },
+  "thing": {
+    "translation": "דבר",
+    "ex_en": "I forgot to bring my favorite thing to the picnic.",
+    "ex_he": "שכחתי להביא את הדבר האהוב עליי לפיקניק."
+  },
+  "Fish": {
+    "translation": "דג",
+    "ex_en": "I love to eat grilled fish with lemon and herbs.",
+    "ex_he": "אני אוהב לאכול דג צלוי עם לימון ותבלינים."
+  },
+  "Report": {
+    "translation": "דו''ח",
+    "ex_en": "I need to write a report on my findings.",
+    "ex_he": "אני צריך לכתוב דו\"ח על הממצאים שלי."
+  },
+  "uncle": {
+    "translation": "דוֹד",
+    "ex_en": "My uncle is coming over for dinner tonight.",
+    "ex_he": "הדוד שלי בא לארוחת ערב הלילה."
+  },
+  "doctor": {
+    "translation": "דוֹקטוֹר",
+    "ex_en": "My doctor recommended rest and plenty of fluids.",
+    "ex_he": "הרופא שלי המליץ על מנוחה והמון נוזלים."
+  },
+  "Cherry": {
+    "translation": "דובדבן",
+    "ex_en": "She loves to pick fresh cherries from the tree.",
+    "ex_he": "היא אוהבת לקטוף דובדבנים טריים מהעץ."
+  },
+  "Aunt": {
+    "translation": "דודה",
+    "ex_en": "My aunt is coming to visit us this weekend.",
+    "ex_he": "הדודה שלי באה לבקר אותנו בסוף השבוע."
+  },
+  "on": {
+    "translation": "דולק",
+    "ex_en": "She left her keys on the kitchen counter.",
+    "ex_he": "היא הניחה את המפתחות שלה על משטח המטבח."
+  },
+  "Rejected": {
+    "translation": "דחוי",
+    "ex_en": "Her job application was rejected by the company.",
+    "ex_he": "הבקשה למשרתה נדחתה על ידי החברה."
+  },
+  "Desk": {
+    "translation": "דלפק",
+    "ex_en": "I left my book on the desk.",
+    "ex_he": "עזבתי את הספר שלי על השולחן."
+  },
+  "Door": {
+    "translation": "דלת",
+    "ex_en": "Please close the door when you leave.",
+    "ex_he": "סגור את הדלת בבקשה כשאתה יוצא."
+  },
+  "page": {
+    "translation": "דף",
+    "ex_en": "I tore a page out of my notebook.",
+    "ex_he": "קרעתי עמוד ממחברתי."
+  },
+  "minute": {
+    "translation": "דקה",
+    "ex_en": "I'll be there in a minute.",
+    "ex_he": "אני אהיה שם ברגע"
+  },
+  "South": {
+    "translation": "דרום",
+    "ex_en": "I am driving south for a weekend getaway.",
+    "ex_he": "אני נוסע דרומה לסופ\"ש בחוץ."
+  },
+  "way": {
+    "translation": "דרך",
+    "ex_en": "She found a new way to solve the problem.",
+    "ex_he": "היא מצאה דרך חדשה לפתור את הבעיה."
+  },
+  "Passport": {
+    "translation": "דרכון",
+    "ex_en": "I always carry my passport when I travel abroad.",
+    "ex_he": "תמיד אני נושא את הדרכון שלי כאשר אני נוסע לחו\"ל."
+  },
+  "shock": {
+    "translation": "הֶלֶם",
+    "ex_en": "The news of his resignation came as a shock.",
+    "ex_he": "החדשות על פיטוריו הגיעו כבעיה."
+  },
+  "start": {
+    "translation": "התחלה",
+    "ex_en": "I will start studying for my exam tomorrow.",
+    "ex_he": "אני אתחיל ללמוד למבחני מחר."
+  },
+  "Defense": {
+    "translation": "הגנה",
+    "ex_en": "The football team has a strong defense strategy.",
+    "ex_he": "הקבוצה יש לה אסטרטגיית הגנה חזקה."
+  },
+  "parent": {
+    "translation": "הוֹרֶה",
+    "ex_en": "My parent always supports me no matter what.",
+    "ex_he": "ההורים שלי תמיד תומכים בי ללא קשר למה."
+  },
+  "he": {
+    "translation": "הוא",
+    "ex_en": "He is going to the store to buy groceries.",
+    "ex_he": "הוא הולך לחנות כדי לקנות ירקות."
+  },
+  "Hockey": {
+    "translation": "הוקי",
+    "ex_en": "I enjoy playing hockey with my friends on weekends.",
+    "ex_he": "אני נהנה משחק הוקי עם חברים בסופי שבוע."
+  },
+  "replace": {
+    "translation": "החלף",
+    "ex_en": "I need to replace my old phone with a new one.",
+    "ex_he": "אני צריך להחליף את הטלפון הישן שלי בטלפון חדש."
+  },
+  "Change": {
+    "translation": "החלפת כספים",
+    "ex_en": "I want to change my hairstyle for summer.",
+    "ex_he": "אני רוצה לשנות את התסרוקת שלי לקיץ."
+  },
+  "she": {
+    "translation": "היא",
+    "ex_en": "She is going to the store to buy groceries.",
+    "ex_he": "היא הולכת לחנות כדי לקנות ירקות."
+  },
+  "was": {
+    "translation": "היה",
+    "ex_en": "She was happy to see her friend after a long time.",
+    "ex_he": "היא שמחה לראות את החברה שלה אחרי זמן רב."
+  },
+  "were": {
+    "translation": "היו",
+    "ex_en": "They were happy to see each other.",
+    "ex_he": "הם שמחו לראות זה את זה."
+  },
+  "Where is": {
+    "translation": "היכן נמצא",
+    "ex_en": "Where is the nearest grocery store?",
+    "ex_he": "איפה נמצא החנות הקרובה ביותר?"
+  },
+  "they": {
+    "translation": "הם",
+    "ex_en": "They went to the park to play basketball with friends.",
+    "ex_he": "הם הלכו לפארק כדי לשחק כדורסל עם חברים."
+  },
+  "Explain": {
+    "translation": "הסבר",
+    "ex_en": "Can you please explain how to solve this math problem?",
+    "ex_he": "האם תוכל להסביר איך לפתור את בעיה המתמטית הזו?"
+  },
+  "Pause": {
+    "translation": "הפסקה",
+    "ex_en": "She pressed the pause button on the remote control.",
+    "ex_he": "היא לחצה על כפתור ההשהיה בשלט"
+  },
+  "much": {
+    "translation": "הרבה",
+    "ex_en": "I don't have much time to finish my homework today.",
+    "ex_he": "אין לי הרבה זמן לסיים את השעות הבית היום."
+  },
+  "rose": {
+    "translation": "וֶרֶד",
+    "ex_en": "She smelled the sweet fragrance of a rose.",
+    "ex_he": "היא הריחה את ניחוח השושן המתוק."
+  },
+  "and": {
+    "translation": "ו...",
+    "ex_en": "I went to the store and bought some groceries.",
+    "ex_he": "הלכתי לחנות וקניתי מזון."
+  },
+  "video": {
+    "translation": "וידאו",
+    "ex_en": "I watched a funny video on YouTube yesterday.",
+    "ex_he": "ראיתי סרטון מצחיק ביוטיוב אתמול."
+  },
+  "Pink": {
+    "translation": "ורוד",
+    "ex_en": "My favorite flowers are pink peonies.",
+    "ex_he": "הפרחים האהובים עליי הם פאוניות ורודות."
+  },
+  "arm": {
+    "translation": "זְרוֹעַ",
+    "ex_en": "She broke her arm playing soccer.",
+    "ex_he": "היא שברה את זרועה במהלך משחק כדורגל."
+  },
+  "zebra": {
+    "translation": "זֶבּרָה",
+    "ex_en": "The zebra has black and white stripes.",
+    "ex_he": "הזברה יש פסים שחורים ולבנים."
+  },
+  "seed": {
+    "translation": "זֶרַע",
+    "ex_en": "I planted a seed in my backyard garden.",
+    "ex_he": "זרעתי זרע בגינת החצר שלי."
+  },
+  "it": {
+    "translation": "זה",
+    "ex_en": "I can't find my phone; I think I left it at home.",
+    "ex_he": "אני לא מוצא את הטלפון שלי; אני חושב ששכחתי אותו בבית."
+  },
+  "Gold": {
+    "translation": "זהב",
+    "ex_en": "She wore a beautiful gold necklace to the party.",
+    "ex_he": "היא לבשה שרשרת זהב יפה למסיבה."
+  },
+  "Olive": {
+    "translation": "זית",
+    "ex_en": "I love to drizzle olive oil on my salad.",
+    "ex_he": "אני אוהב לרזות שמן זית על הסלט שלי."
+  },
+  "Time": {
+    "translation": "זמן",
+    "ex_en": "I don't have time to watch a movie tonight.",
+    "ex_he": "אין לי זמן לצפות בסרט הלילה."
+  },
+  "pig": {
+    "translation": "חֲזִיר",
+    "ex_en": "The pig rolled around in the mud.",
+    "ex_he": "החזיר גלגל בבוץ."
+  },
+  "store": {
+    "translation": "חֲנוּת",
+    "ex_en": "I need to go to the store to buy groceries.",
+    "ex_he": "אני צריך ללכת לחנות כדי לקנות ירקות."
+  },
+  "social": {
+    "translation": "חֶברָתִי",
+    "ex_en": "Social media platforms connect people from all over the world.",
+    "ex_he": "פלטפורמות רשת חברתית מחברות אנשים מרחבי העולם."
+  },
+  "milk": {
+    "translation": "חָלָב",
+    "ex_en": "I like to drink milk with my breakfast cereal.",
+    "ex_he": "אני אוהב לשתות חלב עם דגני בוקר שלי."
+  },
+  "omelet": {
+    "translation": "חביתה",
+    "ex_en": "I made a delicious veggie omelet for breakfast.",
+    "ex_he": "הכנתי אומלט ירקות טעים לארוחת בוקר."
+  },
+  "Friend": {
+    "translation": "חבר",
+    "ex_en": "She is my best friend from childhood.",
+    "ex_he": "היא החברה הכי טובה שלי מהילדות."
+  },
+  "Holiday": {
+    "translation": "חג",
+    "ex_en": "I am going on holiday to the beach next week.",
+    "ex_he": "אני הולך לחופשה בחוף בשבוע הבא."
+  },
+  "Room": {
+    "translation": "חדר",
+    "ex_en": "I'm cleaning my room before guests arrive.",
+    "ex_he": "אני מנקה את החדר שלי לפני שהאורחים מגיעים."
+  },
+  "new": {
+    "translation": "חדש",
+    "ex_en": "I bought a new book yesterday.",
+    "ex_he": "קניתי ספר חדש אתמול."
+  },
+  "winter": {
+    "translation": "חוֹרֶף",
+    "ex_en": "I love drinking hot cocoa during the winter months.",
+    "ex_he": "אני אוהב לשתות קקאו חם בחודשי החורף."
+  },
+  "Requirement": {
+    "translation": "חובה",
+    "ex_en": "Meeting attendance is a requirement for this course.",
+    "ex_he": "נוכחות בפגישות היא דרישה לקורס זה."
+  },
+  "Sand": {
+    "translation": "חול",
+    "ex_en": "I love walking barefoot on the warm sand at the beach.",
+    "ex_he": "אני אוהב ללכת יחף רגליים על החול החם בחוף."
+  },
+  "Brown": {
+    "translation": "חום",
+    "ex_en": "The brown dog chased after the squirrel in the park.",
+    "ex_he": "הכלב החום רדף אחרי הסנאי בפארק."
+  },
+  "Beach": {
+    "translation": "חוף",
+    "ex_en": "Let's go to the beach tomorrow for a picnic.",
+    "ex_he": "בוא נלך לחוף מחר לפיקניק."
+  },
+  "dark": {
+    "translation": "חושך",
+    "ex_en": "The room was too dark to see anything.",
+    "ex_he": "החדר היה כה כהה עד שלא ראיתי דבר."
+  },
+  "animal": {
+    "translation": "חיה",
+    "ex_en": "My favorite animal is a dog.",
+    "ex_he": "החיה האהובה עליי היא כלב."
+  },
+  "smile": {
+    "translation": "חיוך",
+    "ex_en": "She greeted me with a warm smile.",
+    "ex_he": "היא ברכה אותי עם חיוך חם."
+  },
+  "must": {
+    "translation": "חייב",
+    "ex_en": "You must wear a seatbelt when driving a car.",
+    "ex_he": "עליך לגרום לחגורת בטיחות כאשר אתה נוהג ברכב."
+  },
+  "life": {
+    "translation": "חיים",
+    "ex_en": "Life is full of surprises, enjoy every moment.",
+    "ex_he": "החיים מלאים בהפתעות, תהנה מכל רגע."
+  },
+  "pet": {
+    "translation": "חיית מחמד",
+    "ex_en": "I love cuddling with my fluffy pet cat.",
+    "ex_he": "אני אוהב לחבק את החתול הרך שלי."
+  },
+  "Education": {
+    "translation": "חינוך",
+    "ex_en": "Education is important for personal growth and development.",
+    "ex_he": "חינוך חשוב לצמיחה ופיתוח אישי."
+  },
+  "Window": {
+    "translation": "חלון",
+    "ex_en": "Close the window before you leave the room.",
+    "ex_he": "סגור את החלון לפני שאתה עוזב את החדר."
+  },
+  "weak": {
+    "translation": "חלש",
+    "ex_en": "Her muscles were weak after the long hike.",
+    "ex_he": "השרירים שלה היו חלשים אחרי הטיול הארוך."
+  },
+  "hot": {
+    "translation": "חם",
+    "ex_en": "The coffee was too hot to drink.",
+    "ex_he": "הקפה היה חם מדי לשתות."
+  },
+  "Butter": {
+    "translation": "חמאה",
+    "ex_en": "I spread butter on my toast for breakfast.",
+    "ex_he": "אני מורח חמאה על הטוסט שלי לארוחת הבוקר."
+  },
+  "Donkey": {
+    "translation": "חמור",
+    "ex_en": "The donkey carried heavy bags up the steep hill.",
+    "ex_he": "החמור נשא תיקים כבדים למעלה בגבעת התלולה."
+  },
+  "warm": {
+    "translation": "חמים",
+    "ex_en": "The sun feels warm on my face.",
+    "ex_he": "השמש מרגישה חמימה על פניי."
+  },
+  "five": {
+    "translation": "חמש",
+    "ex_en": "There are five apples on the table.",
+    "ex_he": "יש חמישה תפוחים על השולחן."
+  },
+  "Eggplant": {
+    "translation": "חציל",
+    "ex_en": "I'm going to make eggplant parmesan for dinner tonight.",
+    "ex_he": "אני הולך להכין פרמז׳ן חציל לארוחת ערב הלילה."
+  },
+  "thought": {
+    "translation": "חשב",
+    "ex_en": "I thought about calling her today.",
+    "ex_he": "חשבתי על להתקשר אליה היום."
+  },
+  "cat": {
+    "translation": "חתול",
+    "ex_en": "My cat likes to chase mice around the house.",
+    "ex_he": "החתול שלי אוהב לרדוף אחרי עכברים בבית."
+  },
+  "Signature": {
+    "translation": "חתימה",
+    "ex_en": "Please sign your name in the signature box.",
+    "ex_he": "אנא חתום על שמך בתיבת החתימה."
+  },
+  "ring": {
+    "translation": "טַבַּעַת",
+    "ex_en": "I heard the phone ring in the other room.",
+    "ex_he": "שמעתי את הטלפון צלצל בחדר השני."
+  },
+  "tank": {
+    "translation": "טַנק",
+    "ex_en": "The fish tank needs to be cleaned today.",
+    "ex_he": "הצנצנת של הדגים צריכה להיות מנוקה היום."
+  },
+  "good": {
+    "translation": "טוב",
+    "ex_en": "The weather today is good for a picnic.",
+    "ex_he": "המזג אוויר היום טוב לפיקניק."
+  },
+  "trip": {
+    "translation": "טיול",
+    "ex_en": "I am planning a trip to the beach next weekend.",
+    "ex_he": "אני מתכנן טיול לחוף בסופשבוע הבא."
+  },
+  "television": {
+    "translation": "טלוויזיה",
+    "ex_en": "I watch television every evening after dinner.",
+    "ex_he": "אני צופה בטלוויזיה בכל ערב אחרי הארוחה."
+  },
+  "Tennis": {
+    "translation": "טניס",
+    "ex_en": "I play tennis with my friends every Saturday afternoon.",
+    "ex_he": "אני משחק טניס עם חברים שלי בכל שבת אחר הצהריים."
+  },
+  "day": {
+    "translation": "יְוֹם",
+    "ex_en": "I go for a walk every day.",
+    "ex_he": "אני הולך לטייל כל יום."
+  },
+  "sea": {
+    "translation": "יָם",
+    "ex_en": "The sea is calm on sunny days.",
+    "ex_he": "הים שקט בימי שמש."
+  },
+  "Hand": {
+    "translation": "יד",
+    "ex_en": "She gently placed the ring on his outstretched hand.",
+    "ex_he": "היא הניחה בעדינות את הטבעת על ידו הנטויה."
+  },
+  "would": {
+    "translation": "יהיה",
+    "ex_en": "If it rained, I would bring an umbrella.",
+    "ex_he": "אם היה גשם, הייתי מביא מטרייה."
+  },
+  "will": {
+    "translation": "יהיה",
+    "ex_en": "I will go to the store tomorrow.",
+    "ex_he": "אני אלך לחנות מחר."
+  },
+  "Wine": {
+    "translation": "יין",
+    "ex_en": "I enjoy a glass of red wine with dinner.",
+    "ex_he": "אני נהנה מכוס של יין אדום עם הארוחה."
+  },
+  "could": {
+    "translation": "יכול",
+    "ex_en": "I could go to the store later.",
+    "ex_he": "אני יכול ללכת לחנות מאוחר יותר."
+  },
+  "Boy": {
+    "translation": "ילד",
+    "ex_en": "The boy played with his toys in the yard.",
+    "ex_he": "הילד שיחק עם הצעצועים שלו בחצר."
+  },
+  "girl": {
+    "translation": "ילדה",
+    "ex_en": "The girl is playing in the park with her friends.",
+    "ex_he": "הילדה משחקת בפארק עם החברות שלה."
+  },
+  "Right": {
+    "translation": "ימין",
+    "ex_en": "She was right about the time of the meeting.",
+    "ex_he": "היא צדקה לגבי זמן הפגישה."
+  },
+  "Green": {
+    "translation": "ירוק",
+    "ex_en": "The grass is green in the park.",
+    "ex_he": "הדשא ירוק בפארק."
+  },
+  "moon": {
+    "translation": "ירח",
+    "ex_en": "The moon is full and bright in the night sky.",
+    "ex_he": "הלבנה מלאה ובהירה בשמי הלילה."
+  },
+  "Vegetables": {
+    "translation": "ירקות",
+    "ex_en": "I love to eat fresh vegetables from the garden.",
+    "ex_he": "אני אוהב לאכול ירקות טריים מהגינה."
+  },
+  "have": {
+    "translation": "יש",
+    "ex_en": "I have a dog and a cat at home.",
+    "ex_he": "יש לי כלב וחתול בבית."
+  },
+  "Meeting": {
+    "translation": "ישיבה",
+    "ex_en": "I have a meeting with my boss this afternoon.",
+    "ex_he": "יש לי פגישה עם המנהל שלי היום בצהריים."
+  },
+  "old": {
+    "translation": "ישן",
+    "ex_en": "My dog is getting old and moves slowly now.",
+    "ex_he": "הכלב שלי זקן וזז לאט כעת."
+  },
+  "road": {
+    "translation": "כְּבִישׁ",
+    "ex_en": "The road is long but beautiful.",
+    "ex_he": "הדרך ארוכה אך יפה."
+  },
+  "rule": {
+    "translation": "כְּלָל",
+    "ex_en": "Follow the rule of washing your hands before meals.",
+    "ex_he": "עקוב אחר כלל הכביסה של ידיים לפני הארוחות."
+  },
+  "sink": {
+    "translation": "כִּיוֹר",
+    "ex_en": "I need to fix the leaky sink in the kitchen.",
+    "ex_he": "אני צריך לתקן את הכיור הנוזל במטבח."
+  },
+  "dog": {
+    "translation": "כֶּלֶב",
+    "ex_en": "I take my dog for a walk every morning.",
+    "ex_he": "אני מוציא את הכלב שלי לטיול בכל בוקר."
+  },
+  "ball": {
+    "translation": "כַּדוּר",
+    "ex_en": "She kicked the ball into the goal.",
+    "ex_he": "היא דפקה את הכדור לתוך השער."
+  },
+  "hat": {
+    "translation": "כּוֹבַע",
+    "ex_en": "I always wear a hat when it's sunny outside.",
+    "ex_he": "תמיד אני לובש כובע כשהחוץ שמשי."
+  },
+  "off": {
+    "translation": "כבוי",
+    "ex_en": "Please turn off the lights before leaving the room.",
+    "ex_he": "כבה את האורות לפני עזיבת החדר."
+  },
+  "Sheep": {
+    "translation": "כבשה",
+    "ex_en": "The farmer counted his sheep before bedtime.",
+    "ex_he": "החקלאי ספר את הכבשים שלו לפני השכבה."
+  },
+  "Volleyball": {
+    "translation": "כדור-עף",
+    "ex_en": "I play volleyball with my friends at the beach.",
+    "ex_he": "אני משחקת כדורעף עם חברים בחוף."
+  },
+  "Handball": {
+    "translation": "כדור יד",
+    "ex_en": "They played handball during recess at school.",
+    "ex_he": "הם שיחקו כדוריד במהלך ההפסקה בבית ספר."
+  },
+  "Soccer": {
+    "translation": "כדורגל",
+    "ex_en": "I love playing soccer with my friends on weekends.",
+    "ex_he": "אני אוהב לשחק כדורגל עם חברים בסופי שבוע."
+  },
+  "Basketball": {
+    "translation": "כדורסל",
+    "ex_en": "I love playing basketball with my friends at the park.",
+    "ex_he": "אני אוהב לשחק כדורסל עם החברים שלי בפארק."
+  },
+  "star": {
+    "translation": "כוכב",
+    "ex_en": "Look at the sky and find the brightest star.",
+    "ex_he": "הסתכל על השמיים ומצא את הכוכב הבהיר ביותר."
+  },
+  "Cup": {
+    "translation": "כוס",
+    "ex_en": "Could you please pass me the cup of water?",
+    "ex_he": "אתה יכול להעביר לי את הכוס של מים?"
+  },
+  "blue": {
+    "translation": "כחול",
+    "ex_en": "The sky is a beautiful shade of blue today.",
+    "ex_he": "השמיים בגוון כחול יפה היום."
+  },
+  "because": {
+    "translation": "כי",
+    "ex_en": "I am tired because I didn't sleep well last night.",
+    "ex_he": "אני עייף כי לא ישנתי טוב אמש."
+  },
+  "yes": {
+    "translation": "כן",
+    "ex_en": "Yes, I would like a cup of tea.",
+    "ex_he": "כן, אני רוצה כוס תה."
+  },
+  "Money": {
+    "translation": "כסף",
+    "ex_en": "He earned a lot of money from his business.",
+    "ex_he": "הוא רווח הרבה כסף מהעסק שלו."
+  },
+  "Silver": {
+    "translation": "כסף",
+    "ex_en": "Her necklace sparkled with a silver pendant.",
+    "ex_he": "השרשרת שלה ברקה עם תליון כסף."
+  },
+  "spoon": {
+    "translation": "כף",
+    "ex_en": "I stirred my coffee with a silver spoon.",
+    "ex_he": "ערבבתי את הקפה שלי עם כף כסף."
+  },
+  "Foot": {
+    "translation": "כף רגל",
+    "ex_en": "I hurt my foot playing soccer.",
+    "ex_he": "פצעתי את הרגל שלי במהלך משחק כדורגל."
+  },
+  "Button": {
+    "translation": "כפתור",
+    "ex_en": "She pressed the button to turn on the light.",
+    "ex_he": "היא לחצה על הכפתור כדי להדליק את האור."
+  },
+  "Cabbage": {
+    "translation": "כרוב",
+    "ex_en": "I am making coleslaw with fresh cabbage for dinner.",
+    "ex_he": "אני מכין סלט כרוב עם כרוב טרי לארוחת ערב."
+  },
+  "Credit card": {
+    "translation": "כרטיס אשראי",
+    "ex_en": "I paid for my groceries using a credit card.",
+    "ex_he": "שילמתי עבור המוצרים שלי באמצעות כרטיס אשראי."
+  },
+  "Orange": {
+    "translation": "תפוז",
+    "ex_en": "She picked a ripe orange from the tree.",
+    "ex_he": "בחרה את התפוז הבשל מהעץ."
+  },
+  "speak": {
+    "translation": "לְדַבֵּר",
+    "ex_en": "I speak Spanish fluently.",
+    "ex_he": "אני מדבר ספרדית באופן שוטף."
+  },
+  "risk": {
+    "translation": "לְהִסְתָכֵּן",
+    "ex_en": "I don't want to risk getting sick, so I'll stay home.",
+    "ex_he": "אני לא רוצה לסכן ולחלות, אז אני אשאר בבית."
+  },
+  "relax": {
+    "translation": "לְהִרָגַע",
+    "ex_en": "I like to relax by reading a good book.",
+    "ex_he": "אני אוהב להירגע על ידי קריאת ספר טוב."
+  },
+  "wake": {
+    "translation": "לְהִתְעוֹרֵר",
+    "ex_en": "I wake up early every morning for work.",
+    "ex_he": "אני מתעורר מוקדם כל בוקר לעבודה."
+  },
+  "slow": {
+    "translation": "לאט",
+    "ex_en": "The traffic is moving slow today.",
+    "ex_he": "התנועה זזה איטיים היום."
+  },
+  "remove": {
+    "translation": "לְהַסִיר",
+    "ex_en": "Please remove your shoes before entering the house.",
+    "ex_he": "בבקשה הסר את הנעליים שלך לפני שאתה נכנס לבית."
+  },
+  "transfer": {
+    "translation": "לְהַעֲבִיר",
+    "ex_en": "I need to transfer money to my friend's account.",
+    "ex_he": "אני צריך להעביר כסף לחשבון של חבר שלי."
+  },
+  "show": {
+    "translation": "לְהַצִיג",
+    "ex_en": "She will show you around the city tomorrow.",
+    "ex_he": "היא תראה לך את העיר מחר."
+  },
+  "seek": {
+    "translation": "לְחַפֵּשׂ",
+    "ex_en": "I seek knowledge through reading books.",
+    "ex_he": "אני מחפש ידע דרך קריאת ספרים."
+  },
+  "teach": {
+    "translation": "לְלַמֵד",
+    "ex_en": "My mother used to teach me how to bake cookies.",
+    "ex_he": "אמא שלי הייתה מלמדת אותי איך לאפות עוגיות."
+  },
+  "try": {
+    "translation": "לנסות",
+    "ex_en": "I will try my best to finish the project on time.",
+    "ex_he": "אני אשתדל לסיים את הפרויקט בזמן."
+  },
+  "tell": {
+    "translation": "לספר",
+    "ex_en": "Please tell me your favorite color.",
+    "ex_he": "אנא ספר לי את הצבע האהוב עליך."
+  },
+  "split": {
+    "translation": "לְפַצֵל",
+    "ex_en": "They decided to split the bill evenly.",
+    "ex_he": "הם החליטו לחלק את החשבון באופן שווה."
+  },
+  "steal": {
+    "translation": "לִגנוֹב",
+    "ex_en": "He tried to steal money from her purse.",
+    "ex_he": "ניסה לגנוב כסף מהכיס שלה."
+  },
+  "sleep": {
+    "translation": "לישון",
+    "ex_en": "I need to sleep early tonight to feel rested.",
+    "ex_he": "אני צריך לישון מוקדם הלילה כדי להרגיש מנוחה."
+  },
+  "write": {
+    "translation": "לכתוב",
+    "ex_en": "I like to write stories in my free time.",
+    "ex_he": "אני אוהב לכתוב סיפורים בזמני הפנוי שלי."
+  },
+  "scan": {
+    "translation": "לִסְרוֹק",
+    "ex_en": "I need to scan this document for errors.",
+    "ex_he": "אני צריך לסרוק את המסמך הזה לשגיאות."
+  },
+  "solve": {
+    "translation": "לִפְתוֹר",
+    "ex_en": "I need to solve this math problem before lunch.",
+    "ex_he": "אני צריך לפתור את בעיה המתמטית הזו לפני הארוחה."
+  },
+  "see": {
+    "translation": "לראות",
+    "ex_en": "I see a rainbow in the sky.",
+    "ex_he": "אני רואה קשת בשמיים."
+  },
+  "bread": {
+    "translation": "לֶחֶם",
+    "ex_en": "I like to eat toast with butter for breakfast.",
+    "ex_he": "אני אוהב לאכול טוסט עם חמאה לארוחת בוקר."
+  },
+  "return": {
+    "translation": "לַחֲזוֹר",
+    "ex_en": "I will return the book to the library tomorrow.",
+    "ex_he": "אני אחזיר את הספר לספרייה מחר."
+  },
+  "share": {
+    "translation": "לַחֲלוֹק",
+    "ex_en": "Can we share the pizza for lunch today?",
+    "ex_he": "האם אנחנו יכולים לחלוק את הפיצה לארוחת צהריים היום?"
+  },
+  "think": {
+    "translation": "לחשוב",
+    "ex_en": "I think it will rain tomorrow.",
+    "ex_he": "אני חושב שיחזיק מחר."
+  },
+  "stand": {
+    "translation": "לַעֲמוֹד",
+    "ex_en": "I can't stand the cold weather.",
+    "ex_he": "אני לא יכול לעמוד במזג האוויר הקר."
+  },
+  "walk": {
+    "translation": "לָלֶכֶת",
+    "ex_en": "I love to walk in the park on weekends.",
+    "ex_he": "אני אוהב לטייל בפארק בסופי שבוע."
+  },
+  "run": {
+    "translation": "לָרוּץ",
+    "ex_en": "I like to run in the park every morning.",
+    "ex_he": "אני אוהב לרוץ בפארק בכל בוקר."
+  },
+  "sing": {
+    "translation": "לָשִׁיר",
+    "ex_en": "She loves to sing along to her favorite songs.",
+    "ex_he": "היא אוהבת לשיר עם השירים האהובים עליה."
+  },
+  "sit": {
+    "translation": "לָשֶׁבֶת",
+    "ex_en": "Please sit down and relax while we wait for the bus.",
+    "ex_he": "שב והירגע כשאנחנו מחכים לאוטובוס."
+  },
+  "no": {
+    "translation": "לא",
+    "ex_en": "No, I do not want any dessert tonight.",
+    "ex_he": "לא, אני לא רוצה שום קינוח הלילה."
+  },
+  "check": {
+    "translation": "לבדוק",
+    "ex_en": "I need to check my email for any important updates.",
+    "ex_he": "אני צריך לבדוק את האימייל שלי לעדכונים חשובים."
+  },
+  "unlock": {
+    "translation": "לבטל נעילה",
+    "ex_en": "I need to unlock my front door to enter the house.",
+    "ex_he": "אני צריך לפתוח את הדלת הקדמית שלי כדי להיכנס לבית."
+  },
+  "cry": {
+    "translation": "לבכות",
+    "ex_en": "She would cry whenever she watched sad movies.",
+    "ex_he": "היא הייתה בוכה כל פעם שהיא צפתה בסרטים עצובים."
+  },
+  "White": {
+    "translation": "לבן",
+    "ex_en": "The snow was pure white as it covered the ground.",
+    "ex_he": "השלג היה לבן טהור כשכיסה את הקרקע."
+  },
+  "To visit": {
+    "translation": "לבקר",
+    "ex_en": "I want to visit my grandparents next weekend.",
+    "ex_he": "אני רוצה לבקר את סבתא וסבא שלי בסוף השבוע הבא."
+  },
+  "Totally": {
+    "translation": "לגמרי",
+    "ex_en": "I totally agree with your decision.",
+    "ex_he": "אני מסכים לחלוטין עם ההחלטה שלך."
+  },
+  "touch": {
+    "translation": "לגעת",
+    "ex_en": "Please do not touch the fragile glass vase.",
+    "ex_he": "אנא אל תיגע בכד הזכוכית הקטנה."
+  },
+  "skip": {
+    "translation": "לדלג",
+    "ex_en": "I will skip breakfast and have brunch instead.",
+    "ex_he": "אני אעכב את ארוחת הבוקר ואקח בראנץ במקום."
+  },
+  "know": {
+    "translation": "לדעת",
+    "ex_en": "I know how to swim.",
+    "ex_he": "אני יודע לשחות."
+  },
+  "grow old": {
+    "translation": "להזדקן",
+    "ex_en": "We all grow old eventually, it's a natural process.",
+    "ex_he": "כולנו מזדקנים בסופו של דבר, זה תהליך טבעי."
+  },
+  "lead": {
+    "translation": "להנהיג",
+    "ex_en": "The tour guide will lead us through the forest.",
+    "ex_he": "המדריך יוביל אותנו דרך היער."
+  },
+  "look": {
+    "translation": "להסתכל",
+    "ex_en": "Look both ways before crossing the street.",
+    "ex_he": "הסתכל בשתי הכיוונים לפני עבירת הרחוב."
+  },
+  "To vote": {
+    "translation": "להצביע",
+    "ex_en": "I plan to vote in the upcoming election.",
+    "ex_he": "אני מתכנן להצביע בבחירות הקרובות."
+  },
+  "use": {
+    "translation": "להשתמש",
+    "ex_en": "I use my phone to call my friend.",
+    "ex_he": "אני משתמש בטלפון שלי כדי להתקשר לחבר שלי."
+  },
+  "move": {
+    "translation": "לזוז",
+    "ex_en": "He decided to move to a new city for work.",
+    "ex_he": "הוא החליט לעבור לעיר חדשה בשביל עבודה."
+  },
+  "Celebration": {
+    "translation": "לחגוג",
+    "ex_en": "We will have a big celebration for my birthday.",
+    "ex_he": "יש לנו לחגוג חגיגה גדולה ליום ההולדת שלי."
+  },
+  "Cheek": {
+    "translation": "לחי",
+    "ex_en": "She kissed him on the cheek.",
+    "ex_he": "היא נשקה אותו על הלחי."
+  },
+  "live": {
+    "translation": "לחיות",
+    "ex_en": "I live in a small town near the mountains.",
+    "ex_he": "אני גר בעיר קטנה ליד הרים."
+  },
+  "wait": {
+    "translation": "לחכות",
+    "ex_en": "I'll wait for you outside the store.",
+    "ex_he": "אני אחכה לך מחוץ לחנות."
+  },
+  "stress": {
+    "translation": "לחץ",
+    "ex_en": "I feel a lot of stress before exams.",
+    "ex_he": "אני מרגיש המון לחץ לפני מבחנים."
+  },
+  "Lizard": {
+    "translation": "לטאה",
+    "ex_en": "I saw a lizard sunbathing on the rock.",
+    "ex_he": "ראיתי דברונית משתזפת על הסלע."
+  },
+  "night": {
+    "translation": "לילה",
+    "ex_en": "I saw a shooting star last night.",
+    "ex_he": "ראיתי כוכב שוטף אמש."
+  },
+  "Lemon": {
+    "translation": "לימון",
+    "ex_en": "My mom makes delicious lemonade during the summer.",
+    "ex_he": "אמא שלי מכינה לימונדה טעימה בקיץ."
+  },
+  "Lychee": {
+    "translation": "ליצ'י",
+    "ex_en": "I love snacking on fresh lychee during the summer months.",
+    "ex_he": "אני אוהב לחטוף ליצ'י טרי בחודשי הקיץ."
+  },
+  "go": {
+    "translation": "ללכת",
+    "ex_en": "I go to the park every Sunday.",
+    "ex_he": "אני הולך לפארק בכל יום ראשון."
+  },
+  "why": {
+    "translation": "למה",
+    "ex_en": "Why are you late for work again?",
+    "ex_he": "למה אתה מתעכב שוב בעבודה?"
+  },
+  "Down": {
+    "translation": "למטה",
+    "ex_en": "She walked down the street to the park.",
+    "ex_he": "היא הלכה ברחוב לפארק."
+  },
+  "Up": {
+    "translation": "למעלה",
+    "ex_en": "She woke up early to watch the sunrise.",
+    "ex_he": "היא התעוררה מוקדם כדי לצפות בזריחת השמש."
+  },
+  "pull": {
+    "translation": "למשוך",
+    "ex_en": "He had to pull the heavy suitcase.",
+    "ex_he": "הוא היה צריך למשוך את המזוודה הכבדה."
+  },
+  "win": {
+    "translation": "לנצח",
+    "ex_en": "She hoped to win the race.",
+    "ex_he": "היא תקווה לנצח במרוץ."
+  },
+  "never": {
+    "translation": "לעולם לא",
+    "ex_en": "I never eat breakfast in the morning.",
+    "ex_he": "אני לעולם לא אוכל ארוחת בוקר בבוקר."
+  },
+  "stop": {
+    "translation": "לעצור",
+    "ex_en": "Please stop at the red light.",
+    "ex_he": "תפסיק באור ירוק."
+  },
+  "turn": {
+    "translation": "לפנות",
+    "ex_en": "Please turn off the lights before leaving the room.",
+    "ex_he": "בבקשה כבה את האורות לפני עזיבת החדר."
+  },
+  "Painting": {
+    "translation": "לצבוע",
+    "ex_en": "I am painting a picture of a beautiful sunset.",
+    "ex_he": "אני צייר תמונה של זריחה יפה."
+  },
+  "shrink": {
+    "translation": "לצמק",
+    "ex_en": "Wool sweaters can shrink in the dryer.",
+    "ex_he": "סוודרים מצמר יכולים להתקטרגם במייבש."
+  },
+  "take": {
+    "translation": "לקחת",
+    "ex_en": "I need to take a break from work.",
+    "ex_he": "אני צריך לקחת הפסקה מהעבודה."
+  },
+  "read": {
+    "translation": "לקרוא",
+    "ex_en": "I like to read books before going to bed.",
+    "ex_he": "אני אוהב לקרוא ספרים לפני שאני הולך לישון."
+  },
+  "play": {
+    "translation": "לשחק",
+    "ex_en": "I enjoy playing soccer with my friends in the park.",
+    "ex_he": "אני נהנה לשחק כדורגל עם חברים בפארק."
+  },
+  "Wash": {
+    "translation": "לשטוף",
+    "ex_en": "I need to wash my hands before dinner.",
+    "ex_he": "אני צריך לשטוף את ידי לפני הארוחה."
+  },
+  "put": {
+    "translation": "לשים",
+    "ex_en": "Please put your shoes by the door.",
+    "ex_he": "אנא הנח את הנעליים שלך ליד הדלת."
+  },
+  "To pay": {
+    "translation": "לשלם",
+    "ex_en": "I need to pay for my groceries at the store.",
+    "ex_he": "אני צריך לשלם על המוצרים שלי בחנות."
+  },
+  "save": {
+    "translation": "לשמור",
+    "ex_en": "I will save money by packing my lunch for work.",
+    "ex_he": "אני אחסוך כסף על ידי אריזת ארוחת הצהריים שלי לעבודה."
+  },
+  "wonder": {
+    "translation": "לתהות",
+    "ex_en": "I wonder what time the movie starts.",
+    "ex_he": "אני סוקר מתי מתחיל הסרט."
+  },
+  "Drum": {
+    "translation": "לתופף",
+    "ex_en": "I practiced playing the drum for hours yesterday.",
+    "ex_he": "למדתי לנגן בתוף שעות אתמול."
+  },
+  "speed": {
+    "translation": "מְהִירוּת",
+    "ex_en": "He was driving at a dangerous speed.",
+    "ex_he": "הוא נהג במהירות מסוכנת."
+  },
+  "test": {
+    "translation": "מִבְחָן",
+    "ex_en": "I have a math test tomorrow.",
+    "ex_he": "יש לי מבחן במתמטיקה מחר."
+  },
+  "tower": {
+    "translation": "מִגדָל",
+    "ex_en": "The tower stood tall against the clear blue sky.",
+    "ex_he": "המגדל עמד גבוה נגד השמיים הכחולים הבהירים."
+  },
+  "shower": {
+    "translation": "מִקלַחַת",
+    "ex_en": "I take a shower every morning before work.",
+    "ex_he": "אני מתקלחת בכל בוקר לפני העבודה."
+  },
+  "family": {
+    "translation": "מִשׁפָּחָה",
+    "ex_en": "I love spending time with my family on weekends.",
+    "ex_he": "אני אוהב לבלות זמן עם המשפחה שלי בסופי שבוע."
+  },
+  "game": {
+    "translation": "מִשְׂחָק",
+    "ex_en": "We played a fun game of charades last night.",
+    "ex_he": "שיחקנו משחק כיף של חרדות אמש."
+  },
+  "fight": {
+    "translation": "מַאֲבָק",
+    "ex_en": "We had a fight about who gets the last cookie.",
+    "ex_he": "יש לנו קרב על מי מקבל את העוגייה האחרונה."
+  },
+  "water": {
+    "translation": "מַיִם",
+    "ex_en": "I drink a lot of water every day.",
+    "ex_he": "אני שותה הרבה מים כל יום."
+  },
+  "map": {
+    "translation": "מַפָּה",
+    "ex_en": "I used a map to find my way.",
+    "ex_he": "השתמשתי במפה כדי למצוא את הדרך שלי."
+  },
+  "very": {
+    "translation": "מאוד",
+    "ex_en": "I am very happy to see you.",
+    "ex_he": "אני מאוד שמח לראות אותך."
+  },
+  "ventilator": {
+    "translation": "מאוורר",
+    "ex_en": "The patient was put on a ventilator to help with breathing.",
+    "ex_he": "החולה הונח על מכונת הנשימה כדי לעזור בנשימה."
+  },
+  "since": {
+    "translation": "מאז",
+    "ex_en": "I have been waiting for you since morning.",
+    "ex_he": "חיכיתי לך מהבוקר."
+  },
+  "Believe": {
+    "translation": "מאמין",
+    "ex_en": "I believe that honesty is the best policy.",
+    "ex_he": "אני מאמין כי היית כנות היא המדיניות הטובה ביותר."
+  },
+  "understand": {
+    "translation": "מבין",
+    "ex_en": "I understand the instructions for this task.",
+    "ex_he": "אני מבין את ההוראות למשימה זו."
+  },
+  "Campaign": {
+    "translation": "מבצע",
+    "ex_en": "She launched a successful advertising campaign for her new product.",
+    "ex_he": "היא השיקה קמפיין פרסום מוצלח עבור מוצרה החדש."
+  },
+  "Country": {
+    "translation": "מדינה",
+    "ex_en": "Canada is a beautiful country with diverse landscapes.",
+    "ex_he": "קנדה היא מדינה יפה עם נופים מגוונים."
+  },
+  "Printer": {
+    "translation": "מדפסת",
+    "ex_en": "I need to buy a new printer for my home office.",
+    "ex_he": "אני צריך לקנות מדפסת חדשה למשרד ביתי שלי."
+  },
+  "what": {
+    "translation": "מה",
+    "ex_en": "What time is the meeting tomorrow?",
+    "ex_he": "מה השעה של הפגישה מחר?"
+  },
+  "quick": {
+    "translation": "מהר",
+    "ex_en": "He finished his homework quick so he could play outside.",
+    "ex_he": "הוא סיים את שעורי הבית שלו מהר כדי שיכול לשחק בחוץ."
+  },
+  "club": {
+    "translation": "מוֹעֲדוֹן",
+    "ex_en": "I joined the photography club at school.",
+    "ex_he": "הצטרפתי למועדון הצילום בבית ספר."
+  },
+  "ready": {
+    "translation": "מוּכָן",
+    "ex_en": "I am ready to go for a walk in the park.",
+    "ex_he": "אני מוכן לצאת לטיול בפארק."
+  },
+  "Museum": {
+    "translation": "מוזיאון",
+    "ex_en": "Let's go visit the museum this weekend.",
+    "ex_he": "בוא נלך לבקר במוזיאון בסופשבוע הזה."
+  },
+  "weird": {
+    "translation": "מוזר",
+    "ex_en": "That movie was really weird.",
+    "ex_he": "הסרט הזה היה ממש מוזר."
+  },
+  "Salesman": {
+    "translation": "מוכר",
+    "ex_en": "The salesman showed us a variety of products.",
+    "ex_he": "המוכר הציג לנו מגוון מוצרים."
+  },
+  "Taxi": {
+    "translation": "מונית",
+    "ex_en": "I took a taxi to the airport yesterday.",
+    "ex_he": "לקחתי מונית לשדה התעופה אתמול."
+  },
+  "Successful": {
+    "translation": "מוצלח",
+    "ex_en": "She worked hard and became successful in her career.",
+    "ex_he": "היא עבדה קשה והצליחה בקריירה שלה."
+  },
+  "air conditioner": {
+    "translation": "מזגן",
+    "ex_en": "Please turn on the air conditioner, it's getting warm.",
+    "ex_he": "בבקשה הדלק את מזגן, זה מתחמם."
+  },
+  "Cash": {
+    "translation": "מזומן",
+    "ex_en": "I paid for the groceries with cash.",
+    "ex_he": "שילמתי עבור המוצרים במזומן."
+  },
+  "Fork": {
+    "translation": "מזלג",
+    "ex_en": "Please pass me the fork for my salad.",
+    "ex_he": "בבקשה עבור לי את המזלג לסלט שלי."
+  },
+  "East": {
+    "translation": "מזרח",
+    "ex_en": "The sun rises in the East every morning.",
+    "ex_he": "השמש עולה במזרח בכל בוקר."
+  },
+  "like": {
+    "translation": "מחבב",
+    "ex_en": "I like to eat fresh fruit in the morning.",
+    "ex_he": "אני אוהב לאכול פירות טריים בבוקר."
+  },
+  "Kitchen": {
+    "translation": "מטבח",
+    "ex_en": "I'm making dinner in the kitchen tonight.",
+    "ex_he": "אני מכין ארוחת ערב במטבח הלילה."
+  },
+  "Coin": {
+    "translation": "מטבע",
+    "ex_en": "I found a shiny coin on the sidewalk.",
+    "ex_he": "מצאתי מטבע ברק במדרכה."
+  },
+  "Airplane": {
+    "translation": "מטוס",
+    "ex_en": "I flew on an airplane for the first time.",
+    "ex_he": "טסתי במטוס לראשונה."
+  },
+  "who": {
+    "translation": "מי",
+    "ex_en": "Who is coming to the party tonight?",
+    "ex_he": "מי בא למסיבה הלילה?"
+  },
+  "Information": {
+    "translation": "מידע",
+    "ex_en": "I need more information to complete the project.",
+    "ex_he": "אני צריך עוד מידע כדי להשלים את הפרויקט."
+  },
+  "bed": {
+    "translation": "מיטה",
+    "ex_en": "I like to read in bed before going to sleep.",
+    "ex_he": "אני אוהב לקרוא במיטה לפני שאני הולך לישון."
+  },
+  "word": {
+    "translation": "מילה",
+    "ex_en": "Can you please repeat the last word you said?",
+    "ex_he": "אתה יכול לחזור על המילה האחרונה שאמרת?"
+  },
+  "milkshake": {
+    "translation": "מילקשייק",
+    "ex_en": "I ordered a chocolate milkshake for dessert.",
+    "ex_he": "הזמנתי מילקשייק שוקולד לקינוח."
+  },
+  "Juice": {
+    "translation": "מיץ",
+    "ex_en": "I love drinking orange juice in the morning.",
+    "ex_he": "אני אוהב לשתות מיץ תפוזים בבוקר."
+  },
+  "Microphone": {
+    "translation": "מיקרופון",
+    "ex_en": "Please speak into the microphone so everyone can hear you.",
+    "ex_he": "בבקשה דברו למיקרופון כדי שכולם יוכלו לשמוע אתכם."
+  },
+  "machine": {
+    "translation": "מכונה",
+    "ex_en": "My washing machine broke down last night.",
+    "ex_he": "המכונת כביסה שלי נכשלה אמש."
+  },
+  "sell": {
+    "translation": "מכירה",
+    "ex_en": "She wants to sell her old furniture.",
+    "ex_he": "היא רוצה למכור את הרהיטים הישנים שלה."
+  },
+  "full": {
+    "translation": "מלא",
+    "ex_en": "Her hands were full of groceries from the store.",
+    "ex_he": "ידיה היו מלאות במוצרים מהחנות."
+  },
+  "Melon": {
+    "translation": "מלון",
+    "ex_en": "I like to eat juicy watermelon in the summer.",
+    "ex_he": "אני אוהב לאכול אבטיח רענן בקיץ."
+  },
+  "Salt": {
+    "translation": "מלח",
+    "ex_en": "She added salt to the soup for flavor.",
+    "ex_he": "היא הוסיפה מלח למרק לטעם."
+  },
+  "war": {
+    "translation": "מלחמה",
+    "ex_en": "Many lives were lost in the devastating war.",
+    "ex_he": "\"הרבה חיים אבודים במלחמה ההורסת.\""
+  },
+  "king": {
+    "translation": "מלך",
+    "ex_en": "The king ruled over the kingdom with wisdom and kindness.",
+    "ex_he": "המלך שלט על הממלכה בחכמה ובאדיבות."
+  },
+  "queen": {
+    "translation": "מלכה",
+    "ex_en": "The queen waved to the crowd from her carriage.",
+    "ex_he": "המלכה נישאה לקהל מהרכבת שלה."
+  },
+  "Cucumber": {
+    "translation": "מלפפון",
+    "ex_en": "I enjoy eating cucumber slices with hummus for a snack.",
+    "ex_he": "אני נהנה לאכול פלפל חריף עם חומוס כנשנוש."
+  },
+  "government": {
+    "translation": "ממשלה",
+    "ex_en": "The government provides public services to citizens.",
+    "ex_he": "הממשלה מספקת שירותים ציבוריים לאזרחים."
+  },
+  "Sweets": {
+    "translation": "ממתקים",
+    "ex_en": "I love to indulge in sweets after dinner.",
+    "ex_he": "אני אוהב להתענג על סוכריות לאחר הארוחה."
+  },
+  "Mango": {
+    "translation": "מנגו",
+    "ex_en": "I love to eat ripe mangoes in the summer.",
+    "ex_he": "אני אוהב לאכול מנגו בשל בקיץ."
+  },
+  "rest": {
+    "translation": "מנוחה",
+    "ex_en": "After a long day at work, I need to rest.",
+    "ex_he": "אחרי יום ארוך בעבודה, אני צריך לנוח."
+  },
+  "Lamp": {
+    "translation": "מנורה",
+    "ex_en": "The lamp on the bedside table provides soft light.",
+    "ex_he": "המנורה על השולחן ליד המיטה מספקת אור רך."
+  },
+  "mint": {
+    "translation": "מנטה",
+    "ex_en": "I like to add mint leaves to my tea.",
+    "ex_he": "אני אוהב להוסיף עלי נענע לתה שלי."
+  },
+  "Lock": {
+    "translation": "מנעול",
+    "ex_en": "Don't forget to lock the door before leaving the house.",
+    "ex_he": "אל תשכח לנעול את הדלת לפני עזיבת הבית."
+  },
+  "Helicopter": {
+    "translation": "מסוק",
+    "ex_en": "The helicopter flew overhead, making a loud noise.",
+    "ex_he": "המסוק טס מעל ראשנו, עושה רעש גדול."
+  },
+  "Screen": {
+    "translation": "מסך",
+    "ex_en": "I need to replace my broken phone screen.",
+    "ex_he": "אני צריך להחליף את מסך הטלפון שבור שלי."
+  },
+  "mask": {
+    "translation": "מסכה",
+    "ex_en": "She wore a mask to the masquerade ball.",
+    "ex_he": "היא לבשה מסכה לכדור המסכות."
+  },
+  "Restaurant": {
+    "translation": "מסעדה",
+    "ex_en": "Let's go to a restaurant for dinner tonight.",
+    "ex_he": "בוא נלך למסעדה לארוחת ערב הלילה."
+  },
+  "Enough": {
+    "translation": "מספיק",
+    "ex_en": "I have had enough to eat for now.",
+    "ex_he": "יש לי מספיק לאכול כרגע."
+  },
+  "number": {
+    "translation": "מספר",
+    "ex_en": "I forgot the phone number to the restaurant.",
+    "ex_he": "שכחתי את מספר הטלפון של המסעדה."
+  },
+  "Interesting": {
+    "translation": "מעניין",
+    "ex_en": "The book I'm reading is very interesting.",
+    "ex_he": "הספר שאני קורא הוא מאוד מעניין."
+  },
+  "West": {
+    "translation": "מערב",
+    "ex_en": "The sun sets in the west every evening.",
+    "ex_he": "השמש יורדת במערב בכל ערב."
+  },
+  "Forehead": {
+    "translation": "מצח",
+    "ex_en": "She had a small birthmark on her forehead.",
+    "ex_he": "הייתה לה סימן לידת קטן על המצח שלה."
+  },
+  "place": {
+    "translation": "מקום",
+    "ex_en": "I need to find a place to sit down.",
+    "ex_he": "אני צריך למצוא מקום לשבת."
+  },
+  "Keyboard": {
+    "translation": "מקלדת",
+    "ex_en": "I type on my keyboard to write emails and messages.",
+    "ex_he": "אני מקליד על המקלדת שלי כדי לכתוב אימיילים והודעות."
+  },
+  "refrigerator": {
+    "translation": "מקרר",
+    "ex_en": "I need to put the milk back in the refrigerator.",
+    "ex_he": "אני צריך לשים את החלב בחוזין."
+  },
+  "spy": {
+    "translation": "מרגל",
+    "ex_en": "I saw a spy watching our house yesterday.",
+    "ex_he": "ראיתי רוגם שצופה בבית שלנו אתמול."
+  },
+  "Race": {
+    "translation": "מרוץ",
+    "ex_en": "I will race you to the finish line!",
+    "ex_he": "אני ארוץ איתך עד קו הסיום!"
+  },
+  "Truck": {
+    "translation": "משאית",
+    "ex_en": "The red truck drove down the street.",
+    "ex_he": "המשאית האדומה נסעה למטה ברחוב."
+  },
+  "Police": {
+    "translation": "משטרה",
+    "ex_en": "The police officer helped direct traffic during the accident.",
+    "ex_he": "השוטר עזר להפנות תנועה במהלך התאונה."
+  },
+  "sentence": {
+    "translation": "משפט",
+    "ex_en": "I need to write a sentence for my homework.",
+    "ex_he": "אני צריך לכתוב משפט עבור שיעורי הבית."
+  },
+  "Drinks": {
+    "translation": "משקאות",
+    "ex_en": "She drinks water every morning before going to work.",
+    "ex_he": "היא שותה מים כל בוקר לפני שהיא הולכת לעבודה."
+  },
+  "Weight": {
+    "translation": "משקולת",
+    "ex_en": "She lifted the heavy weight effortlessly.",
+    "ex_he": "היא הרימה את המשקל הכבד בקלות."
+  },
+  "when": {
+    "translation": "מתי",
+    "ex_en": "I will go for a walk when the rain stops.",
+    "ex_he": "אני אלך לטייל כשהגשם יפסיק."
+  },
+  "kiss": {
+    "translation": "נְשִׁיקָה",
+    "ex_en": "She gave him a quick kiss on the cheek.",
+    "ex_he": "היא נתנה לו נשיקה מהירה על הלחי."
+  },
+  "snake": {
+    "translation": "נָחָשׁ",
+    "ex_en": "Watch out for the snake in the grass!",
+    "ex_he": "זהירות מהנחש בעשב"
+  },
+  "tiger": {
+    "translation": "נָמֵר",
+    "ex_en": "The tiger prowled through the dense jungle silently.",
+    "ex_he": "הנמר סייר בשקט דרך הג'ונגל העבה."
+  },
+  "river": {
+    "translation": "נהר",
+    "ex_en": "The river flows quietly through the peaceful countryside.",
+    "ex_he": "הנהר זורם בשקט בכפר השלווה."
+  },
+  "low": {
+    "translation": "נמוך",
+    "ex_en": "The temperature was low, so I wore a jacket.",
+    "ex_he": "הטמפרטורה הייתה נמוכה, אז לבשתי ז'קט."
+  },
+  "Port": {
+    "translation": "נמל",
+    "ex_en": "The ship pulled into the port to unload its cargo.",
+    "ex_he": "הספינה נכנסה לנמל כדי לפנות את המטען שלה."
+  },
+  "Ant": {
+    "translation": "נמלה",
+    "ex_en": "I watched ants crawling on the picnic table.",
+    "ex_he": "ראיתי נמלים שזזות על שולחן הפיקניק."
+  },
+  "Tiger": {
+    "translation": "נמר",
+    "ex_en": "The tiger roared loudly in the jungle.",
+    "ex_he": "הנמר גער בקול רועש בג'ונגל."
+  },
+  "ride": {
+    "translation": "נסיעה",
+    "ex_en": "I love to ride my bicycle in the park.",
+    "ex_he": "אני אוהב לרכב על אופניים בפארק."
+  },
+  "Shoes": {
+    "translation": "נעליים",
+    "ex_en": "I need new shoes for my workout at the gym.",
+    "ex_he": "אני צריך נעליים חדשות לאימון שלי במכון כושר."
+  },
+  "point": {
+    "translation": "נקודה",
+    "ex_en": "What is the point of this discussion?",
+    "ex_he": "מה הנקודה של הדיון הזה?"
+  },
+  "Candle": {
+    "translation": "נר",
+    "ex_en": "She lit a candle to create a cozy atmosphere.",
+    "ex_he": "היא הדליקה נר כדי ליצור אווירה נעימה."
+  },
+  "women": {
+    "translation": "נשים",
+    "ex_en": "There were three women working in the garden.",
+    "ex_he": "היו שלוש נשים עובדות בגינה."
+  },
+  "sign": {
+    "translation": "סִימָן",
+    "ex_en": "Please wait here for the sign to check in.",
+    "ex_he": "בבקשה המתן כאן לסימן לצ'ק אין."
+  },
+  "book": {
+    "translation": "סֵפֶר",
+    "ex_en": "I like to read a book before going to bed.",
+    "ex_he": "אני אוהב לקרוא ספר לפני שהולך לישון."
+  },
+  "soap": {
+    "translation": "סַבּוֹן",
+    "ex_en": "Please wash your hands with soap before eating dinner.",
+    "ex_he": "בבקשה רחצו את ידיכם בסבון לפני הארוחה."
+  },
+  "sofa": {
+    "translation": "סַפָּה",
+    "ex_en": "I love relaxing on the sofa with a good book.",
+    "ex_he": "אני אוהב להירגע על הספה עם ספר טוב."
+  },
+  "Grandfather": {
+    "translation": "סבא",
+    "ex_en": "My grandfather loves to tell stories about his childhood.",
+    "ex_he": "הסב שלי אוהב לספר סיפורים על ילדותו."
+  },
+  "Grandmother": {
+    "translation": "סבתא",
+    "ex_en": "My grandmother makes the best apple pie.",
+    "ex_he": "הסבתא שלי מכינה את הפאי הטוב ביותר."
+  },
+  "Purple": {
+    "translation": "סגול",
+    "ex_en": "I love the color purple in flowers.",
+    "ex_he": "אני אוהב את הצבע סגול בפרחים."
+  },
+  "close": {
+    "translation": "סגור",
+    "ex_en": "Please close the door when you leave.",
+    "ex_he": "סגור את הדלת בבקשה כשאתה יוצא."
+  },
+  "horse": {
+    "translation": "סוּס",
+    "ex_en": "She rode her horse through the open field.",
+    "ex_he": "רכבה על הסוס שלה דרך השדה הפתוח."
+  },
+  "soda": {
+    "translation": "סודה",
+    "ex_en": "I prefer drinking soda over juice with my lunch.",
+    "ex_he": "אני מעדיף לשתות סודה מעל מיץ עם הארוחת צהריים."
+  },
+  "Sugar": {
+    "translation": "סוכר",
+    "ex_en": "I like to add sugar to my coffee in the morning.",
+    "ex_he": "אני אוהב להוסיף סוכר לקפה שלי בבוקר."
+  },
+  "Candy": {
+    "translation": "סוכרייה",
+    "ex_en": "I bought some candy at the store yesterday.",
+    "ex_he": "קניתי כמה סוכריות בחנות אתמול."
+  },
+  "end": {
+    "translation": "סוף",
+    "ex_en": "I can see the end of the road.",
+    "ex_he": "אני רואה את סופו של הדרך."
+  },
+  "tour": {
+    "translation": "סיור",
+    "ex_en": "We took a tour of the historic city center.",
+    "ex_he": "ביצענו סיור במרכז ההיסטורי של העיר."
+  },
+  "Finished": {
+    "translation": "סיים",
+    "ex_en": "I have finished my homework for the day.",
+    "ex_he": "סיימתי את שעות העבודה שלי להיום."
+  },
+  "story": {
+    "translation": "סיפור",
+    "ex_en": "She told me an interesting story about her trip abroad.",
+    "ex_he": "היא סיפרה לי סיפור מעניין על הטיול שלה בחו\"ל."
+  },
+  "Pot": {
+    "translation": "סיר",
+    "ex_en": "I need a bigger pot to cook the soup.",
+    "ex_he": "אני צריך סיר גדול יותר כדי לבשל את המרק."
+  },
+  "Boat": {
+    "translation": "סירה",
+    "ex_en": "We went fishing on the boat yesterday.",
+    "ex_he": "הלכנו לדוג בסירה אתמול."
+  },
+  "Knife": {
+    "translation": "סכין",
+    "ex_en": "She used a knife to cut the vegetables.",
+    "ex_he": "היא השתמשה בסכין כדי לחתוך את הירקות."
+  },
+  "rock": {
+    "translation": "סלע",
+    "ex_en": "The children played by the rock at the park.",
+    "ex_he": "הילדים שיחקו ליד הסלע בפארק."
+  },
+  "work": {
+    "translation": "עבודה",
+    "ex_en": "I have to finish my work before the deadline.",
+    "ex_he": "אני חייב לסיים את העבודה שלי לפני המועד הסופי."
+  },
+  "kite": {
+    "translation": "עֲפִיפוֹן",
+    "ex_en": "The children flew a colorful kite at the park.",
+    "ex_he": "הילדים טיסו עפיפון צבעוני בפארק."
+  },
+  "pencil": {
+    "translation": "עִפָּרוֹן",
+    "ex_en": "I use a pencil to write my notes.",
+    "ex_he": "אני משתמש בעפרון כדי לכתוב את ההערות שלי."
+  },
+  "pen": {
+    "translation": "עֵט",
+    "ex_en": "I need a pen to write a note.",
+    "ex_he": "אני צריך עט כדי לכתוב פתק."
+  },
+  "tree": {
+    "translation": "עֵץ",
+    "ex_en": "The apple tree in my backyard is blooming beautifully.",
+    "ex_he": "התפוחים בחצר שלי פורחים בצורה יפה."
+  },
+  "eye": {
+    "translation": "עַיִן",
+    "ex_en": "She has beautiful blue eyes.",
+    "ex_he": "\"יש לה עיניים כחולות יפות.\""
+  },
+  "round": {
+    "translation": "עָגוֹל",
+    "ex_en": "The children sat in a round circle during storytime.",
+    "ex_he": "הילדים ישבו במעגל מעגול בזמן סיפור"
+  },
+  "Tomato": {
+    "translation": "עגבנייה",
+    "ex_en": "I love to eat fresh tomatoes in my salad.",
+    "ex_he": "אני אוהב לאכול עגבניות טריות בסלט שלי."
+  },
+  "yet": {
+    "translation": "עדיין",
+    "ex_en": "I haven't eaten breakfast yet.",
+    "ex_he": "עוד לא אכלתי ארוחת בוקר."
+  },
+  "update": {
+    "translation": "עדכון",
+    "ex_en": "I need to update my phone's software.",
+    "ex_he": "אני צריך לעדכן את תוכנת הטלפון שלי."
+  },
+  "cake": {
+    "translation": "עוּגָה",
+    "ex_en": "I made a delicious chocolate cake for my sister's birthday.",
+    "ex_he": "עשיתי עוגת שוקולד טעימה ליום הולדת של אחותי."
+  },
+  "more": {
+    "translation": "עוד",
+    "ex_en": "I want more ice cream.",
+    "ex_he": "אני רוצה עוד גלידה."
+  },
+  "Soon": {
+    "translation": "עוד מעט",
+    "ex_en": "I will finish my homework soon.",
+    "ex_he": "אני אסיים את השעות הבית בקרוב."
+  },
+  "world": {
+    "translation": "עולם",
+    "ex_en": "She traveled the world to explore new cultures.",
+    "ex_he": "היא נסעה לסובב את העולם כדי לחקור תרבויות חדשות."
+  },
+  "chicken": {
+    "translation": "עוף",
+    "ex_en": "I had chicken and rice for dinner last night.",
+    "ex_he": "אכלתי עוף ואורז לארוחת ערב אתמול לילה."
+  },
+  "help": {
+    "translation": "עזרה",
+    "ex_en": "Can you help me carry these groceries inside the house?",
+    "ex_he": "אתה יכול לעזור לי להוביל את המצרכים האלה לתוך הבית?"
+  },
+  "bat": {
+    "translation": "עטלף",
+    "ex_en": "I saw a bat flying around the garden at night.",
+    "ex_he": "ראיתי עטלף טס סביב בגן בלילה."
+  },
+  "city": {
+    "translation": "עיר",
+    "ex_en": "I live in a big city with tall buildings.",
+    "ex_he": "אני גר בעיר גדולה עם בניינים גבוהים."
+  },
+  "Capital": {
+    "translation": "עיר בירה",
+    "ex_en": "Washington D.C. is the capital of the United States.",
+    "ex_he": "וושינגטון די.סי. היא בירת ארצות הברית."
+  },
+  "Mouse": {
+    "translation": "עכבר",
+    "ex_en": "I saw a small mouse in the garden yesterday.",
+    "ex_he": "ראיתי עכבר קטן בגינה אתמול."
+  },
+  "now": {
+    "translation": "עכשיו",
+    "ex_en": "I am studying for my exam right now.",
+    "ex_he": "אני לומד עכשיו למבחן שלי."
+  },
+  "with": {
+    "translation": "עם",
+    "ex_en": "She went to the park with her friends.",
+    "ex_he": "היא הלכה לפארק עם חבריהا."
+  },
+  "Grape": {
+    "translation": "ענבים",
+    "ex_en": "I like to eat fresh grapes as a snack.",
+    "ex_he": "אני אוהב לאכול ענבים טריים כפינוק."
+  },
+  "ten": {
+    "translation": "עשר",
+    "ex_en": "I want to buy ten apples at the store.",
+    "ex_he": "אני רוצה לקנות עשר תפוחים בחנות."
+  },
+  "flower": {
+    "translation": "פֶּרַח",
+    "ex_en": "She gave me a beautiful flower for my birthday.",
+    "ex_he": "היא נתנה לי פרח יפה ליום ההולדת שלי."
+  },
+  "pie": {
+    "translation": "פַּאִי",
+    "ex_en": "I made a delicious apple pie for dessert tonight.",
+    "ex_he": "הכנתי עוגת תפוחים טעימה לקינוח הערב."
+  },
+  "park": {
+    "translation": "פָּארק",
+    "ex_en": "Let's go for a walk in the park.",
+    "ex_he": "בוא נלך לטייל בפארק."
+  },
+  "cow": {
+    "translation": "פָּרָה",
+    "ex_en": "The cow grazed peacefully in the green pasture.",
+    "ex_he": "הפרה גרזתה בשקט במרעה הירוק."
+  },
+  "Here": {
+    "translation": "כאן",
+    "ex_en": "Come here and sit next to me.",
+    "ex_he": "תבוא כאן ותשב לידי."
+  },
+  "Mouth": {
+    "translation": "פה",
+    "ex_en": "She opened her mouth wide to take a big bite.",
+    "ex_he": "פתחה את פייה רחב כדי לקחת נשיקה גדולה."
+  },
+  "Politics": {
+    "translation": "פוליטיקה",
+    "ex_en": "I find discussing politics with family can be difficult.",
+    "ex_he": "אני מוצא שלדון על פוליטיקה עם משפחה יכול להיות קשה."
+  },
+  "Mushroom": {
+    "translation": "פטרייה",
+    "ex_en": "I love adding mushrooms to my pasta dishes.",
+    "ex_he": "אני אוהב להוסיף פטריות למנות הפסטה שלי."
+  },
+  "Elephant": {
+    "translation": "פיל",
+    "ex_en": "The elephant is the largest land animal in the world.",
+    "ex_he": "הפיל הוא הבעל חיים הגדול ביותר על פני האדמה בעולם."
+  },
+  "Fruits": {
+    "translation": "פירות",
+    "ex_en": "I love eating fresh fruits for breakfast every morning.",
+    "ex_he": "אני אוהב לאכול פירות טריים לארוחת בוקר כל בוקר."
+  },
+  "Black pepper": {
+    "translation": "פלפל שחור",
+    "ex_en": "I like to sprinkle black pepper on my scrambled eggs.",
+    "ex_he": "אני אוהב לזרוק פלפל שחור על הביצים המבולשות שלי."
+  },
+  "Face": {
+    "translation": "פנים",
+    "ex_en": "I wash my face every morning with cold water.",
+    "ex_he": "אני שוטפת את פני במים קרים כל בוקר."
+  },
+  "Papaya": {
+    "translation": "פפאיה",
+    "ex_en": "I love eating ripe papaya for breakfast in the morning.",
+    "ex_he": "אני אוהב לאכול פפאיה בשחרית."
+  },
+  "paprika": {
+    "translation": "פפריקה",
+    "ex_en": "I added paprika to the soup for extra flavor.",
+    "ex_he": "הוספתי פפריקה למרק לטעם נוסף."
+  },
+  "prize": {
+    "translation": "פרס",
+    "ex_en": "I won a prize for my painting at the art show.",
+    "ex_he": "זכיתי בפרס על הציור שלי בתערוכת האמנות."
+  },
+  "simple": {
+    "translation": "פשוט",
+    "ex_en": "Life is simple, enjoy the little moments.",
+    "ex_he": "החיים פשוטים, תהנה מהרגעים הקטנים."
+  },
+  "open": {
+    "translation": "פתוח",
+    "ex_en": "Can you open the window, please?",
+    "ex_he": "אתה יכול לפתוח את החלון, בבקשה?"
+  },
+  "note": {
+    "translation": "פתק",
+    "ex_en": "I left a note on the fridge for my roommate.",
+    "ex_he": "השארתי פתק על המקרר לחבר הדירה שלי."
+  },
+  "frog": {
+    "translation": "צְפַרְדֵעַ",
+    "ex_en": "I saw a frog jump into the pond.",
+    "ex_he": "ראיתי צפרדע קופצת לתוך האגם."
+  },
+  "toy": {
+    "translation": "צַעֲצוּעַ",
+    "ex_en": "I bought a new toy for my nephew.",
+    "ex_he": "קניתי צעצוע חדש לנכד שלי."
+  },
+  "Shell": {
+    "translation": "צדף",
+    "ex_en": "I found a beautiful seashell on the beach.",
+    "ex_he": "מצאתי פגוש יפה על החוף."
+  },
+  "Yellow": {
+    "translation": "צהוב",
+    "ex_en": "The sunflower was bright yellow and beautiful.",
+    "ex_he": "החמניה הייתה צהובה בהירה ויפה."
+  },
+  "Submarine": {
+    "translation": "צוללת",
+    "ex_en": "The submarine dove deep beneath the ocean's surface.",
+    "ex_he": "הצוללת צפרה עמוק למתחת לפני פני האוקיינוס."
+  },
+  "Shape": {
+    "translation": "צורה",
+    "ex_en": "The artist used clay to mold a heart shape.",
+    "ex_he": "האמן השתמש בחימר כדי ליצור צורת לב."
+  },
+  "laugh": {
+    "translation": "צחוק",
+    "ex_en": "I love to laugh when watching funny movies.",
+    "ex_he": "אני אוהב לצחוק כשצופה בסרטים מצחיקים."
+  },
+  "score": {
+    "translation": "ציון",
+    "ex_en": "She scored the highest on the test.",
+    "ex_he": "היא קיבלה את הציון הגבוה ביותר במבחן."
+  },
+  "Bird": {
+    "translation": "ציפור",
+    "ex_en": "I saw a blue bird singing in the tree.",
+    "ex_he": "ראיתי ציפור כחולה ששרה בעץ."
+  },
+  "Plate": {
+    "translation": "צלחת",
+    "ex_en": "Please pass me the plate of cookies.",
+    "ex_he": "בבקשה העבירו לי את הצלחת של העוגיות."
+  },
+  "Diving": {
+    "translation": "צלילה",
+    "ex_en": "I love diving into the clear blue ocean.",
+    "ex_he": "אני אוהב לצלול לתוך האוקיינוס הכחול הבהיר."
+  },
+  "Ringing": {
+    "translation": "צלצול",
+    "ex_en": "I can hear the phone ringing in the other room.",
+    "ex_he": "אני יכול לשמוע את הטלפון צלצל בחדר השני."
+  },
+  "plant": {
+    "translation": "צמח",
+    "ex_en": "I planted flowers in my garden yesterday.",
+    "ex_he": "נטעתי פרחים בגינה שלי אתמול."
+  },
+  "young": {
+    "translation": "צעיר",
+    "ex_en": "She is a talented young artist.",
+    "ex_he": "היא אמנית צעירה מוכשרת."
+  },
+  "North": {
+    "translation": "צפון",
+    "ex_en": "I live in the north part of the city.",
+    "ex_he": "אני גר בצפון העיר."
+  },
+  "trouble": {
+    "translation": "צרות",
+    "ex_en": "She is always causing trouble with her classmates.",
+    "ex_he": "היא תמיד גורמת לבעיות עם חבריה בכיתה."
+  },
+  "need": {
+    "translation": "צריך",
+    "ex_en": "I need to buy some groceries for dinner tonight.",
+    "ex_he": "אני צריך לקנות כמה ירקות לארוחת ערב הלילה."
+  },
+  "team": {
+    "translation": "קְבוּצָה",
+    "ex_en": "The basketball team won the championship game last night.",
+    "ex_he": "הקבוצה ניצחה במשחק הגמר של האליפות אמש."
+  },
+  "nest": {
+    "translation": "קֵן",
+    "ex_en": "The bird built a cozy nest in the tree.",
+    "ex_he": "הציפור בנתה קנוון נעים בעץ."
+  },
+  "summer": {
+    "translation": "קַיִץ",
+    "ex_en": "I love going to the beach in the summer.",
+    "ex_he": "אני אוהב ללכת לחוף בקיץ."
+  },
+  "group": {
+    "translation": "קבוצה",
+    "ex_en": "I met up with my study group at the library.",
+    "ex_he": "פגשתי עם קבוצת הלימוד שלי בספרייה."
+  },
+  "voice": {
+    "translation": "קול",
+    "ex_en": "I love listening to her soothing voice.",
+    "ex_he": "אני אוהב להאזין לקולה המרגיע שלה."
+  },
+  "Kettle": {
+    "translation": "קומקום",
+    "ex_en": "I boiled water in the kettle for tea.",
+    "ex_he": "רִתַּחְתִי מַיִם בַּקִּנּוֹר לַתֵּה."
+  },
+  "Monkey": {
+    "translation": "קוף",
+    "ex_en": "The monkey swung from tree to tree in the jungle.",
+    "ex_he": "הקוף נע בין עץ לעץ בג'ונגל."
+  },
+  "Money box": {
+    "translation": "קופה",
+    "ex_en": "I keep my spare change in a money box.",
+    "ex_he": "אני שומר את העודף שלי בקופסא לכסף."
+  },
+  "small": {
+    "translation": "קטן",
+    "ex_en": "I have a small notebook in my bag.",
+    "ex_he": "יש לי מחברת קטנה בתיק שלי."
+  },
+  "little": {
+    "translation": "קצת",
+    "ex_en": "I have a little sister named Lily.",
+    "ex_he": "יש לי אחות קטנה בשם לילי."
+  },
+  "Ketchup": {
+    "translation": "קטשופ",
+    "ex_en": "I put ketchup on my fries at lunch today.",
+    "ex_he": "אני שם קטשופ על הצ'יפס שלי בצהריים היום."
+  },
+  "Wall": {
+    "translation": "קיר",
+    "ex_en": "The painting hangs on the living room wall.",
+    "ex_he": "הציור תלוי על קיר הסלון."
+  },
+  "easy": {
+    "translation": "קל",
+    "ex_en": "Learning to ride a bike is easy with practice.",
+    "ex_he": "ללמוד לרכב על אופניים קל עם תרגול."
+  },
+  "Clementine": {
+    "translation": "קלמנטינה",
+    "ex_en": "I love snacking on a juicy clementine in the afternoon.",
+    "ex_he": "אני אוהב לאכול קלמנטינה רעננה בצהריים."
+  },
+  "shopping": {
+    "translation": "קניות",
+    "ex_en": "I went shopping for groceries at the supermarket.",
+    "ex_he": "הלכתי לקניות לצרכים בסופרמרקט."
+  },
+  "Magical": {
+    "translation": "קסומה",
+    "ex_en": "The children watched the magical fireworks light up the sky.",
+    "ex_he": "הילדים צפו באורבי הזיקוקים הקסומים שהאירו את השמיים."
+  },
+  "Coffee": {
+    "translation": "קפה",
+    "ex_en": "I drink coffee every morning before work.",
+    "ex_he": "אני שותה קפה בכל בוקר לפני העבודה."
+  },
+  "short": {
+    "translation": "קצר",
+    "ex_en": "She had short hair.",
+    "ex_he": "הייתה לה שיער קצר."
+  },
+  "cold": {
+    "translation": "קר",
+    "ex_en": "I don't like going outside when it's cold.",
+    "ex_he": "אני לא אוהב לצאת החוצה כשקר."
+  },
+  "hard": {
+    "translation": "קשה",
+    "ex_en": "It's hard to believe it's already December.",
+    "ex_he": "קשה להאמין שכבר דצמבר."
+  },
+  "wet": {
+    "translation": "רָטוֹב",
+    "ex_en": "The grass is wet after the rain.",
+    "ex_he": "הדשא רטוב אחרי הגשם."
+  },
+  "Head": {
+    "translation": "ראש",
+    "ex_en": "She turned her head to look at the sunset.",
+    "ex_he": "היא הסתובבה להסתכל על השקיעה."
+  },
+  "Prime minister": {
+    "translation": "ראש ממשלה",
+    "ex_en": "The Prime Minister will address the nation tonight.",
+    "ex_he": "ראש הממשלה יפנה אל האומה הלילה."
+  },
+  "first": {
+    "translation": "ראשון",
+    "ex_en": "This is my first time visiting this restaurant.",
+    "ex_he": "זה הפעם הראשונה שלי שאני בוקר במסעדה הזו."
+  },
+  "Leg": {
+    "translation": "רגל",
+    "ex_en": "She injured her leg while hiking in the mountains.",
+    "ex_he": "היא פצעה את הרגל שלה בזמן טיול בהרים."
+  },
+  "wind": {
+    "translation": "רוּחַ",
+    "ex_en": "The wind blew the leaves off the trees.",
+    "ex_he": "הרוח נשבה את העלים מהעצים."
+  },
+  "want": {
+    "translation": "רוצה",
+    "ex_en": "I want to go to the park today.",
+    "ex_he": "אני רוצה ללכת לפארק היום."
+  },
+  "Street": {
+    "translation": "רחוב",
+    "ex_en": "I live on Maple Street.",
+    "ex_he": "אני גר ברחוב מייפל."
+  },
+  "Jam": {
+    "translation": "ריבה",
+    "ex_en": "I spread jam on my toast in the morning.",
+    "ex_he": "אני מורח ריבה על הטוסט שלי בבוקר."
+  },
+  "smell": {
+    "translation": "ריח",
+    "ex_en": "I love the smell of fresh flowers in the garden.",
+    "ex_he": "אני אוהב את ריח הפרחים הטריים בגינה."
+  },
+  "Run": {
+    "translation": "ריצה",
+    "ex_en": "I run in the park every morning for exercise.",
+    "ex_he": "אני רץ בפארק כל בוקר למטרת תרגול."
+  },
+  "empty": {
+    "translation": "ריק",
+    "ex_en": "The trash can is empty.",
+    "ex_he": "הפח ריק."
+  },
+  "Train": {
+    "translation": "רכבת",
+    "ex_en": "She takes the train to work every morning.",
+    "ex_he": "היא נוסעת ברכבת לעבודה בכל בוקר."
+  },
+  "Riding": {
+    "translation": "רכיבה",
+    "ex_en": "She enjoys riding her bicycle in the park.",
+    "ex_he": "היא נהנית לרכב על אופניים בפארק."
+  },
+  "Loudspeaker": {
+    "translation": "רמקול",
+    "ex_en": "Please turn off the loudspeaker during the presentation.",
+    "ex_he": "בבקשה כבה את רמקול הקול במהלך ההצגה."
+  },
+  "Floor": {
+    "translation": "רצפה",
+    "ex_en": "I need to mop the kitchen floor today.",
+    "ex_he": "אני צריך לשטוף את רצפת המטבח היום."
+  },
+  "just": {
+    "translation": "רק",
+    "ex_en": "I just finished reading a great book.",
+    "ex_he": "סיימתי לקרוא ספר נהדר."
+  },
+  "song": {
+    "translation": "שִׁיר",
+    "ex_en": "She sang a beautiful song at the talent show.",
+    "ex_he": "היא שרה שיר יפה בתחרות הכישורים."
+  },
+  "name": {
+    "translation": "שֵׁם",
+    "ex_en": "What's your name?",
+    "ex_he": "מה שמך?"
+  },
+  "snow": {
+    "translation": "שֶׁלֶג",
+    "ex_en": "I love watching the snow fall from my window.",
+    "ex_he": "אני אוהב לצפות בשלג שיורד מהחלון שלי."
+  },
+  "snail": {
+    "translation": "שַׁבְּלוּל",
+    "ex_en": "I found a snail crawling slowly on the sidewalk.",
+    "ex_he": "מצאתי חילזון שזורם לאט על המדרכה."
+  },
+  "week": {
+    "translation": "שָׁבוּעַ",
+    "ex_en": "I have a dentist appointment next week.",
+    "ex_he": "יש לי תור אצל רופא השיניים בשבוע הבא."
+  },
+  "desk": {
+    "translation": "שׁוּלְחָן כְּתִיבָה",
+    "ex_en": "I left my textbook on the desk.",
+    "ex_he": "עזבתי את הספר הלימודים שלי על השולחן."
+  },
+  "seven": {
+    "translation": "שבע",
+    "ex_en": "There are seven days in a week.",
+    "ex_he": "יש שבעה ימים בשבוע."
+  },
+  "Airport": {
+    "translation": "שדה תעופה",
+    "ex_en": "I will pick up my friend at the airport tomorrow.",
+    "ex_he": "אני אקח את חברי מהנמל בשדה תעופה מחר."
+  },
+  "upgrade": {
+    "translation": "שדרוג",
+    "ex_en": "I plan to upgrade my phone to the latest model.",
+    "ex_he": "אני מתכנן לשדרג את הטלפון שלי לדגם האחרון."
+  },
+  "table": {
+    "translation": "שולחן",
+    "ex_en": "Please set the table for dinner tonight.",
+    "ex_he": "בבקשה הכן את השולחן לארוחת ערב היום."
+  },
+  "Garlic": {
+    "translation": "שום",
+    "ex_en": "I love the smell of roasted garlic in the kitchen.",
+    "ex_he": "אני אוהב את ריח השום הטחון במטבח."
+  },
+  "Chocolate": {
+    "translation": "שוקולד",
+    "ex_en": "I love chocolate chip cookies with milk.",
+    "ex_he": "אני אוהב עוגיות שוקולד צ'יפס עם חלב."
+  },
+  "Bull": {
+    "translation": "שור",
+    "ex_en": "The bull grazed peacefully in the field.",
+    "ex_he": "הפר גידל בשקט בשדה."
+  },
+  "Plum": {
+    "translation": "שזיף",
+    "ex_en": "I picked a ripe plum from the tree.",
+    "ex_he": "בחרתי עגוז בשל מהעץ."
+  },
+  "Black": {
+    "translation": "שחור",
+    "ex_en": "I wore a black dress to the party.",
+    "ex_he": "לבשתי שמלה שחורה למסיבה."
+  },
+  "Swimming": {
+    "translation": "שחייה",
+    "ex_en": "I enjoy swimming in the ocean during the summer.",
+    "ex_he": "אני נהנה לשחות באוקיינוס בקיץ."
+  },
+  "Rug": {
+    "translation": "שטיח",
+    "ex_en": "I put a rug under the coffee table.",
+    "ex_he": "שמתי שטיח מתחת לשולחן הקפה."
+  },
+  "Bill": {
+    "translation": "שטר",
+    "ex_en": "I need to pay my phone bill this month.",
+    "ex_he": "אני צריך לשלם את חשבון הטלפון שלי החודש."
+  },
+  "Hair": {
+    "translation": "שיער",
+    "ex_en": "She has long brown hair.",
+    "ex_he": "יש לה שיער חום ארוך."
+  },
+  "Bathroom": {
+    "translation": "שירותים",
+    "ex_en": "I need to use the bathroom before we leave.",
+    "ex_he": "אני צריך להשתמש בשירותים לפני שעזובים."
+  },
+  "Neighbor": {
+    "translation": "שכן",
+    "ex_en": "I borrowed a cup of sugar from my neighbor.",
+    "ex_he": "השאלתי כוסת סוכר מהשכן שלי."
+  },
+  "step": {
+    "translation": "שלב",
+    "ex_en": "I took a step forward to greet my friend.",
+    "ex_he": "לקחתי צעד קדימה כדי לברך את חברי."
+  },
+  "peace": {
+    "translation": "שלום",
+    "ex_en": "I find peace in nature's tranquility.",
+    "ex_he": "אני מוצא שקט בשלווה של הטבע."
+  },
+  "three": {
+    "translation": "שלוש",
+    "ex_en": "There are three apples on the table.",
+    "ex_he": "יש שלוש תפוחים על השולחן."
+  },
+  "my": {
+    "translation": "שלי",
+    "ex_en": "This is my favorite book.",
+    "ex_he": "זה הספר האהוב עליי."
+  },
+  "your": {
+    "translation": "שלך",
+    "ex_en": "I like your new haircut, it looks great on you.",
+    "ex_he": "אני אוהב את התספורת החדשה שלך, זה נראה נהדר עליך."
+  },
+  "There": {
+    "translation": "שם",
+    "ex_en": "There is a cat sitting on the windowsill.",
+    "ex_he": "יש חתול יושב על מדורת החלון."
+  },
+  "Left": {
+    "translation": "שמאל",
+    "ex_en": "She left her keys on the kitchen counter.",
+    "ex_he": "היא השאירה את המפתחות שלה על משטח המטבח."
+  },
+  "eight": {
+    "translation": "שמונה",
+    "ex_en": "My son turns eight years old next month.",
+    "ex_he": "הבן שלי יפנה שמונה שנים בחודש הבא."
+  },
+  "dress": {
+    "translation": "שמלה",
+    "ex_en": "She wore a beautiful red dress to the party.",
+    "ex_he": "היא לבשה שמלה אדומה יפה למסיבה."
+  },
+  "Oil": {
+    "translation": "שמן",
+    "ex_en": "I need to buy some cooking oil for dinner tonight.",
+    "ex_he": "אני צריך לקנות שמן בישול לארוחת ערב היום."
+  },
+  "sun": {
+    "translation": "שמש",
+    "ex_en": "The sun is shining brightly in the sky.",
+    "ex_he": "השמש מאירה ברקע בשמיים."
+  },
+  "year": {
+    "translation": "שנה",
+    "ex_en": "I will graduate from university next year.",
+    "ex_he": "אני אסיים את האוניברסיטה שנה הבאה."
+  },
+  "two": {
+    "translation": "שניים",
+    "ex_en": "I have two apples in my bag.",
+    "ex_he": "יש לי שתי תפוחים בתיק שלי."
+  },
+  "hour": {
+    "translation": "שעה",
+    "ex_en": "I have an appointment in an hour.",
+    "ex_he": "יש לי פגישה בשעה"
+  },
+  "watch": {
+    "translation": "שעון",
+    "ex_en": "I watch the sunset every evening from my balcony.",
+    "ex_he": "אני צופה בשקיעה בכל ערב מהמרפסת שלי."
+  },
+  "Beans": {
+    "translation": "שעועית",
+    "ex_en": "I love eating chili with beans on a cold day.",
+    "ex_he": "אני אוהב לאכול צ'ילי עם פול ביום קר."
+  },
+  "Lips": {
+    "translation": "שפתיים",
+    "ex_en": "She applied lipstick to her lips before leaving the house.",
+    "ex_he": "היא סידרה שפתון על שפתיה לפני שעזבה את הבית."
+  },
+  "six": {
+    "translation": "שש",
+    "ex_en": "I ate six apples for breakfast this morning.",
+    "ex_he": "אכלתי שישה תפוחים לארוחת בוקר הבוקר."
+  },
+  "silence": {
+    "translation": "שתיקה",
+    "ex_en": "The classroom fell into silence when the teacher entered.",
+    "ex_he": "הכיתה נפלה לשקט כאשר המורה נכנסה."
+  },
+  "corn": {
+    "translation": "תִירָס",
+    "ex_en": "I enjoy eating grilled corn on the cob.",
+    "ex_he": "אני נהנה לאכול תירס צלוי."
+  },
+  "stove": {
+    "translation": "תַנוּר",
+    "ex_en": "I cooked dinner on the stove last night.",
+    "ex_he": "בשלתי ארוחת ערב על הכיריים אמש."
+  },
+  "Fig": {
+    "translation": "תאנה",
+    "ex_en": "I enjoy eating fresh figs with cheese for breakfast.",
+    "ex_he": "אני נהנה לאכול תאנים טריות עם גבינה לארוחת בוקר."
+  },
+  "Spices": {
+    "translation": "תבלינים",
+    "ex_en": "I like to add spices to my cooking for flavor.",
+    "ex_he": "אני אוהב להוסיף תבלינים לבישול שלי לטעם."
+  },
+  "Tea": {
+    "translation": "תה",
+    "ex_en": "I enjoy drinking hot tea in the morning.",
+    "ex_he": "אני נהנה לשתות תה חם בבוקר."
+  },
+  "Transport": {
+    "translation": "תחבורה",
+    "ex_en": "I take the bus to school every morning.",
+    "ex_he": "אני נוסע באוטובוס לבית הספר כל בוקר."
+  },
+  "Station": {
+    "translation": "תחנה",
+    "ex_en": "I will meet you at the train station.",
+    "ex_he": "אני אפגש אותך בתחנת הרכבת."
+  },
+  "Bus stop": {
+    "translation": "תחנת אוטובוס",
+    "ex_en": "I waited for the bus at the stop.",
+    "ex_he": "חיכיתי לאוטובוס בתחנה."
+  },
+  "Baby": {
+    "translation": "תינוק",
+    "ex_en": "I can't wait to meet my friend's new baby.",
+    "ex_he": "אני לא יכול לחכות לפגוש את התינוק החדש של החבר שלי."
+  },
+  "picture": {
+    "translation": "תמונה",
+    "ex_en": "She hung a picture of her family on the wall.",
+    "ex_he": "היא תלתה תמונה של משפחתה על הקיר."
+  },
+  "oven": {
+    "translation": "תנור",
+    "ex_en": "I'm baking cookies in the oven right now.",
+    "ex_he": "אני אופה עוגיות בתנור עכשיו."
+  },
+  "apple": {
+    "translation": "תפוח",
+    "ex_en": "I enjoy eating a fresh, juicy apple every morning.",
+    "ex_he": "אני נהנה לאכול תפוח טרי ומעניין בכל בוקר."
+  },
+  "Potato": {
+    "translation": "תפוח אדמה",
+    "ex_en": "I baked a potato for dinner last night.",
+    "ex_he": "אני אפיתי תפוח אדמה לארוחת ערב אתמול לילה."
+  },
+  "reply": {
+    "translation": "תשובה",
+    "ex_en": "I will reply to your message tomorrow.",
+    "ex_he": "אני אענה על ההודעה שלך מחר."
+  },
+  "answer": {
+    "translation": "תשובה",
+    "ex_en": "I don't know the answer to that question.",
+    "ex_he": "אני לא יודע את התשובה לשאלה הזאת."
+  },
+  "attention": {
+    "translation": "תשומת לב",
+    "ex_en": "Pay attention to the road while driving.",
+    "ex_he": "שים לב לכביש בזמן נהיגה."
+  },
+  "nine": {
+    "translation": "תשע",
+    "ex_en": "There are nine planets in our solar system.",
+    "ex_he": "יש תשעה כוכבי לכת במערכת השמש שלנו."
+  },
+  "traffic": {
+    "translation": "תְנוּעָה",
+    "ex_en": "I was stuck in traffic on my way to work.",
+    "ex_he": "נתקעתי בתוך תוך תנועה בדרכי לעבודה."
+  },
+  "invite": {
+    "translation": "להזמין",
+    "ex_en": "She will invite her friends to the party.",
+    "ex_he": "היא תזמין את החברים שלה למסיבה."
+  },
+  "correct": {
+    "translation": "נכון",
+    "ex_en": "Please make sure your answers are correct for the exam.",
+    "ex_he": "בבקשה וודא שתשובותיך נכונות למבחן."
+  }
+}
